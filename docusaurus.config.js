@@ -1,17 +1,16 @@
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'sealos',
+  tagline: 'kubernetes-kernel-based cloud os! Let\'s sealos run kubernetes',
+  url: 'https://sealos.io',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  favicon: 'img/sealos.ico',
+  organizationName: 'labring', // Usually your GitHub org/user name.
+  projectName: 'sealos', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'sealos',
+        src: 'img/sealos-left.png',
       },
       links: [
         {
