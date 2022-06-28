@@ -24,7 +24,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "zh-CN"],
   },
 
   presets: [
@@ -59,6 +59,7 @@ const config = {
         logo: {
           alt: "sealos",
           src: "img/sealos-left.png",
+          srcDark: "img/sealos-left-dark.png",
         },
         items: [
           {
@@ -68,6 +69,10 @@ const config = {
             label: "Docs",
           },
           { to: "/blog", label: "Blog", position: "left" },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: "https://github.com/labring/sealos",
             label: "GitHub",
@@ -92,16 +97,16 @@ const config = {
             items: [
               {
                 label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                href: "https://stackoverflow.com/questions/tagged/sealos",
               },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
+              // {
+              //   label: "Discord",
+              //   href: "https://discordapp.com/invite/docusaurus",
+              // },
+              // {
+              //   label: "Twitter",
+              //   href: "https://twitter.com/docusaurus",
+              // },
             ],
           },
           {
@@ -118,7 +123,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
       },
       prism: {
         additionalLanguages: ["docker"],

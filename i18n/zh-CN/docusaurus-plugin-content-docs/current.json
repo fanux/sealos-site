@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docSidebar.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.CLI": {
+    "message": "CLI",
+    "description": "The label for category CLI in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.CLI.link.generated-index.description": {
+    "message": "Examples demonstrating the usage of CLI commands.",
+    "description": "The generated-index page description for category CLI in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Developers": {
+    "message": "Developers",
+    "description": "The label for category Developers in sidebar docSidebar"
+  }
+}

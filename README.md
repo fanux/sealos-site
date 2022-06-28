@@ -1,8 +1,14 @@
-# Website
+# SealOS Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+SealOS website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+## Contains:
+
+1. Main Site
+2. Docs Site
+3. Blog Site
+
+### Requirements
 
 Note: Node.js version 16.14 or above is required, as described in [Docusaurus 2 docs](https://docusaurus.io/docs/installation#requirements).
 
@@ -10,15 +16,20 @@ Note: Node.js version 16.14 or above is required, as described in [Docusaurus 2 
 $ yarn
 ```
 
-### Local Development
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
 ```shell
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+#### I18n
 
-### Build
+Run command to generate zh-CN to translate json files.
+```shell
+npm run write-translations -- --locale zh-CN
+```
+
+#### Build
 
 ```shell
 $ yarn build
