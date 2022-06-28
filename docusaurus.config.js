@@ -70,13 +70,14 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
-            type: 'localeDropdown',
-            position: 'right',
+            type: "localeDropdown",
+            position: "right",
           },
           {
             href: "https://github.com/labring/sealos",
-            label: "GitHub",
             position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
           },
         ],
       },
