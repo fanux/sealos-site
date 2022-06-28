@@ -65,7 +65,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "Docs",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
@@ -82,7 +82,7 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
+                label: "Docs",
                 to: "/docs/intro",
               },
             ],
@@ -113,7 +113,7 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/labring/sealos",
               },
             ],
           },
@@ -121,6 +121,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: ["docker"],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },

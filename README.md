@@ -4,13 +4,15 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 ### Installation
 
-```
+Note: Node.js version 16.14 or above is required, as described in [Docusaurus 2 docs](https://docusaurus.io/docs/installation#requirements).
+
+```shell
 $ yarn
 ```
 
 ### Local Development
 
-```
+```shell
 $ yarn start
 ```
 
@@ -18,7 +20,7 @@ This command starts a local development server and opens up a browser window. Mo
 
 ### Build
 
-```
+```shell
 $ yarn build
 ```
 
