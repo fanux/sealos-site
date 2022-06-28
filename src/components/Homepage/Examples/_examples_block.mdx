@@ -3,53 +3,70 @@ import TabItem from "@theme/TabItem";
 
 ```mdx-code-block
 <Tabs>
-<TabItem value="calico" label="Calico" default>
+<TabItem value="kubernetes" label="kubernetes" default>
 ```
 
-```yaml
-apiVersion: operator.tigera.io/v1
-kind: Installation
-metadata:
-  name: default
-spec:
-  # Configures Calico networking.
-  calicoNetwork:
-    # Note: The ipPools section cannot be modified post-install.
-    ipPools:
-      - blockSize: 26
-        cidr: 100.64.0.0/10
-        encapsulation: IPIP
-        natOutgoing: Enabled
-        nodeSelector: all()
-    nodeAddressAutodetectionV4:
-      #  Interface enables IP auto-detection based on interfaces that match the given regex.
-      interface: "eth.*|en.*"
+```shell
+# Run a single node kubernetes
+sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
+
+# Run a HA kubernetes cluster
+sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1 \
+     --masters 192.168.64.2,192.168.64.22,192.168.64.20 \
+     --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
+
+# Add masters or nodes
+sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
+
+# Delete your cluster
+sealos reset
+```
+
+```mdx-code-block
+<Tabs>
+<TabItem value="storage" label="storage" default>
+```
+
+```shell
+# install helm
+sealos run labring/helm:v3.8.2
+
+# block storage
+sealos run labring/openebs:v1.9.0
+
+# object storage
+sealos run labring/minio-operator:v4.4.16
 ```
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="kafka" label="Kafka">
+<TabItem value="database" label="database">
 ```
 
-```yaml
-apiVersion: kafka.strimzi.io/v1beta2
-kind: Kafka
-metadata:
-  name: my-cluster
-  namespace: kafka
-spec:
-  kafka:
-    version: 3.1.0
-    replicas: 3
-    listeners:
-      - name: plain
-        port: 9092
-        type: internal
-        tls: false
-      - name: tls
-        port: 9093
-        type: internal
-        tls: false
+```shell
+# mysql cluster
+sealos run labring/mysql-operator:8.0.23-14.1
+
+# redis cluster
+sealos run labring/redis-operator:3.1.4
+```
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="monitoring" label="monitoring">
+```
+
+```shell
+# prometheus stack
+sealos run fanux/kube-prometheus-stack:35.0.0
+
+# any exporter
+sealos run fanux/redis-exporter:latest
 ```
 
 ```mdx-code-block
