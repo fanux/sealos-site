@@ -3,7 +3,10 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import HomepageFeatures from "@site/src/components/Homepage/Features";
+import HomepageExamples from "@site/src/components/Homepage/Examples";
+import HomepageUsedBy from "@site/src/components/Homepage/UsedBy";
+import HomepageTeam from "@site/src/components/Homepage/Team";
 
 import styles from "./index.module.css";
 
@@ -34,6 +37,9 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <HomepageExamples />
+        <HomepageUsedBy />
+        <HomepageTeam />
       </main>
     </Layout>
   );

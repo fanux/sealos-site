@@ -1,0 +1,58 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+```mdx-code-block
+<Tabs>
+<TabItem value="calico" label="Calico" default>
+```
+
+```yaml
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+spec:
+  # Configures Calico networking.
+  calicoNetwork:
+    # Note: The ipPools section cannot be modified post-install.
+    ipPools:
+      - blockSize: 26
+        cidr: 100.64.0.0/10
+        encapsulation: IPIP
+        natOutgoing: Enabled
+        nodeSelector: all()
+    nodeAddressAutodetectionV4:
+      #  Interface enables IP auto-detection based on interfaces that match the given regex.
+      interface: "eth.*|en.*"
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="kafka" label="Kafka">
+```
+
+```yaml
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: my-cluster
+  namespace: kafka
+spec:
+  kafka:
+    version: 3.1.0
+    replicas: 3
+    listeners:
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
+      - name: tls
+        port: 9093
+        type: internal
+        tls: false
+```
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
