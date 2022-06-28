@@ -100,22 +100,24 @@ const config = {
                 label: "Stack Overflow",
                 href: "https://stackoverflow.com/questions/tagged/sealos",
               },
-              // {
-              //   label: "Discord",
-              //   href: "https://discordapp.com/invite/docusaurus",
-              // },
-              // {
-              //   label: "Twitter",
-              //   href: "https://twitter.com/docusaurus",
-              // },
+              {
+                label: "Email: admin@sealos.io",
+              },
+              {
+                label: "QQ group: 98488045",
+              },
+              {
+                label: "Telegram",
+                href: "https://t.me/cloudnativer",
+              },
             ],
           },
           {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "Laf - faas platform",
+                href: "https://lafyun.com",
               },
               {
                 label: "GitHub",
