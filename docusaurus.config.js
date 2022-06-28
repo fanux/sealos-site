@@ -91,6 +91,10 @@ const config = {
                 label: "Docs",
                 to: "/docs/intro",
               },
+              {
+                label: "laf docs",
+                to: "https://docs.lafyun.com",
+              },
             ],
           },
           {
