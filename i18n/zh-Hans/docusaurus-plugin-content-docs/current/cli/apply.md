@@ -1,6 +1,6 @@
 # sealos apply
 
-## Apply a Kubernetes cluster
+## Apply 一个 Kubernetes 集群
 
 ```shell
 $ sealos apply -f Clusterfile

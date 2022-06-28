@@ -24,9 +24,10 @@ $ yarn start
 
 #### I18n
 
-Run command to generate zh-CN to translate json files.
+Run command to generate zh-Hans to translate json files.
+
 ```shell
-npm run write-translations -- --locale zh-CN
+npm run write-translations -- --locale zh-Hans
 ```
 
 #### Build

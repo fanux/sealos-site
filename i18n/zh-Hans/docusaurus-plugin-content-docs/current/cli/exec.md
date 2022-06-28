@@ -3,17 +3,17 @@ import TabItem from '@theme/TabItem';
 
 # sealos exec
 
-## Exec to default cluster
+## 指定 Exec 集群
 
 <Tabs groupId="imageNum">
-  <TabItem value="single" label="Default" default>
+  <TabItem value="single" label="默认" default>
 
 ```shell
 $ sealos exec "cat /etc/hosts"
 ```
 
   </TabItem>
-  <TabItem value="multiple" label="Specify cluster">
+  <TabItem value="multiple" label="指定集群">
 
 ```shell
 $ sealos exec -c my-cluster "cat /etc/hosts"
@@ -22,17 +22,17 @@ $ sealos exec -c my-cluster "cat /etc/hosts"
   </TabItem>
 </Tabs>
 
-## Exec to setting
+## 指定 Exec 设置
 
 <Tabs groupId="image">
-  <TabItem value="Role label" label="Role label" default>
+  <TabItem value="Role label" label="节点标签" default>
 
 ```shell
 $ sealos exec -c my-cluster -r master,slave,node1 "cat /etc/hosts"
 ```
 
   </TabItem>
-  <TabItem value="IPS" label="IPS">
+  <TabItem value="IPs" label="IPs">
 
 ```shell
 $ sealos exec -c my-cluster --ips 172.16.1.38 "cat /etc/hosts"

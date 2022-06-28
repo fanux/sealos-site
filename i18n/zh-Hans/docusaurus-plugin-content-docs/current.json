@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.docSidebar.category.Getting Started": {
-    "message": "Getting Started",
+    "message": "开始上手",
     "description": "The label for category Getting Started in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.CLI": {
@@ -12,11 +12,11 @@
     "description": "The label for category CLI in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.CLI.link.generated-index.description": {
-    "message": "Examples demonstrating the usage of CLI commands.",
+    "message": "展示 CLI 命令用法的一些例子。",
     "description": "The generated-index page description for category CLI in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.Developers": {
-    "message": "Developers",
+    "message": "开发者",
     "description": "The label for category Developers in sidebar docSidebar"
   }
 }

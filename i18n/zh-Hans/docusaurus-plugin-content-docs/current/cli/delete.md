@@ -3,10 +3,10 @@ import TabItem from '@theme/TabItem';
 
 # sealos detele
 
-## Delete node
+## 删除节点
 
 <Tabs groupId="imageNum">
-  <TabItem value="single" label="Node" default>
+  <TabItem value="single" label="节点" default>
 
 ```shell
 $ sealos delete --nodes x.x.x.x
@@ -14,7 +14,7 @@ $ sealos delete --nodes x.x.x.x
 
   </TabItem>
 
-  <TabItem value="multiple" label="Master" default>
+  <TabItem value="multiple" label="Master 节点" default>
 
 ```shell
 $ sealos delete --masters x.x.x.x
@@ -22,7 +22,7 @@ $ sealos delete --masters x.x.x.x
 
   </TabItem>
 
-  <TabItem value="both" label="Node && Master" default>
+  <TabItem value="both" label="节点和 Master 节点" default>
 
 ```shell
 $ sealos delete --masters x.x.x.x --nodes x.x.x.x

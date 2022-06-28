@@ -3,10 +3,10 @@ import TabItem from '@theme/TabItem';
 
 # sealos run
 
-## Run calico
+## 运行 calico
 
 <Tabs groupId="imageNum">
-  <TabItem value="single" label="Single image" default>
+  <TabItem value="single" label="单个镜像" default>
 
 ```shell
 $ sealos run labring/oci-kubernetes-calico:1.24.0-amd64  \
@@ -15,7 +15,7 @@ $ sealos run labring/oci-kubernetes-calico:1.24.0-amd64  \
 ```
 
   </TabItem>
-  <TabItem value="multiple" label="Multiple images">
+  <TabItem value="multiple" label="多个镜像">
 
 ```shell
 $ sealos run labring/kubernetes:v1.24.0 \
@@ -27,10 +27,10 @@ $ sealos run labring/kubernetes:v1.24.0 \
   </TabItem>
 </Tabs>
 
-## Run openebs
+## 运行 openebs
 
 <Tabs groupId="imageNum">
-  <TabItem value="single" label="Single image" default>
+  <TabItem value="single" label="单个镜像" default>
 
 ```shell
 $ sealos run labring/oci-kubernetes-calico-openebs:1.24.0-amd64  \
@@ -39,7 +39,7 @@ $ sealos run labring/oci-kubernetes-calico-openebs:1.24.0-amd64  \
 ```
 
   </TabItem>
-  <TabItem value="multiple" label="Multiple images">
+  <TabItem value="multiple" label="多个镜像">
 
 ```shell
 $ sealos run labring/kubernetes:v1.24.0 \

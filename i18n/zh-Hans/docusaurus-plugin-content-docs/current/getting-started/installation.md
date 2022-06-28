@@ -5,9 +5,9 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Installation
+# 安装
 
-## Install buildah
+## 安装 buildah
 
 <Tabs groupId="arch">
   <TabItem value="amd64" label="amd64" default>
@@ -28,7 +28,7 @@ $ chmod a+x buildah && mv buildah /usr/bin
   </TabItem>
 </Tabs>
 
-## Install sealos
+## 安装 sealos
 
 <Tabs groupId="arch">
   <TabItem value="amd64" label="amd64" default>

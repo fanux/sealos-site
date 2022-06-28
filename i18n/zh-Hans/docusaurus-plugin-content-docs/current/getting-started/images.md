@@ -1,4 +1,4 @@
-# List of Images
+# 镜像列表
 
 - `labring/kubernetes:v1.24.0`
 - `labring/calico:v3.22.1`
