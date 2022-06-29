@@ -41,7 +41,6 @@ export default function Home() {
         <HomepageFeatures />
         <HomepageExamples />
         <HomepageUsedBy />
-        <HomepageKernelArch />
       </main>
     </Layout>
   );
