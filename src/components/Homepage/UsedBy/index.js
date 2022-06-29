@@ -46,6 +46,9 @@ export default function HomepageUsedBy() {
                   <Company key={idx} {...props} />
                 ))}
               </div>
+                <div className="text--center">
+                  <h3> More than 4k enterprise users use sealos in production! </h3>
+                </div>
             </div>
           </div>
         </div>
