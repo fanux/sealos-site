@@ -8,7 +8,7 @@
 $ sealos gen labring/kubernetes:v1.24.0 labring/calico:v3.22.1 --masters 192.168.0.2,192.168.0.3,192.168.0.4 --nodes 192.168.0.5,192.168.0.6,192.168.0.7 --passwd xxx > Clusterfile
 ```
 
-3. 将 calico Clusterfile 追加到生成的 Clusterfile 后，然后更新集群配置。例如，要修改 pods 的 CIDR 范围，就可以修改 `networking.podSubnet` 和 `spec.data.spec.calicoNetwork.ipPools.cidr` 字段。 最终的 Clusterfile 会像是这样:
+3. 将 [calico Clusterfile](https://github.com/labring/sealos/blob/main/applications/calico/Clusterfile) 追加到生成的 Clusterfile 后，然后更新集群配置。例如，要修改 pods 的 CIDR 范围，就可以修改 `networking.podSubnet` 和 `spec.data.spec.calicoNetwork.ipPools.cidr` 字段。 最终的 Clusterfile 会像是这样:
 
 <details>
 
