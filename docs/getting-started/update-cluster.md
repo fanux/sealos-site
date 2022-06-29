@@ -8,7 +8,7 @@
 $ sealos gen labring/kubernetes:v1.24.0 labring/calico:v3.22.1 --masters 192.168.0.2,192.168.0.3,192.168.0.4 --nodes 192.168.0.5,192.168.0.6,192.168.0.7 --passwd xxx > Clusterfile
 ```
 
-3. Append the calico Clusterfile to the Clusterfile that was generated, and update the cluster configurations. For example, if you want to change the CIDR range of pods, you should change the `networking.podSubnet` and `spec.data.spec.calicoNetwork.ipPools.cidr` fields. The final Clusterfile will be like this:
+3. Append the [calico Clusterfile](https://github.com/labring/sealos/blob/main/applications/calico/Clusterfile) to the Clusterfile that was generated, and update the cluster configurations. For example, if you want to change the CIDR range of pods, you should change the `networking.podSubnet` and `spec.data.spec.calicoNetwork.ipPools.cidr` fields. The final Clusterfile will be like this:
 
 <details>
 
