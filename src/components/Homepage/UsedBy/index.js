@@ -4,52 +4,24 @@ import styles from "./styles.module.css";
 
 const companyList = [
   {
-    title: "SealOS",
-    Svg: require("@site/static/img/logo.svg").default,
-    description: (
-      <>
-        Any highly available distributed application on kubernetes can be
-        installed with one click.
-      </>
-    ),
+    img: require("@site/static/img/usedby/alibaba.png").default,
   },
   {
-    title: "SealOS",
-    Svg: require("@site/static/img/logo.svg").default,
-    description: (
-      <>
-        Any highly available distributed application on kubernetes can be
-        installed with one click.
-      </>
-    ),
+    img: require("@site/static/img/usedby/huawei_logo.png").default,
   },
   {
-    title: "SealOS",
-    Svg: require("@site/static/img/logo.svg").default,
-    description: (
-      <>
-        Any highly available distributed application on kubernetes can be
-        installed with one click.
-      </>
-    ),
+    img: require("@site/static/img/usedby/iflytek.png").default,
   },
   {
-    title: "SealOS",
-    Svg: require("@site/static/img/logo.svg").default,
-    description: (
-      <>
-        Any highly available distributed application on kubernetes can be
-        installed with one click.
-      </>
-    ),
+    img: require("@site/static/img/usedby/51talk.jpeg").default,
   },
 ];
 
-function Company({ Svg, title, description }) {
+function Company({ img, title, description }) {
   return (
     <div className={clsx("col col--3")}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+          <img src={img} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
