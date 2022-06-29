@@ -11,7 +11,7 @@ tags: [kubernetes,sealos]
 
 以前都是单机应用，而现代应用几乎都是分布式应用，kubernetes 已经成为事实上的“云操作系统内核”，能让云内核普及的发型版呼之欲出
 
-![](https://files.mdnice.com/user/31044/99f95749-23bc-4833-ae40-c9ac99c8432d.png)
+![image](https://user-images.githubusercontent.com/8912557/176412542-2726e976-617b-4921-a37c-375a814deb8b.png)
 
 你会发现现在 IaaS PaaS SaaS 在云原生技术普及的浪潮中已经名存实亡，比如容器运行在裸机上就已经拥有非常好的性能了，是否还需要 IaaS 这一层，PaaS SaaS 本质都是容器是否还需要去可以区分，这三层架构已经被击穿！
 
@@ -21,7 +21,7 @@ tags: [kubernetes,sealos]
 
 基于云内核的云操作系统未来会引发云计算的巨大变革。
 
-![](https://files.mdnice.com/user/31044/6080cc7c-3eaf-45e5-b303-a2b517fa98e7.png)
+![image](https://user-images.githubusercontent.com/8912557/176412592-51d55344-0f57-4918-8499-826fa7a7bf28.png)
 
 先来看看有意思的 web1 web2 web3, 再把互联网的变革套用到云计算中，你会发现，生产关系有非常类似的地方。
 
@@ -53,7 +53,7 @@ kubernetes 的 API 的标准是真正有潜力成为云计算 2.0 事实标准�
 
 当前公有云提供的云服务还是极其昂贵的, 在某云厂商官网查到的价格和 IDC 托管硬件相比，如果是存储类型的机器，价格相差十倍！（不过云厂商对大B都有非常大的折扣，小B没有这种福利）
 
-![](https://files.mdnice.com/user/31044/2524087c-5faf-48dc-95fb-1f04f89c358f.png)
+![image](https://user-images.githubusercontent.com/8912557/176412650-31db6594-a15b-4c95-a47b-9838e9fff6a1.png)
 
 很多公有云厂商妖魔化私有云，说私有云就不叫云，我想问私有云怎么就不叫云了，是因为私有云太便宜还是私有云动了谁的蛋糕？
 
@@ -109,7 +109,7 @@ kubernetes 的 API 的标准是真正有潜力成为云计算 2.0 事实标准�
 1. 化整为零，这意味着如果你不装应用，这个系统就是空的，就是 nothing,就是 void*,就和你买了一台新电脑里面除了操作系统什么也没装一样。
 2. 自由组装，所有用户的需求都是通过具体应用实现的而这些应用都是按需求从应用市场中下载，不会硬塞给用户不需要的东西，未能得到满足的需求也是通过应用去扩展。云操作系统不会去追求各种应用风格的统一，就像 macOS 上的微信和飞书不会有统一的风格和账户系统一样，只有这样各应用才能在自己的场景尽情发挥出最大优势。
 
-![](https://files.mdnice.com/user/31044/d8768eb2-f3db-463e-ad53-474f27c53e24.png)
+![image](https://user-images.githubusercontent.com/8912557/176412722-87da5eaa-2a27-424f-b429-e2cab7c00eb2.png)
 
 实现层面，core 是非常内聚的意味它向下仅提供云内核生命周期管理，如安装/伸缩/升级/清理，向上做好应用的打包与管理即可。
 
