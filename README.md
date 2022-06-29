@@ -27,7 +27,7 @@ $ yarn start
 Run command to generate zh-Hans to translate json files.
 
 ```shell
-npm run write-translations -- --locale zh-Hans
+yarn write-translations --locale zh-Hans
 ```
 
 #### Build
