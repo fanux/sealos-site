@@ -23,6 +23,8 @@ import TabItem from '@theme/TabItem';
 
 ### Dockerfile
 
+We can build everything into a single image (`FROM labring/kubernetes`), or we can build multiple images where `FROM scratch` is used.
+
 <Tabs groupId="imageNum">
   <TabItem value="single" label="Single image" default>
 
@@ -100,6 +102,9 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 ```
 .
 ├── Kubefile
+├── cni
+│   ├── custom-resources.yaml
+│   └── tigera-operator.yaml
 └── manifests
     └── openebs-operator.yaml
 ```
@@ -111,6 +116,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 
 ```dockerfile
 FROM labring/oci-kubernetes-calico:1.24.0-amd64
+COPY cni ./cni
 COPY manifests ./manifests
 CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-resources.yaml","kubectl apply -f manifests/openebs-operator.yaml"]
 ```
@@ -120,6 +126,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 
 ```dockerfile
 FROM scratch
+COPY cni ./cni
 COPY manifests ./manifests
 CMD ["kubectl apply -f manifests/openebs-operator.yaml"]
 ```

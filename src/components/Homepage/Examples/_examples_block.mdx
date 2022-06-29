@@ -3,65 +3,65 @@ import TabItem from "@theme/TabItem";
 
 ```mdx-code-block
 <Tabs>
-<TabItem value="kubernetes" label="kubernetes" default>
+<TabItem value="kubernetes" label="Kubernetes" default>
 ```
 
 ```shell
 # Run a single node kubernetes
-sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
+$ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
 
 # Run a HA kubernetes cluster
-sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1 \
+$ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1 \
      --masters 192.168.64.2,192.168.64.22,192.168.64.20 \
      --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
 
 # Add masters or nodes
-sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
+$ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
 
 # Delete your cluster
-sealos reset
+$ sealos reset
 ```
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="storage" label="storage">
+<TabItem value="storage" label="Storage">
 ```
 
 ```shell
-# install helm
-sealos run labring/helm:v3.8.2
+# Install helm
+$ sealos run labring/helm:v3.8.2
 
-# block storage
-sealos run labring/openebs:v1.9.0
+# Block storage
+$ sealos run labring/openebs:v1.9.0
 
-# object storage
-sealos run labring/minio-operator:v4.4.16
+# Object storage
+$ sealos run labring/minio-operator:v4.4.16
 ```
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="database" label="database">
+<TabItem value="database" label="Database">
 ```
 
 ```shell
-# mysql cluster
-sealos run labring/mysql-operator:8.0.23-14.1
+# MySQL cluster
+$ sealos run labring/mysql-operator:8.0.23-14.1
 
-# redis cluster
-sealos run labring/redis-operator:3.1.4
+# Redis cluster
+$ sealos run labring/redis-operator:3.1.4
 ```
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="monitoring" label="monitoring">
+<TabItem value="monitoring" label="Monitoring">
 ```
 
 ```shell
-# prometheus stack
-sealos run fanux/kube-prometheus-stack:35.0.0
+# Prometheus stack
+$ sealos run fanux/kube-prometheus-stack:35.0.0
 
-# any exporter
-sealos run fanux/redis-exporter:latest
+# Any exporter
+$ sealos run fanux/redis-exporter:latest
 ```
 
 ```mdx-code-block
