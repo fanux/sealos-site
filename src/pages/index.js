@@ -6,6 +6,7 @@ import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/Homepage/Features";
 import HomepageExamples from "@site/src/components/Homepage/Examples";
 import HomepageUsedBy from "@site/src/components/Homepage/UsedBy";
+import HomepageKernelArch from "@site/src/components/Homepage/KernelArch";
 import HomepageTeam from "@site/src/components/Homepage/Team";
 
 import styles from "./index.module.css";
@@ -40,7 +41,7 @@ export default function Home() {
         <HomepageFeatures />
         <HomepageExamples />
         <HomepageUsedBy />
-        <HomepageTeam />
+        <HomepageKernelArch />
       </main>
     </Layout>
   );
