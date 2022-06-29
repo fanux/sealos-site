@@ -1,555 +1,133 @@
 ---
 slug: kubernetes with sealos
-title: kubernetes 高可用部署工具：sealos
+title: sealos - 以 kubernetes 为内核的云操作系统发行版
 authors: [fanux]
 tags: [kubernetes,sealos]
 ---
 
-![](https://socialify.git.ci/labring/sealos/image?description=1&descriptionEditable=Cloud%20OS%20distribution%20with%20Kubernetes%20as%20kernel.%20Practise%20cloud%20native%20like%20using%20macOS!&font=Source%20Code%20Pro&forks=1&language=1&pattern=Charlie%20Brown&stargazers=1&theme=Light)
+# 基于云内核的未来云计算架构
 
-> [**sealos** 以 Kubernetes 为内核的云操作系统](https://github.com/fanux/sealos)
+早期单机操作系统也是分层架构，后面才演化成今天的如 linux windows 的宏内核微内核架构，云操作系统也会有类似发展趋势
 
-sealos 项目地址：https://github.com/fanux/sealos
+以前都是单机应用，而现代应用几乎都是分布式应用，kubernetes 已经成为事实上的“云操作系统内核”，能让云内核普及的发型版呼之欲出
 
-*本文编写于2019年,部分内容可能已经过期*
+![](https://files.mdnice.com/user/31044/99f95749-23bc-4833-ae40-c9ac99c8432d.png)
 
-<!--truncate-->
+你会发现现在 IaaS PaaS SaaS 在云原生技术普及的浪潮中已经名存实亡，比如容器运行在裸机上就已经拥有非常好的性能了，是否还需要 IaaS 这一层，PaaS SaaS 本质都是容器是否还需要去可以区分，这三层架构已经被击穿！
 
-本文教你如何用一条命令构建 k8s 高可用集群且不依赖 haproxy 和 keepalived，也无需 ansible。通过内核 ipvs 对 apiserver 进行负载均衡，并且带 apiserver 健康检测。
+程序员很认“鸭式辩型”，就是会游泳长了翅膀的就是鸭子，这种抽象思维是极重要的，这也就是为啥 linux 一切皆文件的设计哲学了。而一个运行的 mysql 集群与一个 crm 软件其实也没有本质区别，所以在云操作系统中，“内核之上皆为应用”。
 
-架构如下图所示：
+## 云计算三次浪潮
 
-![](https://hugo-picture.oss-cn-beijing.aliyuncs.com/2020-04-20-sealos.webp)
+基于云内核的云操作系统未来会引发云计算的巨大变革。
 
-本项目名叫 sealos，旨在做一个简单干净轻量级稳定的 kubernetes 安装工具，能很好的支持高可用安装。 其实把一个东西做的功能强大并不难，但是做到极简且灵活可扩展就比较难。 所以在实现时就必须要遵循这些原则。下面介绍一下 sealos 的设计原则：
+![](https://files.mdnice.com/user/31044/6080cc7c-3eaf-45e5-b303-a2b517fa98e7.png)
 
-## 设计原则
+先来看看有意思的 web1 web2 web3, 再把互联网的变革套用到云计算中，你会发现，生产关系有非常类似的地方。
 
-sealos 特性与优势：
+【1 对 n 关系】
+* web1 : 门户网站生产内容，用户查看内容 
+* 云计算 1.0 : 公有云厂商开发服务，企业和开发者使用
 
-* 支持离线安装，工具与资源包（二进制程序 配置文件 镜像 yaml文件等）分离,这样不同版本替换不同离线包即可
-* 证书延期
-* 使用简单
-* 支持自定义配置
-* 内核负载，极其稳定，因为简单所以排查问题也极其简单
+这个阶段生产关系是 1 对多的，你会发现云厂商几十款云产品是无法满足市场上体量庞大偏好各异的需求的，就像 web1 用户只能看小编写的一些新闻一样。
 
-### 为什么不用 ansible？
-
-1.0 版本确实是用 ansible 实现，但是用户还是需要先装 `ansile`，装 `ansible` 又需要装 `python` 和一些依赖等，为了不让用户那么麻烦把 `ansible` 放到了容器里供用户使用。如果不想配置免密钥使用用户名密码时又需要 `ssh-pass` 等，总之不能让我满意，不是我想的极简。
-
-所以我想就来一个二进制文件工具，没有任何依赖，文件分发与远程命令都通过调用 `sdk` 实现所以不依赖其它任何东西，总算让我这个有洁癖的人满意了。
-
-### 为什么不用 keepalived haproxy？
-
-`haproxy` 用 `static pod` 跑没有太大问题，还算好管理，`keepalived` 现在大部分开源 `ansible` 脚本都用 `yum` 或者 `apt` 等装，这样非常的不可控，有如下劣势：
-
-* 源不一致可能导致版本不一致，版本不一直连配置文件都不一样，我曾经检测脚本不生效一直找不到原因，后来才知道是版本原因。
-* 系统原因安装不上，依赖库问题某些环境就直接装不上了。
-* 看了网上很多安装脚本，很多检测脚本与权重调节方式都不对，直接去检测 `haproxy` 进程在不在，其实是应该去检测 `apiserver` 是不是 `healthz` 的，如果 `apiserver` 挂了，即使 `haproxy` 进程存在，集群也会不正常了，就是伪高可用了。
-* 管理不方便，通过 `prometheus` 对集群进行监控，是能直接监控到 `static pod` 的但是用 `systemd` 跑又需要单独设置监控，且重启啥的还需要单独拉起。不如 `kubelet` 统一管理来的干净简洁。
-* 我们还出现过 `keepalived` 把 `CPU` 占满的情况。
-
-所以为了解决这个问题，我把 keepalived 跑在了容器中(社区提供的镜像基本是不可用的) 改造中间也是发生过很多问题，最终好在解决了。
-
-总而言之，累觉不爱，所以在想能不能甩开 haproxy 和 keepalived 做出更简单更可靠的方案出来，还真找到了。。。
-
-### 本地负载为什么不使用 envoy 或者 nginx？
-
-我们通过本地负载解决高可用问题。
-
-> **本地负载**：在每个 `node` 节点上都启动一个负载均衡，上游就是三个 `master`。
-
-如果使用 `envoy` 之类的负载均衡器，则需要在每个节点上都跑一个进程，消耗的资源更多，这是我不希望的。ipvs 实际也多跑了一个进程 `lvscare`，但是 `lvscare` 只是负责管理 `ipvs` 规则，和 `kube-proxy` 类似，真正的流量还是从很稳定的内核走的，不需要再把包丢到用户态中去处理。
-
-在架构实现上有个问题会让使用 `envoy` 等变得非常尴尬，就是 `join` `时如果负载均衡没有建立那是会卡住的，kubelet` 就不会起来，所以为此你需要先启动 `envoy`，意味着你又不能用 `static pod` 去管理它，同上面 `keepalived` 宿主机部署一样的问题，用 `static pod` 就会相互依赖，逻辑死锁，鸡说要先有蛋，蛋说要先有鸡，最后谁都没有。
-
-使用 `ipvs` 就不一样，我可以在 `join` 之前先把 `ipvs` 规则建立好，再去 `join` 就可以了，然后对规则进行守护即可。一旦 `apiserver` 不可访问了，会自动清理掉所有 `node` 上对应的 `ipvs` 规则， 等到 `master` 恢复正常时添加回来。
-
-### 为什么要定制 kubeadm?
-
-首先是由于 `kubeadm` 把证书过期时间写死了，所以需要定制把它改成 99 年，虽然大部分人可以自己去签个新证书，但是我们还是不想再依赖个别的工具，就直接改源码了。
-
-其次就是做本地负载时修改 `kubeadm` 代码是最方便的，因为在 `join` 时我们需要做两个事，第一是 `join` 之前先创建好 `ipvs` 规则，第二是创建 `static pod`。如果这块不去定制 `kubeadm` 就把报静态 `pod` 目录已存在的错误，忽略这个错误很不优雅。 而且 `kubeadm` 中已经提供了一些很好用的 `sdk` 供我们去实现这个功能。
-
-且这样做之后最核心的功能都集成到 `kubeadm` 中了， `sealos` 就单单变成分发和执行上层命令的轻量级工具了，增加节点时我们也就可以直接用 `kubeadm` 了。
-
-## 使用教程
-
-### 安装依赖
-
-!. 安装并启动 docker
-2. 下载 [kubernetes 离线安装包](https://github.com/sealstore/cloud-kernel/releases/)
-3. 下载 [最新版本 sealos](https://github.com/fanux/sealos/releases)
-4. 支持 kubernetes 1.14.0+
-
-### 安装
-
-多 master HA 只需执行以下命令：
-
-```shell
-$ sealos init --master 192.168.0.2 \
-  --master 192.168.0.3 \
-  --master 192.168.0.4 \
-  --node 192.168.0.5 \
-  --user root \
-  --passwd your-server-password \
-  --version v1.14.1 \
-  --pkg-url /root/kube1.14.1.tar.gz 
-```
-
-然后，就没有然后了。。。没错，你的高可用集群已经装好了，是不是觉得一脸懵逼？就是这么简单快捷！
-
-单 `master` 多 `node`：
-
-```shell
-$ sealos init --master 192.168.0.2 \
-  --node 192.168.0.5 \ 
-  --user root \
-  --passwd your-server-password \
-  --version v1.14.1 \
-  --pkg-url /root/kube1.14.1.tar.gz 
-```
-
-使用免密钥或者密钥对：
-
-```shell
-$ sealos init --master 172.16.198.83 \
-  --node 172.16.198.84 \
-  --pkg-url https://sealyun.oss-cn-beijing.aliyuncs.com/free/kube1.15.0.tar.gz \
-  --pk /root/kubernetes.pem # this is your ssh private key file \
-  --version v1.15.0
-```
-
-参数解释：
-
-```shell
---master   master服务器地址列表
---node     node服务器地址列表
---user     服务器ssh用户名
---passwd   服务器ssh用户密码
---pkg-url  离线包位置，可以放在本地目录，也可以放在一个 http 服务器上，sealos 会 wget 到安装目标机
---version  kubernetes 版本
---pk       ssh 私钥地址，配置免密钥默认就是 /root/.ssh/id_rsa
-```
-
-其他参数：
-
-```shell
---kubeadm-config string   kubeadm-config.yaml kubeadm 配置文件，可自定义 kubeadm 配置文件
---vip string              virtual ip (default "10.103.97.2") 本地负载时虚拟 ip，不推荐修改，集群外不可访问
-```
-
-检查安装是否正常：
-
-```shell
-$ kubectl get node
-NAME                      STATUS   ROLES    AGE     VERSION
-izj6cdqfqw4o4o9tc0q44rz   Ready    master   2m25s   v1.14.1
-izj6cdqfqw4o4o9tc0q44sz   Ready    master   119s    v1.14.1
-izj6cdqfqw4o4o9tc0q44tz   Ready    master   63s     v1.14.1
-izj6cdqfqw4o4o9tc0q44uz   Ready    <none>   38s     v1.14.1
-
-$ kubectl get pod --all-namespaces
-NAMESPACE     NAME                                              READY   STATUS    RESTARTS   AGE
-kube-system   calico-kube-controllers-5cbcccc885-9n2p8          1/1     Running   0          3m1s
-kube-system   calico-node-656zn                                 1/1     Running   0          93s
-kube-system   calico-node-bv5hn                                 1/1     Running   0          2m54s
-kube-system   calico-node-f2vmd                                 1/1     Running   0          3m1s
-kube-system   calico-node-tbd5l                                 1/1     Running   0          118s
-kube-system   coredns-fb8b8dccf-8bnkv                           1/1     Running   0          3m1s
-kube-system   coredns-fb8b8dccf-spq7r                           1/1     Running   0          3m1s
-kube-system   etcd-izj6cdqfqw4o4o9tc0q44rz                      1/1     Running   0          2m25s
-kube-system   etcd-izj6cdqfqw4o4o9tc0q44sz                      1/1     Running   0          2m53s
-kube-system   etcd-izj6cdqfqw4o4o9tc0q44tz                      1/1     Running   0          118s
-kube-system   kube-apiserver-izj6cdqfqw4o4o9tc0q44rz            1/1     Running   0          2m15s
-kube-system   kube-apiserver-izj6cdqfqw4o4o9tc0q44sz            1/1     Running   0          2m54s
-kube-system   kube-apiserver-izj6cdqfqw4o4o9tc0q44tz            1/1     Running   1          47s
-kube-system   kube-controller-manager-izj6cdqfqw4o4o9tc0q44rz   1/1     Running   1          2m43s
-kube-system   kube-controller-manager-izj6cdqfqw4o4o9tc0q44sz   1/1     Running   0          2m54s
-kube-system   kube-controller-manager-izj6cdqfqw4o4o9tc0q44tz   1/1     Running   0          63s
-kube-system   kube-proxy-b9b9z                                  1/1     Running   0          2m54s
-kube-system   kube-proxy-nf66n                                  1/1     Running   0          3m1s
-kube-system   kube-proxy-q2bqp                                  1/1     Running   0          118s
-kube-system   kube-proxy-s5g2k                                  1/1     Running   0          93s
-kube-system   kube-scheduler-izj6cdqfqw4o4o9tc0q44rz            1/1     Running   1          2m43s
-kube-system   kube-scheduler-izj6cdqfqw4o4o9tc0q44sz            1/1     Running   0          2m54s
-kube-system   kube-scheduler-izj6cdqfqw4o4o9tc0q44tz            1/1     Running   0          61s
-kube-system   kube-sealyun-lvscare-izj6cdqfqw4o4o9tc0q44uz      1/1     Running   0          86s
-```
-
-### 增加节点
-
-先获取 join command，在 master 上执行：
-
-```shell
-$ kubeadm token create --print-join-command
-```
-
-可以使用超级 kubeadm，但是 join 时需要增加一个 --master 参数：
-
-```shell
-$ cd kube/shell && init.sh
-$ echo "10.103.97.2 apiserver.cluster.local" >> /etc/hosts   # using vip
-$ kubeadm join 10.103.97.2:6443 --token 9vr73a.a8uxyaju799qwdjv \
-  --master 10.103.97.100:6443 \
-  --master 10.103.97.101:6443 \
-  --master 10.103.97.102:6443 \
-  --discovery-token-ca-cert-hash sha256:7c2e69131a36ae2a042a339b33381c6d0d43887e2de83720eff5359e26aec866
-```
-
-也可以用 sealos join 命令：
-
-```shell
-$ sealos join --master 192.168.0.2 \
-  --master 192.168.0.3 \
-  --master 192.168.0.4 \
-  --vip 10.103.97.2 \
-  --node 192.168.0.5 \
-  --user root \
-  --passwd your-server-password \
-  --pkg-url /root/kube1.15.0.tar.gz
-```
-
-### 使用自定义 kubeadm 配置文件
-
-有时你可能需要自定义 `kubeadm` 的配置文件，比如要在证书里加入域名 `sealyun.com`。
-
-首先需要获取配置文件模板：
-
-```shell
-$ sealos config -t kubeadm >>  kubeadm-config.yaml.tmpl
-```
-
-然后修改 `kubeadm-config.yaml.tmpl` 即可，将 `sealyun.com` 添加到配置中：
-
-```yaml
-apiVersion: kubeadm.k8s.io/v1beta1
-kind: ClusterConfiguration
-kubernetesVersion: {{.Version}}
-controlPlaneEndpoint: "apiserver.cluster.local:6443"
-networking:
-  podSubnet: 100.64.0.0/10
-apiServer:
-        certSANs:
-        - sealyun.com # 这是新增的域名
-        - 127.0.0.1
-        - apiserver.cluster.local
-        {{range .Masters -}}
-        - {{.}}
-        {{end -}}
-        - {{.VIP}}
 ---
-apiVersion: kubeproxy.config.k8s.io/v1alpha1
-kind: KubeProxyConfiguration
-mode: "ipvs"
-ipvs:
-        excludeCIDRs: 
-        - "{{.VIP}}/32"
-```
+【n 对 1 对 n 关系】
+* web2 : UGC 用户生产内容，用户之间产生链接 
+* 云计算 2.0 : 开发者生产云计算应用，给用户使用 
 
-*注意：其它部分不用修改，sealos 会自动填充模板里面的内容。*
+渐渐的云厂商开始弄 markting place, 一定程度想通过开放市场来连接云计算的生产者与消费者，这就是云计算朝着 2.0 过度的信号, 但是缺乏标准就意味着难以协作，这个阶段想要彻底爆发必须要有“实际上的标准”出现。
 
-最后在部署时使用 `--kubeadm-config` 指定配置文件模板即可：
+Docker 镜像算是非常好的标准，但是可惜难以覆盖分布式软件，但是大家通过 docker hub 协作就是一个非常好的协作模型了。
 
-```shell
-$ sealos init --kubeadm-config kubeadm-config.yaml.tmpl \
-  --master 192.168.0.2 \
-  --master 192.168.0.3 \
-  --master 192.168.0.4 \
-  --node 192.168.0.5 \
-  --user root \
-  --passwd your-server-password \
-  --version v1.14.1 \
-  --pkg-url /root/kube1.14.1.tar.gz 
-```
+kubernetes 的 API 的标准是真正有潜力成为云计算 2.0 事实标准的。未来大家都通过这个系统来相互协作，就像安卓生态蓬勃的应用爆炸一样，这样才能诞生越来越多优质的云服务出来。
 
-### 版本升级
-
-本教程以 `1.14` 版本升级到 `1.15` 为例，其它版本原理类似，懂了这个其它的
-参考 [官方教程](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-14/) 即可。
-
-
-#### 升级过程
-
-1. 升级 kubeadm，所有节点导入镜像
-2. 升级控制节点
-3. 升级 master(控制节点)上的 kubelet
-4. 升级其它 master(控制节点)
-5. 升级 node
-6. 验证集群状态
-
-#### 升级 kubeadm
-
-把离线包拷贝到所有节点执行 `cd kube/shell && sh init.sh` 。这里会把 `kubeadm`、`kubectl`、`kubelet` 的二进制文件都更新掉，而且会导入高版本镜像。
-
-#### 升级控制节点
-
-```shell
-$ kubeadm upgrade plan
-$ kubeadm upgrade apply v1.15.0
-```
-
-重启 kubelet：
-
-```shell
-$ systemctl restart kubelet
-```
-
-其实 kubelet 升级很简单粗暴，我们只需要把新版本的 kubelet 拷贝到 /usr/bin 下面，重启 kubelet service 即可，如果程序正在使用不让覆盖那么就停一下 kubelet 再进行拷贝，kubelet bin 文件在 conf/bin 目录下。
-
-#### 升级其它控制节点
-
-```shell
-$ kubeadm upgrade apply
-```
-
-#### 升级 node
-
-驱逐节点（要不要驱逐看情况, 喜欢粗暴的直接来也没啥）：
-
-```shell
-$ kubectl drain $NODE --ignore-daemonsets
-```
-
-更新 kubelet 配置：
-
-```shell
-$ kubeadm upgrade node config --kubelet-version v1.15.0
-```
-
-然后升级 kubelet。同样是替换二进制再重启 kubelet service。
-
-```shell
-$ systemctl restart kubelet
-```
-
-召回失去的爱情：
-
-```shell
-$ kubectl uncordon $NODE
-```
-
-#### 验证
-
-```shell
-$ kubectl get nodes
-```
-
-如果版本信息都对的话基本就升级成功了。
-
-#### kubeadm upgrade apply 干了啥？
-
-1. 检查集群是否可升级
-2. 执行版本升级策略 哪些版本之间可以升级
-3. 确认镜像是否存在
-4. 执行控制组件升级，如果失败就回滚，其实就是 `apiserver`、`controller manager`、`scheduler` 等这些容器
-5. 升级 `kube-dns` 和 `kube-proxy`
-6. 创建新的证书文件，备份老的如果其超过 180 天
-
-### 源码编译
-
-因为使用了 `netlink` 库，所以推荐在容器内进行编译，只需一条命令：
-
-```shell
-$ docker run --rm -v $GOPATH/src/github.com/fanux/sealos:/go/src/github.com/fanux/sealos -w /go/src/github.com/fanux/sealos -it golang:1.12.7  go build
-```
-
-如果你使用的是 `go mod`，则需要指定通过 `vendor` 编译：
-
-```shell
-$ go build -mod vendor
-```
-
-### 卸载
-
-```shell
-$ sealos clean \
-  --master 192.168.0.2 \
-  --master 192.168.0.3 \
-  --master 192.168.0.4 \
-  --node 192.168.0.5 \
-  --user root \
-  --passwd your-server-password
-```
-
-## sealos 实现原理
-
-### 执行流程
-
-* 通过 `sftp` 或者 `wget` 把离线安装包拷贝到目标机器上（ `masters` 和 `nodes` ）。
-* 在 `master0` 上执行 `kubeadm init`。
-* 在其它 `master` 上执行 `kubeadm join` 并设置控制面，这个过程会在其它 `master` 上起动 `etcd` 并与 `master0` 的 `etcd` 组成集群，并启动控制平面的组件（`apiserver`、`controller` 等）。
-* `join node` 节点，会在 `node` 上配置 `ipvs` 规则，配置 `/etc/hosts` 等。
-
-> 所有对 apiserver 的请求都是通过域名进行访问，因为 node 需要通过虚拟 ip 连接多个 master，每个节点的 kubelet 与 kube-proxy 访问 apiserver 的虚拟地址是不一样的，而 kubeadm 又只能在配置文件中指定一个地址，所以使用一个域名但是每个节点解析的 IP 不同。当 IP 地址发生变化时仅需要修改解析地址即可。
-
-### 本地内核负载
-
-通过这样的方式实现每个 node 上通过本地内核负载均衡访问 masters：
-
-```shell
-  +----------+                       +---------------+  virturl server: 127.0.0.1:6443
-  | mater0   |<----------------------| ipvs nodes    |    real servers:
-  +----------+                      |+---------------+            10.103.97.200:6443
-                                    |                             10.103.97.201:6443
-  +----------+                      |                             10.103.97.202:6443
-  | mater1   |<---------------------+
-  +----------+                      |
-                                    |
-  +----------+                      |
-  | mater2   |<---------------------+
-  +----------+
-```
-
-在 `node` 上起了一个 `lvscare` 的 `static pod` 去守护这个 `ipvs`，一旦 `apiserver` 不可访问了，会自动清理掉所有 `node` 上对应的 `ipvs` 规则， `master` 恢复正常时添加回来。
-
-所以在你的 `node` 上加了三个东西，可以直观的看到：
-
-```shell
-$ cat /etc/kubernetes/manifests   # 这下面增加了 lvscare 的 static pod
-$ ipvsadm -Ln                     # 可以看到创建的ipvs规则
-$ cat /etc/hosts                  # 增加了虚拟IP的地址解析
-```
-
-### 定制 kubeadm
-
-`sealos` 对 `kubeadm` 改动非常少，主要是延长了证书过期时间和扩展了 `join` 命令。下面主要讲讲对 `join` 命令的改造。
-
-首先 `join` 命令增加 `--master` 参数用于指定 `master` 地址列表：
-
-```golang
-lagSet.StringSliceVar(
-	&locallb.LVScare.Masters, "master", []string{},
-	"A list of ha masters, --master 192.168.0.2:6443  --master 192.168.0.2:6443  --master 192.168.0.2:6443",
-)
-```
-
-这样就可以拿到 `master` 地址列表去做 `ipvs` 负载均衡了。
-
-如果不是控制节点且不是单 `master`，那么就只创建一条 `ipvs` 规则，控制节点上不需要创建，连自己的 `apiserver` 即可：
-
-```golang
-if data.cfg.ControlPlane == nil {
-	fmt.Println("This is not a control plan")
-	if len(locallb.LVScare.Masters) != 0 {
-		locallb.CreateLocalLB(args[0])
-	}
-} 
-```
-
-然后再去创建 `lvscare static pod` 来守护 `ipvs`：
-
-```golang
-if len(locallb.LVScare.Masters) != 0 {
-	locallb.LVScareStaticPodToDisk("/etc/kubernetes/manifests")
-}
-```
-
-**所以哪怕你不使用 sealos，也可以直接用定制过的 kubeadm 去部署集群，只是麻烦一些。** 
-
-下面给出安装步骤。
-
-kubeadm 配置文件：
-
-```yaml
-apiVersion: kubeadm.k8s.io/v1beta1
-kind: ClusterConfiguration
-kubernetesVersion: v1.14.0
-controlPlaneEndpoint: "apiserver.cluster.local:6443" # apiserver DNS name
-apiServer:
-    certSANs:
-        - 127.0.0.1
-        - apiserver.cluster.local
-        - 172.20.241.205
-        - 172.20.241.206
-        - 172.20.241.207
-        - 172.20.241.208
-        - 10.103.97.1          # virturl ip
 ---
-apiVersion: kubeproxy.config.k8s.io/v1alpha1
-kind: KubeProxyConfiguration
-mode: "ipvs"
-ipvs:
-    excludeCIDRs: 
-        - "10.103.97.1/32" # 注意：如果不加这个，kube-proxy 就会清理你的规则
-```
+【n 对 n 关系】
+* web 3 : 网络所有权属于网络的所有参与者，数据回归用户自己手中
+* 云计算 3.0 : 算力属于所有计算的参与者，一台分布式超级计算机诞生
 
-在 `master0` （假设 vip 地址为 10.103.97.100）上执行以下命令：
+整个过程其实是让计算和服务更民主，任何组织个人都可以贡献自己的算力，发布和使用应用的人也不用关心应用到底运行在哪个地方，整个计算的使用像使用一台虚拟计算机一样。 和现在很多大的公链一样，不过目前的智能合约还是场景过于局限，计算成本过高，形式上很像超级计算机，效果上还是差了好几个鸿沟。
 
-```shell
-$ echo "10.103.97.100 apiserver.cluster.local" >> /etc/hosts # 解析的是 master0 的地址
-$ kubeadm init --config=kubeadm-config.yaml --experimental-upload-certs  
-$ mkdir ~/.kube && cp /etc/kubernetes/admin.conf ~/.kube/config
-$ kubectl apply -f https://docs.projectcalico.org/v3.6/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
-```
+## 基于云内核设计的云计算会更便宜
 
-在 `master1` （假设 vip 地址为 10.103.97.101）上执行以下命令：
+当前公有云提供的云服务还是极其昂贵的, 在某云厂商官网查到的价格和 IDC 托管硬件相比，如果是存储类型的机器，价格相差十倍！（不过云厂商对大B都有非常大的折扣，小B没有这种福利）
 
-```shell
-$ echo "10.103.97.100 apiserver.cluster.local" >> /etc/hosts #解析的是 master0 的地址,为了能正常 join 进去
-$ kubeadm join 10.103.97.100:6443 --token 9vr73a.a8uxyaju799qwdjv \
-    --discovery-token-ca-cert-hash sha256:7c2e69131a36ae2a042a339b33381c6d0d43887e2de83720eff5359e26aec866 \
-    --experimental-control-plane \
-    --certificate-key f8902e114ef118304e561c3ecd4d0b543adc226b7a07f675f56564185ffe0c07 
+![](https://files.mdnice.com/user/31044/2524087c-5faf-48dc-95fb-1f04f89c358f.png)
 
-$ sed "s/10.103.97.100/10.103.97.101/g" -i /etc/hosts  # 解析再换成自己的地址，否则就都依赖 master0 的伪高可用了
-```
+很多公有云厂商妖魔化私有云，说私有云就不叫云，我想问私有云怎么就不叫云了，是因为私有云太便宜还是私有云动了谁的蛋糕？
 
-在 `master2` （假设 vip 地址为 10.103.97.102）上执行以下命令：
+这个价格对比小学生都能算的清楚。其实在云内核设计的云操作系统出现之前公有云确实会便宜，因为软件成本很高，企业想云在自己机房玩一套如 openstack 这样的 IaaS 几乎每年会花费上千万成本，而现在开源生态逐渐成熟让软件成本变得便宜和稳定，私有云的成本便宜逻辑又开始成立了。
 
-```shell
-$ echo "10.103.97.100 apiserver.cluster.local" >> /etc/hosts
-$ kubeadm join 10.103.97.100:6443 --token 9vr73a.a8uxyaju799qwdjv \
-    --discovery-token-ca-cert-hash sha256:7c2e69131a36ae2a042a339b33381c6d0d43887e2de83720eff5359e26aec866 \
-    --experimental-control-plane \
-    --certificate-key f8902e114ef118304e561c3ecd4d0b543adc226b7a07f675f56564185ffe0c07  
+那还有个问题就是“传统公有云为什么贵？”
+* 第一，因为基于的还是 IaaS PaaS SaaS 的架构，每一层都意味着成本，软件的复杂度直接决定成本，所谓的一切自研的优势现在反而会变成成本劣势，这是最主要的原因。
+* 第二，谈边际成本，这个不是按照公有云的用户体量去计算的，而是按照每个可用区的建设成本去计算的，如果软件体系复杂，每个机房需要大量管理节点，需要大量交付人员配合，那成本就无法降下来。但是基于内核设计的云操作系统管理节点只需三台，实习生都能在半个小时以内交付，就像装 centos 一样简单。
+* 第三，次要原因是因为公有云的弹性都是要预留资源的，这部分成本都会摊到消费者头上。
 
-$ sed "s/10.103.97.100/10.103.97.102/g" -i /etc/hosts
-```
+很多企业的业务资源使用都是相对固定，半年一年作一次扩容等，托管或者自建肯定会更便宜，促销活动什么的一年也就几次，在促销时使用公有云即可，这样成本可以大幅度降低。
 
-在 node 上 join 时加上 --master 参数指定 master 地址列表：
+## 云计算会走向开源开放
 
-```shell
-$ echo "10.103.97.1 apiserver.cluster.local" >> /etc/hosts   # 需要解析成虚拟 ip
-$ kubeadm join 10.103.97.1:6443 --token 9vr73a.a8uxyaju799qwdjv \
-    --master 10.103.97.100:6443 \
-    --master 10.103.97.101:6443 \
-    --master 10.103.97.102:6443 \
-    --discovery-token-ca-cert-hash sha256:7c2e69131a36ae2a042a339b33381c6d0d43887e2de83720eff5359e26aec866
-```
+封闭的云服务对于企业来说是灾难，最简单的一个场景是应对云厂商的涨价行为，如果强绑定就意味着失去了议价权，近期某云厂商云开发就提价十倍，有些小企业的利润直接就被云服务吃光了。
 
-### 离线包结构分析
+第二个原因是云厂商的云产品如果发展的不好是有可能被下架的，如果企业不幸使用了这类产品，下架时又需要付出巨大迁移成本，有些与代码耦合的甚至需要重写代码。
 
-```shell
-.
-├── bin  # 指定版本的二进制文件，只需要这三个，其它组件跑在容器里
-│   ├── kubeadm
-│   ├── kubectl
-│   └── kubelet
-├── conf
-│   ├── 10-kubeadm.conf  # 这个文件新版本没用到，我在 shell 里直接生成，这样可以检测 cgroup driver
-│   ├── dashboard
-│   │   ├── dashboard-admin.yaml
-│   │   └── kubernetes-dashboard.yaml
-│   ├── heapster
-│   │   ├── grafana.yaml
-│   │   ├── heapster.yaml
-│   │   ├── influxdb.yaml
-│   │   └── rbac
-│   │       └── heapster-rbac.yaml
-│   ├── kubeadm.yaml # kubeadm 的配置文件
-│   ├── kubelet.service  # kubelet systemd 配置文件
-│   ├── net
-│   │   └── calico.yaml
-│   └── promethus
-├── images  # 所有镜像包
-│   └── images.tar
-└── shell
-    ├── init.sh  # 初始化脚本
-    └── master.sh # 运行master脚本
-```
+开源自然是开放的最好实现方式，不仅对上面几种场景有比较好的应对措施，关键还可以自由按照自己的需求进行定制。
 
-* `init.sh` 脚本会将 `bin` 目录下的二进制文件拷贝到 `$PATH` 下面，并配置好 `systemd`，关闭 `swap` 和防火墙等等，然后导入集群所需要的镜像。
-* `master.sh` 主要执行了 `kubeadm init`。
-* `conf` 目录下面包含了 `kubeadm` 的配置文件，`calico yaml` 文件等等。
-* `sealos` 会调用上面的两个脚本，所以大部分兼容。不同版本都可以通过微调脚本来保持兼容。
+所以未来开源与云是左右腿，像 vercel supabase [sealos](https://github.com/labring/sealos) 这样的产品是云计算的大势所趋。
+
+## 基于内核架构的云计算会变得更简单
+
+复杂的东西无法普及，复杂的软件要么走向腐烂和消亡，要么重构变得简单，云计算也是如此，你会发现 centos ubuntu 这样的 linux 发行版普及了，但是现在的一些公有云能力很难到处运行和做到普及，即便是开源了，像 openstack 一直未能普及，原因很简单，需要几十个人的团队才能在生产环境玩起来的话绝大多数企业都会放弃。
+
+什么叫“内聚”，就是功能不是以牺牲复杂度来换取的，像 linux 的 core 很内聚，驱动即使扩展了一万个系统复杂度也没增加，虽然代码在一直增加。所以软件设计时的抽象能力就变得极重要，基于云内核架构设计的云操作系统也是高“内聚”的，通过扩展应用来扩展能力，而各应用之间是低耦合的。
+
+## 内核架构云操作系统爆发时机
+
+> 基于开源技术的云服务在侵蚀昂贵且强绑定的公有云的服务
+
+现在可以发现公有云云原生领域提供的服务商业化做的好的几乎都是开源强相关的， 如基于 kubernetes 的云服务，基于 prometheus grafana 的可观测服务等。
+
+用户越来越聪明了，便宜还是贵按按计算器就能算出来，而且绑定意味着认人鱼肉，技术选型明显往开源技术倾斜。
+
+> 云原生侵蚀传统 IaaS 服务
+
+基于虚拟机的业务增长速度已经远远赶不上云原生生态的发展速度了，基于 kubernetes 的云原生生态每年几倍甚至有些产品每年几十倍的增长，大量企业在从虚拟机架构往云原生架构迁移。
+
+前几年市场被教育的很好，越来越多企业知道云原生降本增效不是一点点，该填的坑也被填的差不多了，开始考虑从观望状态变成实践了。
+
+> 市场需要一款云操作系统进一步降低云原生门槛与成本
+
+现状是企业在实践云原生的时候还是容易迷失，生态过于庞大复杂，上千款生态软件让很多企业无从下手，而且真要落地至少得有个专家能把云原生计算存储网络都玩的明白，所以这个生态依然还是缺乏好用的开箱即用的发行版。
+
+其实这个发行版的要求还是很高的，要非常简单不多不少的去满足客户的需求，还不能给用户带来负担，这就必须得非常好的设计理念和实现机制。
+
+## 如何实现这样一个云操作系统
+
+如何去设计这样一个操作系统，首先一定需要有非常好的设计理念
+
+1. 化整为零，这意味着如果你不装应用，这个系统就是空的，就是 nothing,就是 void*,就和你买了一台新电脑里面除了操作系统什么也没装一样。
+2. 自由组装，所有用户的需求都是通过具体应用实现的而这些应用都是按需求从应用市场中下载，不会硬塞给用户不需要的东西，未能得到满足的需求也是通过应用去扩展。云操作系统不会去追求各种应用风格的统一，就像 macOS 上的微信和飞书不会有统一的风格和账户系统一样，只有这样各应用才能在自己的场景尽情发挥出最大优势。
+
+![](https://files.mdnice.com/user/31044/d8768eb2-f3db-463e-ad53-474f27c53e24.png)
+
+实现层面，core 是非常内聚的意味它向下仅提供云内核生命周期管理，如安装/伸缩/升级/清理，向上做好应用的打包与管理即可。
+
+应用市场方面很重要，一定要有好的标准，这涉及到应用的提供者与消费者之间的协作，OCI registry 仓库就是个非常好的已有事实标准，兼容它是最好的选择。
+
+User interface 一定要简单极致，这是用户直接使用你东西的地方，API > CLI > GUI, Desktop 是产品化的终极形态，真的做到用云像用 PC 操作系统一样简单。
+
+剩下一切都在于扩展应用的宽度和深度：
+1. 广度，常用分布式软件如 mysql 集群，redis 集群，消息队列等逐步覆盖，不断扩展常用分布式应用数量
+2. 深度，基本安装->高可用->可监控->自运维->高性能/安全性->产品化，几个阶段衡量一个分布式应用成熟度
+
+那 [sealos](https://github.com/labring/sealos) 就是使用这样的思维去设计的，[laf](https://github.com/labring/laf) 就是 sealos 上的第一款杀手级应用。
+
+## 总结
+
+未来的云会更便宜 更开放 更简单，最终会有一款优秀的发行版本实现云原生的普及，而 [sealos](https://github.com/labring/sealos) 诞生之日起就朝着这个目标不断进步~
+
+相信未来云计算属于所有算力的提供者，云的价值也会属于所有云计算的参与者，不再受任何厂商绑定之苦，更便宜的享受云计算带来的便利。开源开放带给大家简单/便宜的云计算！
+
+> 作者：fanux.方海涛.中弈 sealos 作者, CNCF sealer 项目发起人。曾就职阿里云，现任环界云计算 CEO, 环界获得陆奇博士奇绩创坛种子轮投资
+
