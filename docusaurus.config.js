@@ -89,7 +89,7 @@ const config = {
             items: [
               {
                 label: "company",
-                to: "/pages/company",
+                to: "/blog/company",
               },
             ],
           },
