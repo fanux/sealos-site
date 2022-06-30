@@ -2,38 +2,49 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 
-const teamList = [
-  {
-    name: "labring",
-    avatar: "https://avatars.githubusercontent.com/u/102226726?s=200&v=4",
-    intro: <>wallfacer lab</>,
-  },
-];
-
-function Member({ name, avatar, intro }) {
-  return (
-    <div className="avatar avatar--vertical">
-      <img className="avatar__photo avatar__photo--xl" src={avatar} />
-      <div className="avatar__intro">
-        <div className="avatar__name">{name}</div>
-        <small className="avatar__subtitle">{intro}</small>
-      </div>
-    </div>
-  );
-}
-
 export default function HomepageKernelArch() {
   return (
-    <section className={styles.teams}>
+    <section className={styles.kernelArch}>
       <div className="container">
         <div className="row">
-          <div className={clsx("col")}>
-            <h3>Team Member</h3>
+          <div className={clsx("col col--12")}>
+            <h3>Kernel Arch</h3>
           </div>
           <div className={clsx("col col--12")}>
-            {teamList.map((props, idx) => (
-              <Member key={idx} {...props} />
-            ))}
+            <div className="container">
+              <div className={clsx("row", "alignItemsCenter")}>
+                <div className={clsx("col col--4", styles.kernelArchImg)}>
+                  <img
+                    src="img/cloud-kernel-arch.png"
+                    alt="cloud-kernel-arch"
+                  />
+                </div>
+                <div className={clsx("col col--8")}>
+                  <div className={clsx("text--center padding-horiz--md")}>
+                    <h3>Cloud Driver</h3>
+                    <p>
+                      Using CRI CNI CSI as Cloud OS Drivers, <br />
+                      with compute/storage/network like
+                      containerd/calico/openebs to pooling every resource
+                      everywhere
+                    </p>
+                    <h3>Cloud Kernel</h3>
+                    <p>
+                      Using kubernetes as Cloud OS Core, <br />
+                      abstracting underlying resources / defining resource
+                      interfaces / standardizing application management
+                    </p>
+                    <h3>Distributed Applications</h3>
+                    <p>
+                      Anything else as Cloud OS Applications,
+                      <br />
+                      each combination to meet various requirements and
+                      scenarios
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
-import React from "react";
-import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/Homepage/Features";
 import HomepageExamples from "@site/src/components/Homepage/Examples";
-import HomepageUsedBy from "@site/src/components/Homepage/UsedBy";
+import HomepageFeatures from "@site/src/components/Homepage/Features";
 import HomepageKernelArch from "@site/src/components/Homepage/KernelArch";
-import HomepageTeam from "@site/src/components/Homepage/Team";
+import HomepageUsedBy from "@site/src/components/Homepage/UsedBy";
+import Layout from "@theme/Layout";
+import clsx from "clsx";
+import React from "react";
+// import HomepageTeam from "@site/src/components/Homepage/Team";
 
 import styles from "./index.module.css";
 
@@ -40,6 +40,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
         <HomepageExamples />
+        <HomepageKernelArch />
         <HomepageUsedBy />
       </main>
     </Layout>

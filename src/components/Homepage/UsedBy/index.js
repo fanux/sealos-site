@@ -17,15 +17,11 @@ const companyList = [
   },
 ];
 
-function Company({ img, title, description }) {
+function Company({ img }) {
   return (
     <div className={clsx("col col--3")}>
       <div className="text--center">
-          <img src={img} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <img src={img} />
       </div>
     </div>
   );
@@ -41,14 +37,14 @@ export default function HomepageUsedBy() {
           </div>
           <div className={clsx("col col--12")}>
             <div className="container">
-              <div className="row">
+              <div className={clsx("row", "alignItemsCenter")}>
                 {companyList.map((props, idx) => (
                   <Company key={idx} {...props} />
                 ))}
               </div>
-                <div className="text--center">
-                  <h3> More than 4k enterprise users use sealos in production! </h3>
-                </div>
+              <div className="text--center">
+                <h3>More than 4k enterprise users use sealos in production!</h3>
+              </div>
             </div>
           </div>
         </div>
