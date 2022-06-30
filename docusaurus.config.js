@@ -122,8 +122,8 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "CloudImages",
+                to: "https://hub.docker.com/u/labring",
               },
               {
                 label: "GitHub",
