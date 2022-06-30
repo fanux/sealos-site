@@ -104,6 +104,10 @@ const config = {
                 label: "Stack Overflow",
                 href: "https://stackoverflow.com/questions/tagged/sealos",
               },
+              {
+                label: "Telegram",
+                href: "https://t.me/cloudnativer",
+              },
               // {
               //   label: "Discord",
               //   href: "https://discordapp.com/invite/docusaurus",
