@@ -85,11 +85,11 @@ const config = {
         style: "light",
         links: [
           {
-            title: "labring",
+            title: "Labring",
             items: [
               {
-                label: "company",
-                to: "/blog/company",
+                label: "Company",
+                to: "/company",
               },
             ],
           },
