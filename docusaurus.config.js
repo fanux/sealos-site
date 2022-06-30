@@ -129,6 +129,10 @@ const config = {
                 label: "GitHub",
                 href: "https://github.com/labring/sealos",
               },
+              {
+                label: "CloudNativeLab",
+                href: "https://icloudnative.io",
+              },
             ],
           },
         ],
