@@ -40,6 +40,22 @@ $ sealos run labring/minio-operator:v4.4.16
 
 ```mdx-code-block
 </TabItem>
+<TabItem value="network" label="Network">
+```
+
+```shell
+# Using flannel
+$ sealos run labring/flannel:v0.18.1
+
+# Using calico
+$ sealos run labring/calico:v3.22.1
+
+# Nginx ingress
+$ sealos run labring/ingress-nginx:4.1.0
+```
+
+```mdx-code-block
+</TabItem>
 <TabItem value="database" label="Database">
 ```
 
@@ -58,10 +74,13 @@ $ sealos run labring/redis-operator:3.1.4
 
 ```shell
 # Prometheus stack
-$ sealos run fanux/kube-prometheus-stack:35.0.0
+$ sealos run labring/kube-prometheus-stack:35.0.0
+
+# Metric server
+$ sealos run labring/metrics-server:v0.6.1
 
 # Any exporter
-$ sealos run fanux/redis-exporter:latest
+$ sealos run labring/redis-exporter:latest
 ```
 
 ```mdx-code-block
@@ -72,7 +91,7 @@ $ sealos run fanux/redis-exporter:latest
 ```shell
 # GPU driver, runtime tools, and controller
 # All in one~
-sealos run fanux/gpu-operator:v1.10.1
+sealos run labring/gpu-operator:v1.10.1
 ```
 
 ```mdx-code-block
@@ -82,8 +101,8 @@ sealos run fanux/gpu-operator:v1.10.1
 
 ```shell
 # Kafka HA, controller instance and exporter
-sealos run fanux/kafka-operator:0.28.0
-sealos run fanux/kafka-exporter:latest
+sealos run labring/kafka-operator:0.28.0
+sealos run labring/kafka-exporter:latest
 ```
 
 ```mdx-code-block
