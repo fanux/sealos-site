@@ -1,4 +1,4 @@
-# sealos apply
+# Apply cluster using Clusterfile
 
 ## Apply a Kubernetes cluster
 

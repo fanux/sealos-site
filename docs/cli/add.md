@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos add
+# Add kubernetes masters or nodes
 
 ## Add nodes
 

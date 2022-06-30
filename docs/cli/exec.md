@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos exec
+# Exec any command on any hosts
 
 ## Exec to default cluster
 

@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos detele
+# Delete masters or nodes
 
 ## Delete node
 
