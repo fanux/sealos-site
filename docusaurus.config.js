@@ -91,6 +91,10 @@ const config = {
                 label: "Company",
                 to: "/company",
               },
+              {
+                label: "Laf FaaS",
+                to: "https://github.com/labring/laf",
+              },
             ],
           },
           {
