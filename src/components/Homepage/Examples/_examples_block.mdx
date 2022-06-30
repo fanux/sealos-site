@@ -66,5 +66,27 @@ $ sealos run fanux/redis-exporter:latest
 
 ```mdx-code-block
 </TabItem>
+<TabItem value="gpu" label="GPU">
+```
+
+```shell
+# GPU driver, runtime tools, and controller
+# All in one~
+sealos run fanux/gpu-operator:v1.10.1
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="mq" label="MQ">
+```
+
+```shell
+# Kafka HA, controller instance and exporter
+sealos run fanux/kafka-operator:0.28.0
+sealos run fanux/kafka-exporter:latest
+```
+
+```mdx-code-block
+</TabItem>
 </Tabs>
 ```
