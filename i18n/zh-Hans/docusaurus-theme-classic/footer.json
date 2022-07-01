@@ -30,5 +30,29 @@
   "copyright": {
     "message": "Copyright © 2022 sealos. 使用 Docusaurus 搭建。",
     "description": "The footer copyright"
+  },
+  "link.title.Labring": {
+    "message": "Labring",
+    "description": "The title of the footer links column with title=Labring in the footer"
+  },
+  "link.item.label.Company": {
+    "message": "Company",
+    "description": "The label of footer link with label=Company linking to /company"
+  },
+  "link.item.label.Laf FaaS": {
+    "message": "Laf FaaS",
+    "description": "The label of footer link with label=Laf FaaS linking to https://github.com/labring/laf"
+  },
+  "link.item.label.Telegram": {
+    "message": "Telegram",
+    "description": "The label of footer link with label=Telegram linking to https://t.me/cloudnativer"
+  },
+  "link.item.label.CloudImages": {
+    "message": "CloudImages",
+    "description": "The label of footer link with label=CloudImages linking to https://hub.docker.com/u/labring"
+  },
+  "link.item.label.CloudNativeLab": {
+    "message": "CloudNativeLab",
+    "description": "The label of footer link with label=CloudNativeLab linking to https://icloudnative.io"
   }
 }

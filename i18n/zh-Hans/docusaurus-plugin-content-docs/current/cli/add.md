@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos add
+# 添加 kubernetes 节点
 
 ## 添加节点
 

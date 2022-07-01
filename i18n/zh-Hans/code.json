@@ -229,5 +229,81 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "展开侧边栏",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "Instant Create Examples": {
+    "message": "Instant Create Examples",
+    "description": "homepage instant create examples"
+  },
+  "Simple": {
+    "message": "Simple",
+    "description": "homepage simple"
+  },
+  "Any highly available distributed application on kubernetes can be installed with one click.": {
+    "message": "Any highly available distributed application on kubernetes can be installed with one click.",
+    "description": "homepage simple"
+  },
+  "Flexible": {
+    "message": "Flexible",
+    "description": "homepage flexible"
+  },
+  "Freely combine various distributed applications and easily customize the cloud you need.": {
+    "message": "Freely combine various distributed applications and easily customize the cloud you need.",
+    "description": "homepage flexible intro"
+  },
+  "Powerful": {
+    "message": "Powerful",
+    "description": "homepage powerful"
+  },
+  "Cloud services can be found and obtained in the application market, simple but powerful.": {
+    "message": "Cloud services can be found and obtained in the application market, simple but powerful.",
+    "description": "homepage flexible intro"
+  },
+  "Kernel Arch": {
+    "message": "Kernel Arch",
+    "description": "homepage kernel arch"
+  },
+  "Cloud Driver": {
+    "message": "Cloud Driver",
+    "description": "homepage kernel arch cloud driver"
+  },
+  "Using CRI CNI CSI as Cloud OS Drivers": {
+    "message": "Using CRI CNI CSI as Cloud OS Drivers",
+    "description": "homepage kernel arch cloud driver title"
+  },
+  "with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere": {
+    "message": "with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere",
+    "description": "homepage kernel arch cloud driver intro"
+  },
+  "Cloud Kernel": {
+    "message": "Cloud Kernel",
+    "description": "homepage kernel arch cloud kernel"
+  },
+  "Using kubernetes as Cloud OS Core": {
+    "message": "Using kubernetes as Cloud OS Core",
+    "description": "homepage kernel arch cloud kernel title"
+  },
+  "abstracting underlying resources / defining resource interfaces / standardizing application management": {
+    "message": "abstracting underlying resources / defining resource interfaces / standardizing application management",
+    "description": "homepage kernel arch cloud driver intro"
+  },
+  "Distributed Applications": {
+    "message": "Distributed Applications",
+    "description": "homepage kernel arch dist apps"
+  },
+  "Anything else as Cloud OS Applications": {
+    "message": "Anything else as Cloud OS Applications",
+    "description": "homepage kernel arch dis apps title"
+  },
+  "each combination to meet various requirements and scenarios": {
+    "message": "each combination to meet various requirements and scenarios",
+    "description": "homepage kernel arch cloud driver intro"
+  },
+  "Used By": {
+    "message": "Used By",
+    "description": "homepage used by"
+  },
+  "More than 4k enterprise users use sealos in production!": {
+    "message": "More than 4k enterprise users use sealos in production!",
+    "description": "homepage used by more comanies"
   }
 }

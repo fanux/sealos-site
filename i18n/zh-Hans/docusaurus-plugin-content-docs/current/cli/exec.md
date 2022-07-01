@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos exec
+# 在任意节点执行任意命令
 
 ## 指定 Exec 集群
 

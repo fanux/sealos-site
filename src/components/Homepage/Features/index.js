@@ -1,36 +1,37 @@
-import React from "react";
+import Translate from '@docusaurus/Translate';
 import clsx from "clsx";
+import React from "react";
 import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "Simple",
+    title: <Translate description="homepage simple">Simple</Translate>,
     Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
     description: (
-      <>
+      <Translate description="homepage simple">
         Any highly available distributed application on kubernetes can be
         installed with one click.
-      </>
+      </Translate>
     ),
   },
   {
-    title: "Flexible",
+    title: <Translate description="homepage flexible">Flexible</Translate>,
     Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
     description: (
-      <>
+      <Translate description="homepage flexible intro">
         Freely combine various distributed applications and easily customize the
         cloud you need.
-      </>
+      </Translate>
     ),
   },
   {
-    title: "Powerful",
+    title: <Translate description="homepage powerful">Powerful</Translate>,
     Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
-      <>
+      <Translate description="homepage flexible intro">
         Cloud services can be found and obtained in the application market,
         simple but powerful.
-      </>
+      </Translate>
     ),
   },
 ];

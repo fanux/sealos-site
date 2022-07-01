@@ -1,9 +1,68 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos build
+# Customize applications image
 
-## Build calico image offline
+## Example for build a CloudImage from helm
+
+This is an example for build nginx-ingress CloudImage using helm.
+
+### Download helm chart
+
+```shell script
+mkdir ingress-nginx && cd ingress-nginx
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm pull ingress-nginx/ingress-nginx
+```
+
+Then you will got the chart:
+```shell script
+root@iZj6ceuntkc5q5p95bbqb8Z:~/nginx-ingress# ls
+ingress-nginx-4.1.0.tgz
+```
+
+### Add image list
+
+sealos will download images in image list, and cache it into registry dir.
+The dir must be `images/shim/[your image list filename]`
+
+```shell script
+root@iZj6ceuntkc5q5p95bbqb8Z:~/nginx-ingress# cat images/shim/nginxImages 
+k8s.gcr.io/ingress-nginx/controller:v1.2.0
+k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+```
+
+### Add a Dockerfile
+
+```shell script
+root@iZj6ceuntkc5q5p95bbqb8Z:~/nginx-ingress# cat Dockerfile 
+FROM scratch
+COPY . .
+CMD ["helm install ingress-nginx ingress-nginx-4.1.0.tgz --namespace ingress-nginx --create-namespace"]
+```
+
+### Build it
+
+```shell script
+sealos build -f Dockerfile -t docker.io/fanux/ingress-nginx:v1.2.0 .
+```
+
+Then push it into registry
+
+```shell script
+sealos login docker.io
+sealos push docker.io/fanux/ingress-nginx:v1.2.0
+```
+
+### Run you applications image
+
+```shell script
+sealos run docker.io/fanux/ingress-nginx:v1.2.0
+```
+
+---
+
+## Build calico image
 
 ### Directory structure
 
@@ -23,13 +82,14 @@ import TabItem from '@theme/TabItem';
 
 ### Dockerfile
 
-We can build everything into a single image (`FROM labring/kubernetes`), or we can build multiple images where `FROM scratch` is used.
+We can build everything into a single image (`FROM labring/kubernetes`), 
+or we can build applications images where `FROM scratch` is used.
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="Single image" default>
 
 ```dockerfile
-FROM labring/kubernetes:v1.24.0-amd64
+FROM labring/kubernetes:v1.24.0
 COPY cni ./cni
 COPY images ./images
 COPY registry ./registry
@@ -37,7 +97,9 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 ```
 
   </TabItem>
-  <TabItem value="multiple" label="Multiple images">
+  <TabItem value="application" label="Application images">
+
+This image will not contains kubernetes, should run it on an already exist cluster.
 
 ```dockerfile
 FROM scratch
@@ -51,13 +113,13 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
   </TabItem>
 </Tabs>
 
-1. `CalicoImageList` is offline image list file.
+1. `CalicoImageList` is docker image list file.
 2. `cni` contains kubectl apply config files.
 3. `registry` is the registry data directory.
 4. `buildah build -t kubernetes-calico:1.24.0-amd64 --arch amd64 --os linux -f Kubefile .` builds the oci image.
-5. `manifests` parse yaml images to offline image list.
+5. `manifests` parse yaml images to docker image list.
 
-## Build calico image online
+## Build calico image 
 
 ### Directory structure
 
@@ -72,7 +134,9 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 ### Dockerfile
 
 <Tabs groupId="imageNum">
-  <TabItem value="single" label="Single image" default>
+  <TabItem value="single" label="All in one" default>
+  
+This image contains kubernetes and calico.
 
 ```dockerfile
 FROM labring/kubernetes:v1.24.0-amd64
@@ -81,8 +145,9 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 ```
 
   </TabItem>
-  <TabItem value="multiple" label="Multiple images">
+  <TabItem value="multiple" label="Application images">
 
+Only has calico images
 ```dockerfile
 FROM scratch
 COPY cni ./cni
@@ -95,7 +160,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 1. `cni` contains kubectl apply config files
 2. `buildah build -t kubernetes-calico:1.24.0-amd64 --arch amd64 --os linux -f Kubefile .` builds the oci image.
 
-## Build openebs image online
+## Build openebs image 
 
 ### Directory structure
 
@@ -112,7 +177,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 ### Dockerfile
 
 <Tabs groupId="imageNum">
-  <TabItem value="single" label="Single image" default>
+  <TabItem value="single" label="All in one" default>
 
 ```dockerfile
 FROM labring/oci-kubernetes-calico:1.24.0-amd64
@@ -122,7 +187,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 ```
 
   </TabItem>
-  <TabItem value="multiple" label="Multiple images">
+  <TabItem value="multiple" label="Application images">
 
 ```dockerfile
 FROM scratch
