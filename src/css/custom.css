@@ -47,3 +47,19 @@
 .alignItemsCenter {
   align-items: center;
 }
+.kernel-arch-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  margin-left: 4rem;
+}
+div.kernel-arch h3::before {
+  content: '';
+  width: 5px;
+  height: 20px;
+  background: var(--ifm-color-primary);
+  position: absolute;
+  border-radius: 5px;
+  transform: translateX(-10px);
+}
