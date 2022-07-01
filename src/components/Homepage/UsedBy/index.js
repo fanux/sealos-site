@@ -1,5 +1,6 @@
-import React from "react";
+import Translate from '@docusaurus/Translate';
 import clsx from "clsx";
+import React from "react";
 import styles from "./styles.module.css";
 
 const companyList = [
@@ -33,7 +34,9 @@ export default function HomepageUsedBy() {
       <div className="container">
         <div className="row">
           <div className={clsx("col")}>
-            <h3>Used By</h3>
+            <h3>
+              <Translate description="homepage used by">Used By</Translate>
+            </h3>
           </div>
           <div className={clsx("col col--12")}>
             <div className="container">
@@ -43,7 +46,11 @@ export default function HomepageUsedBy() {
                 ))}
               </div>
               <div className="text--center">
-                <h3>More than 4k enterprise users use sealos in production!</h3>
+                <h3>
+                  <Translate description="homepage used by more comanies">
+                    More than 4k enterprise users use sealos in production!
+                  </Translate>
+                </h3>
               </div>
             </div>
           </div>

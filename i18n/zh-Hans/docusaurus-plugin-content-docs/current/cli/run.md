@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# sealos run
+# 运行 kubernetes 集群/应用组
 
 ## 运行 calico
 
@@ -51,3 +51,12 @@ $ sealos run labring/openebs:3.1.0
 
   </TabItem>
 </Tabs>
+
+
+## 复写应用命令
+
+`--cmd` 可以复写 Kubefile(Dockerfile) 里面的命令
+
+```shell script
+sealos run labring/mysql-operator:8.0.23-14.1 --cmd "kubectl apply -f ."
+```

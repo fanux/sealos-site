@@ -1,5 +1,6 @@
-import React from "react";
+import Translate from "@docusaurus/Translate";
 import clsx from "clsx";
+import React from "react";
 import styles from "./styles.module.css";
 
 export default function HomepageKernelArch() {
@@ -8,7 +9,11 @@ export default function HomepageKernelArch() {
       <div className="container">
         <div className="row">
           <div className={clsx("col col--12")}>
-            <h3>Kernel Arch</h3>
+            <h3>
+              <Translate description="homepage kernel arch">
+                Kernel Arch
+              </Translate>
+            </h3>
           </div>
           <div className={clsx("col col--12")}>
             <div className="container">
@@ -21,25 +26,51 @@ export default function HomepageKernelArch() {
                 </div>
                 <div className={clsx("col col--8")}>
                   <div className={clsx("text--center padding-horiz--md")}>
-                    <h3>Cloud Driver</h3>
+                    <h3>
+                      <Translate description="homepage kernel arch cloud driver">
+                        Cloud Driver
+                      </Translate>
+                    </h3>
                     <p>
-                      Using CRI CNI CSI as Cloud OS Drivers, <br />
-                      with compute/storage/network like
-                      containerd/calico/openebs to pooling every resource
-                      everywhere
-                    </p>
-                    <h3>Cloud Kernel</h3>
-                    <p>
-                      Using kubernetes as Cloud OS Core, <br />
-                      abstracting underlying resources / defining resource
-                      interfaces / standardizing application management
-                    </p>
-                    <h3>Distributed Applications</h3>
-                    <p>
-                      Anything else as Cloud OS Applications,
+                      <Translate description="homepage kernel arch cloud driver title">
+                        Using CRI CNI CSI as Cloud OS Drivers
+                      </Translate>
                       <br />
-                      each combination to meet various requirements and
-                      scenarios
+                      <Translate description="homepage kernel arch cloud driver intro">
+                        with compute/storage/network like
+                        containerd/calico/openebs to pooling every resource
+                        everywhere
+                      </Translate>
+                    </p>
+                    <h3>
+                      <Translate description="homepage kernel arch cloud kernel">
+                        Cloud Kernel
+                      </Translate>
+                    </h3>
+                    <p>
+                      <Translate description="homepage kernel arch cloud kernel title">
+                        Using kubernetes as Cloud OS Core
+                      </Translate>
+                      <br />
+                      <Translate description="homepage kernel arch cloud driver intro">
+                        abstracting underlying resources / defining resource
+                        interfaces / standardizing application management
+                      </Translate>
+                    </p>
+                    <h3>
+                      <Translate description="homepage kernel arch dist apps">
+                        Distributed Applications
+                      </Translate>
+                    </h3>
+                    <p>
+                      <Translate description="homepage kernel arch dis apps title">
+                        Anything else as Cloud OS Applications
+                      </Translate>
+                      <br />
+                      <Translate description="homepage kernel arch cloud driver intro">
+                        each combination to meet various requirements and
+                        scenarios
+                      </Translate>
                     </p>
                   </div>
                 </div>
