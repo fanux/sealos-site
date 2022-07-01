@@ -6,5 +6,9 @@
   "item.label.Blog": {
     "message": "博客",
     "description": "Navbar item with label Blog"
+  },
+  "item.label.API": {
+    "message": "API",
+    "description": "Navbar item with label API"
   }
 }
