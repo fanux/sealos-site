@@ -107,9 +107,9 @@ sealos 系统上分布式应用是一等公民，未来有十万级应用满足�
 
 所以 sealos 上会跑各种应用，数据库/消息/AI 能力/甚至 SaaS软件
 
-sealos 当前应用覆盖：
+sealos 当前应用覆盖(20+ 款)：
 
-- 函数计算 laf
+- 函数计算 laf (自研)
 - 数据库 mysql clickhouse redis
 - 消息队列 kafka
 - GPU 
