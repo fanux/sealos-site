@@ -124,6 +124,10 @@ const config = {
                 label: "Laf FaaS",
                 to: "https://github.com/labring/laf",
               },
+              {
+                label: "sealyun (older version)",
+                to: "https://sealyun.com",
+              },
             ],
           },
           {
