@@ -94,7 +94,7 @@ $ sealos run labring/redis-exporter:latest
 ```shell
 # GPU driver, runtime tools, and controller
 # All in one~
-sealos run labring/gpu-operator:v1.10.1
+$ sealos run labring/gpu-operator:v1.10.1
 ```
 
 ```mdx-code-block
@@ -104,8 +104,18 @@ sealos run labring/gpu-operator:v1.10.1
 
 ```shell
 # Kafka HA, controller instance and exporter
-sealos run labring/kafka-operator:0.28.0
-sealos run labring/kafka-exporter:latest
+$ sealos run labring/kafka-operator:0.28.0
+$ sealos run labring/kafka-exporter:latest
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="dashboard" label="Dashboard">
+```
+
+```shell
+# Kubernetes-dashboard:v1.0.8
+$ sealos run docker.io/labring/kubernetes-dashboard:v1.0.8
 ```
 
 ```mdx-code-block
