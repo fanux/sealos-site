@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 const FeatureList = [
   {
     title: <Translate description="homepage simple">Simple</Translate>,
-    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
+    Svg: require("@site/static/illustrations/features.svg").default,
     description: (
       <Translate description="homepage simple">
         Any highly available distributed application on kubernetes can be
@@ -16,7 +16,7 @@ const FeatureList = [
   },
   {
     title: <Translate description="homepage flexible">Flexible</Translate>,
-    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
+    Svg: require("@site/static/illustrations/flexible.svg").default,
     description: (
       <Translate description="homepage flexible intro">
         Freely combine various distributed applications and easily customize the
@@ -26,7 +26,7 @@ const FeatureList = [
   },
   {
     title: <Translate description="homepage powerful">Powerful</Translate>,
-    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    Svg: require("@site/static/illustrations/powerful.svg").default,
     description: (
       <Translate description="homepage flexible intro">
         Cloud services can be found and obtained in the application market,
