@@ -10,9 +10,5 @@
   "item.label.API": {
     "message": "API",
     "description": "Navbar item with label API"
-  },
-  "item.label.About": {
-    "message": "关于",
-    "description": "Navbar item with label About"
   }
 }

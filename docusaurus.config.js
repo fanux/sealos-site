@@ -98,7 +98,6 @@ const config = {
             label: "API",
           },
           { to: "/blog", label: "Blog", position: "left" },
-          { to: "/about", label: "About", position: "left" },
           {
             type: "localeDropdown",
             position: "right",
