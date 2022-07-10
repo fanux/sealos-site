@@ -14,7 +14,7 @@ const companyList = [
     img: require("@site/static/img/usedby/iflytek.png").default,
   },
   {
-    img: require("@site/static/img/usedby/51talk.jpeg").default,
+    img: require("@site/static/img/usedby/haikang.png").default,
   },
 ];
 
