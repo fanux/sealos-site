@@ -128,7 +128,7 @@ const config = {
               },
               {
                 label: "sealyun (older version)",
-                to: "https://sealyun.com",
+                to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
               },
             ],
           },
