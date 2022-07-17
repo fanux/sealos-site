@@ -116,6 +116,16 @@ $ sealos run labring/kafka-exporter:latest
 ```shell
 # Kubernetes-dashboard:v1.0.8
 $ sealos run docker.io/labring/kubernetes-dashboard:v1.0.8
+
+# How to access
+# You can run this command by local kubectl 
+$ kubectl proxy
+# then access dashboard at http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+# Or you can access dashboard by server-side kubectl
+$ kubectl port-forward -n kubernetes-dashboard --address 0.0.0.0 svc/kubernetes-dashboard <custom port>:443
+# then access https://<server url>:<custom port> in your browser and type "thisisunsafe" to ignore problems of self-signed certificate
+
 ```
 
 ```mdx-code-block
