@@ -1,105 +1,123 @@
----
-sidebar_position: 1
----
 # OpenStreetMap Navigation Service
 
 ## Introduction
-![17359201.jpeg](https://cdn.nlark.com/yuque/0/2022/jpeg/2813039/1658039528549-a4c8afc5-dec7-410e-936e-a2792f4aa00d.jpeg#clientId=u95fef11c-37bb-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=323&id=u0dc000cc&margin=%5Bobject%20Object%5D&name=17359201.jpeg&originHeight=645&originWidth=994&originalType=binary&ratio=1&rotation=0&showTitle=false&size=150646&status=done&style=none&taskId=u9f7898ac-4f3b-4df2-931c-e9ac54013d5&title=&width=497)<br />路径规划（routing）是业务中常用的一项通用服务，核心是为了解决点到点的距离和时间预估问题。在物流行业，外卖行业以及供应链行业中，应用尤为普遍。路径规划需要基于真实的地图信息，模拟计算两点之间的实际行驶路径，包括距离信息，耗时信息，道路的导航信息。由于受通用交通管制等因素，现实活动物体类型不一样，会有不同的导航路径，常见有：小汽车导航，步行导航，以及自行车导航等，完备的路径规划服务需要支持多种导航类型。<br />目前国内外市面上提供路径规划服务的厂商比较少，国内有高德，百度，国外有google和here。对于中小型企业来说，使用上述商业服务通常面临很大的成本支出。普通规模的调用量而言，每年要花费几十万元的调用成本支出，这还不包括QPS和RT限制。通常日常企业使用场景并不追求超高导航精度，只要规划准确率大于90%以上都能接受。<br />基于openStreetMap的路径规划服务是不二之选。采用开放性地图数据构建路径规划服务，可以帮助企业大幅降低服务成本，而且能降低业务对地图服务厂商的强依赖。对于需要高QPS，低RT，以及大规模矩阵计算的场景下，该服务是最适应不过的。
 
+![17359201.jpeg](https://cdn.nlark.com/yuque/0/2022/jpeg/2813039/1658039528549-a4c8afc5-dec7-410e-936e-a2792f4aa00d.jpeg#clientId=u95fef11c-37bb-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=323&id=u0dc000cc&margin=%5Bobject%20Object%5D&name=17359201.jpeg&originHeight=645&originWidth=994&originalType=binary&ratio=1&rotation=0&showTitle=false&size=150646&status=done&style=none&taskId=u9f7898ac-4f3b-4df2-931c-e9ac54013d5&title=&width=497)
+
+路径规划（routing）是业务中常用的一项通用服务，核心是为了解决点到点的距离和时间预估问题。在物流行业，外卖行业以及供应链行业中，应用尤为普遍。路径规划需要基于真实的地图信息，模拟计算两点之间的实际行驶路径，包括距离信息，耗时信息，道路的导航信息。由于受通用交通管制等因素，现实活动物体类型不一样，会有不同的导航路径，常见有：小汽车导航，步行导航，以及自行车导航等，完备的路径规划服务需要支持多种导航类型。
+
+目前国内外市面上提供路径规划服务的厂商比较少，国内有高德，百度，国外有 google 和 here。对于中小型企业来说，使用上述商业服务通常面临很大的成本支出。普通规模的调用量而言，每年要花费几十万元的调用成本支出，这还不包括 QPS 和 RT 限制。通常日常企业使用场景并不追求超高导航精度，只要规划准确率大于 90%以上都能接受。
+
+基于 openStreetMap 的路径规划服务是不二之选。采用开放性地图数据构建路径规划服务，可以帮助企业大幅降低服务成本，而且能降低业务对地图服务厂商的强依赖。对于需要高 QPS，低 RT，以及大规模矩阵计算的场景下，该服务是最适应不过的。
 
 ### 服务优势
+
 #### 服务免费
 
-1. SaaS服务完全免费，可提供中国全境的路径导航服务；
-1. 无QPS限制；
-1. 无RT限制；
+1. SaaS 服务完全免费，可提供中国全境的路径导航服务；
+1. 无 QPS 限制；
+1. 无 RT 限制；
 
 #### 支持私有云部署
-与sealos深度整合，可提供一站式的私有云部署能力；
+
+与 sealos 深度整合，可提供一站式的私有云部署能力；
 
 #### 高性能
 
-1. SaaS服务公网调用评估RT为50ms，远小于其他服务厂商；
-1. 本地镜像服务调用平均RT在5ms左右；
+1. SaaS 服务公网调用评估 RT 为 50ms，远小于其他服务厂商；
+1. 本地镜像服务调用平均 RT 在 5ms 左右；
 
 #### 矩阵计算
-对于规划类应用场景，距离或者时间的矩阵计算通常是必须的。基于OSM的路径规划服务可提供强大的矩阵计算服务。矩阵规划经过我们长期的算法优化后，RT大幅降低，可支持10000*10000的超大矩阵计算。
+
+对于规划类应用场景，距离或者时间的矩阵计算通常是必须的。基于 OSM 的路径规划服务可提供强大的矩阵计算服务。矩阵规划经过我们长期的算法优化后，RT 大幅降低，可支持 10000\*10000 的超大矩阵计算。
 
 #### 地图数据高频更新
-对于SaaS服务而言，背后的地图数据我们会高频定期更新，每周会基于最新的OSM数据构建新的地图网络。
+
+对于 SaaS 服务而言，背后的地图数据我们会高频定期更新，每周会基于最新的 OSM 数据构建新的地图网络。
 
 #### 地图精度高
-基于中国地图数据，在500KM内随机采样，分别调用如下三种服务获取距离数据：
+
+基于中国地图数据，在 500KM 内随机采样，分别调用如下三种服务获取距离数据：
 
 1. 高德导航；
 1. 精确球面距离计算；
-1. OSM导航服务；
+1. OSM 导航服务；
 
 下图为三种服务计算出的距离曲线图：
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/2813039/1657940729578-3e2b90ca-0c1c-4a42-982e-87214b95b111.png#clientId=u8b1d96b9-43c1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=590&id=u7f0df675&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1180&originWidth=1830&originalType=binary&ratio=1&rotation=0&showTitle=false&size=182888&status=done&style=none&taskId=u22e832c6-a4c8-4269-b2f8-ff6d8cb3558&title=&width=915)<br />可以看出球面直线计算的距离偏差很大，并且距离越大，偏差的距离绝对值越高。而OSM导航与高德导航非常接近。为了进一步分析OSM导航精确度，我们绘制了误差率曲线：
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/2813039/1657940729578-3e2b90ca-0c1c-4a42-982e-87214b95b111.png#clientId=u8b1d96b9-43c1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=590&id=u7f0df675&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1180&originWidth=1830&originalType=binary&ratio=1&rotation=0&showTitle=false&size=182888&status=done&style=none&taskId=u22e832c6-a4c8-4269-b2f8-ff6d8cb3558&title=&width=915)
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/2813039/1657940736854-f26ed0d9-a0ea-4f1b-a8aa-44ea2a72989b.png#clientId=u8b1d96b9-43c1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=590&id=u3cb9a0fa&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1180&originWidth=1918&originalType=binary&ratio=1&rotation=0&showTitle=false&size=809425&status=done&style=none&taskId=uff685448-225a-4e31-a9e9-322ca717a1f&title=&width=959)<br />可以看出球面距离计算的准确率通常在15%以上，短距离可以达到25%。而OSM导航可以将准确率控制在5%以下，距离越大准确率越高。能够满足业务绝大多数的使用场景。
+可以看出球面直线计算的距离偏差很大，并且距离越大，偏差的距离绝对值越高。而 OSM 导航与高德导航非常接近。为了进一步分析 OSM 导航精确度，我们绘制了误差率曲线：
 
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/2813039/1657940736854-f26ed0d9-a0ea-4f1b-a8aa-44ea2a72989b.png#clientId=u8b1d96b9-43c1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=590&id=u3cb9a0fa&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1180&originWidth=1918&originalType=binary&ratio=1&rotation=0&showTitle=false&size=809425&status=done&style=none&taskId=uff685448-225a-4e31-a9e9-322ca717a1f&title=&width=959)
+
+可以看出球面距离计算的准确率通常在 15%以上，短距离可以达到 25%。而 OSM 导航可以将准确率控制在 5%以下，距离越大准确率越高。能够满足业务绝大多数的使用场景。
 
 ## Installation
 
 Not available for free.
 
-
 ## API
+
 ### Address
-[http://116.204.64.253:7002/avatarsolver-portal/route/navigate](http://116.204.64.253:7002/avatarsolver-portal/route/navigate)<br />Request Type：POST<br />Content-Type：application/json
+
+[http://116.204.64.253:7002/avatarsolver-portal/route/navigate](http://116.204.64.253:7002/avatarsolver-portal/route/navigate)
+
+Request Type：POST
+
+Content-Type：application/json
 
 ### Parameters
 
 1. request
 
-| 字段名 | 字段说明 |
-| --- | --- |
-| key | API调用秘钥<br />1. 一般用户请填写："91cb09e7-72b7-4094-839e-166bdc279e01"<br />1. 私人定制用户请联系客服获取秘钥<br /> |
-| gisStandardType | 经纬度的标准类型：<br />1. GCJ02：中国标准，国内大多数地图提供商即采用这一标准，譬如：高德地图；<br />1. WGS84：国际标准，海外地图即采用这一标准，譬如：谷歌地图；<br /> |
-| startPosition | 始发地经纬度：<br />1. lon：经度<br />1. lat：纬度<br /> |
-| endPosition | 目的地经纬度：<br />1. lon：经度<br />1. lat：纬度<br /> |
-| needRouteDetail | 是否需要导航描述<br />true：需要<br />false：不需要 |
-| instructionLangType | 导航描述语言类型：<br />1. 中文<br />1. 日文<br />1. 英文<br /> |
-| drivingType | 导航类型：<br />car：小汽车<br />motorcycle：摩托车<br />bike：自行车<br />foot：步行 |
+| 字段名              | 字段说明                                                                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| key                 | API 调用秘钥<br />1. 一般用户请填写："91cb09e7-72b7-4094-839e-166bdc279e01"<br />1. 私人定制用户请联系客服获取秘钥<br />                                                 |
+| gisStandardType     | 经纬度的标准类型：<br />1. GCJ02：中国标准，国内大多数地图提供商即采用这一标准，譬如：高德地图；<br />1. WGS84：国际标准，海外地图即采用这一标准，譬如：谷歌地图；<br /> |
+| startPosition       | 始发地经纬度：<br />1. lon：经度<br />1. lat：纬度<br />                                                                                                                 |
+| endPosition         | 目的地经纬度：<br />1. lon：经度<br />1. lat：纬度<br />                                                                                                                 |
+| needRouteDetail     | 是否需要导航描述<br />true：需要<br />false：不需要                                                                                                                      |
+| instructionLangType | 导航描述语言类型：<br />1. 中文<br />1. 日文<br />1. 英文<br />                                                                                                          |
+| drivingType         | 导航类型：<br />car：小汽车<br />motorcycle：摩托车<br />bike：自行车<br />foot：步行                                                                                    |
 
 2. return
 
-| 字段名 | 字段说明 |
-| --- | --- |
-| success | 调用是否成功 |
-| errorCode | 错误码<br />CB00001 : 业务异常，通常是业务逻辑异常导致，请仔细检测您的参数，请不要传入海外地图参数；<br />CB00002: 系统异常，通常是系统错误导致，请联系客服处理<br />CB00003: 无效参数，通常是入参格式不正确，请基于示例检测您的入参<br />CB0004: JSON解析失败 |
-| errorMsg | 错误信息 |
-| appendMsg | 额外错误说明 |
-| distance | 距离，单位米 |
-| duration | 时间，单位秒 |
-| wayPointList | 途经点列表 |
-| instructionInfos | 导航描述列表 |
+| 字段名           | 字段说明                                                                                                                                                                                                                                                        |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success          | 调用是否成功                                                                                                                                                                                                                                                    |
+| errorCode        | 错误码<br />CB00001 : 业务异常，通常是业务逻辑异常导致，请仔细检测您的参数，请不要传入海外地图参数；<br />CB00002: 系统异常，通常是系统错误导致，请联系客服处理<br />CB00003: 无效参数，通常是入参格式不正确，请基于示例检测您的入参<br />CB0004: JSON 解析失败 |
+| errorMsg         | 错误信息                                                                                                                                                                                                                                                        |
+| appendMsg        | 额外错误说明                                                                                                                                                                                                                                                    |
+| distance         | 距离，单位米                                                                                                                                                                                                                                                    |
+| duration         | 时间，单位秒                                                                                                                                                                                                                                                    |
+| wayPointList     | 途经点列表                                                                                                                                                                                                                                                      |
+| instructionInfos | 导航描述列表                                                                                                                                                                                                                                                    |
 
 ### Examples
 
 1. request
+
 ```json
 {
-  "key":"91cb09e7-72b7-4094-839e-166bdc279e01",
-  "gisStandardType":"GCJ02",
-  "startPosition":{
-    "lon":118.77087540907952,
-    "lat":31.97373869999062
+  "key": "91cb09e7-72b7-4094-839e-166bdc279e01",
+  "gisStandardType": "GCJ02",
+  "startPosition": {
+    "lon": 118.77087540907952,
+    "lat": 31.97373869999062
   },
-  "endPosition":{
-    "lon":118.81768217678243,
-    "lat":31.95568524518241
+  "endPosition": {
+    "lon": 118.81768217678243,
+    "lat": 31.95568524518241
   },
-  "needRouteDetail":true,
-  "instructionLangType":1,
-  "drivingType":"car"
+  "needRouteDetail": true,
+  "instructionLangType": 1,
+  "drivingType": "car"
 }
 ```
 
 2. return
+
 ```json
 {
   "success": true,

@@ -20,7 +20,7 @@
     "description": "The label for category Developers in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.AI Applications": {
-    "message": "AI应用",
+    "message": "AI 应用",
     "description": "The label for category AI Applications in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.Examples": {

@@ -81,7 +81,7 @@ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1 \
 
 > 构建一个自定义集群镜像
 
-见 [构建一个集群镜像](https://www.sealos.io/zh-Hans/docs/getting-started/build-example-cloudimage)。
+见 [构建一个集群镜像](https://www.sealos.io/zh-Hans/docs/examples/build-example-cloudimage)。
 
 > 存储/消息/数据库 等
 

@@ -79,7 +79,7 @@ $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1 \
 
 > Building a custom cluster image
 
-See [Building an Example CloudImage](https://www.sealos.io/docs/getting-started/build-example-cloudimage).
+See [Building an Example CloudImage](https://www.sealos.io/docs/examples/build-example-cloudimage).
 
 > Storage, message queue, database, etc.
 
