@@ -108,7 +108,7 @@ osm:
 helm package .
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/519707/1657721770893-5b71b9ae-ac73-4234-967e-7b3082b1bd3c.png#clientId=u29229bf7-930e-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=126&id=u4e68d5e1&margin=%5Bobject%20Object%5D&name=image.png&originHeight=157&originWidth=1111&originalType=binary&ratio=1&rotation=0&showTitle=false&size=23854&status=done&style=none&taskId=u84274291-424e-4297-8aa7-cb4ab759492&title=&width=888.8)
+![image](https://user-images.githubusercontent.com/14962503/179480436-aa3fcf60-a89c-4f84-bb92-c5762f64d91a.png)
 
 ### Modify image list
 
@@ -125,7 +125,7 @@ COPY . .
 CMD ["helm install osm scienson-osm-0.1.1.tgz --namespace osm --create-namespace"]
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/519707/1657721919703-0840ad97-bdad-4dad-b0ff-1e6abb85291f.png#clientId=u29229bf7-930e-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=197&id=ue45b916d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=246&originWidth=981&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32660&status=done&style=none&taskId=ua49941f8-3706-4cb7-97dc-8e2eac73b96&title=&width=784.8)
+![image](https://user-images.githubusercontent.com/14962503/179480360-87b813a6-de85-4829-a801-3cd82cd8f604.png)
 
 ### Build cluster image
 
