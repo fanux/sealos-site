@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "sealos",
   tagline: "Kubernetes-kernel-based cloud os! Let's sealos run kubernetes",
-  url: "https://docs.sealos.io",
+  url: "https://sealos.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -143,14 +143,6 @@ const config = {
                 label: "Telegram",
                 href: "https://t.me/cloudnativer",
               },
-              // {
-              //   label: "Discord",
-              //   href: "https://discordapp.com/invite/docusaurus",
-              // },
-              // {
-              //   label: "Twitter",
-              //   href: "https://twitter.com/docusaurus",
-              // },
             ],
           },
           {
