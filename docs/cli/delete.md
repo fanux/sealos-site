@@ -1,9 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Delete masters or nodes
-
-## Delete node
+# Delete Kubernetes masters or nodes
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="Node" default>

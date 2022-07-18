@@ -26,5 +26,9 @@
   "sidebar.docSidebar.category.Examples": {
     "message": "案例",
     "description": "The label for category Examples in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Design": {
+    "message": "设计",
+    "description": "The label for category Design in sidebar docSidebar"
   }
 }

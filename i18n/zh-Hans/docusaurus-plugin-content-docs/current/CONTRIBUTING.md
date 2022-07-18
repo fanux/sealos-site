@@ -68,7 +68,7 @@ Since you are ready to improve sealos with a PR, we suggest you could take a loo
 
 To put forward a PR, we assume you have registered a GitHub ID. Then you could finish the preparation in the following steps:
 
-1. **FORK** sealos to your repository. To make this work, you just need to click the button Fork in right-left of [labring/sealos](https://github.com/labring/sealos) main page. Then you will end up with your repository in `https://github.com/<your-username>/sealos`, in which `your-username` is your GitHub username.
+1. **FORK** sealos to your repository. To make this work, you just need to click the button Fork in right-left of [fanux/sealos](https://github.com/labring/sealos) main page. Then you will end up with your repository in `https://github.com/<your-username>/sealos`, in which `your-username` is your GitHub username.
 
 1. **CLONE** your own repository to master locally. Use `git clone https://github.com/<your-username>/sealos.git` to clone repository to your local machine. Then you can create new branches to finish the change you wish to make.
 
@@ -100,7 +100,7 @@ To put forward a PR, we assume you have registered a GitHub ID. Then you could f
    git fetch upstream
    git checkout main
    git rebase upstream/main
-   git push # default origin, update your forked repository
+   git push	# default origin, update your forked repository
    ```
 
    Create a new branch:
@@ -115,8 +115,8 @@ To put forward a PR, we assume you have registered a GitHub ID. Then you could f
 
    ```shell
    golangci-lint run -c .golangci.yml # lint
-   git commit -a -m "message for your changes" # -a is git add .
-   git rebase -i <commit-id> # do this if your pr has multiple commits
+   git commit -a -s -m "message for your changes" # -a is git add ., -s adds a Signed-off-by trailer
+   git rebase -i	<commit-id> # do this if your pr has multiple commits
    git push # push to your forked repository after rebase done
    ```
 
@@ -179,7 +179,7 @@ As a contributor, if you want to make any contribution to sealos project, we sho
 Here are some dependents with specific version:
 
 - golang : v1.16+
-- golangci-lint: 1.39.0
+- golangci-lint: 1.46.2
 
 When you develop the sealos project at the local environment, you should use subcommands of Makefile to help yourself to check and build the latest version of sealos. For the convenience of developers, we use the docker to build sealos. It can reduce problems of the developing environment.
 
