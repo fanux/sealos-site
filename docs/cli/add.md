@@ -1,9 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Add kubernetes masters or nodes
-
-## Add nodes
+# Add Kubernetes masters or nodes
 
 <Tabs groupId="add_type">
   <TabItem value="add_node" label="Node" default>
@@ -14,7 +12,7 @@ $ sealos add --nodes x.x.x.x
 
   </TabItem>
 
-  <TabItem value="add_default cluster" label="Default cluster" default>
+  <TabItem value="add_default_cluster" label="Default cluster" default>
 
 ```shell
 $ sealos add --masters x.x.x.x --nodes x.x.x.x

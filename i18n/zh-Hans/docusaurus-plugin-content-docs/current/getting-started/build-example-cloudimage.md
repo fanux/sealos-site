@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # 构建一个 Ingress 集群镜像
 
 这里展示了如何用 helm 构建一个 nginx-ingress 集群镜像。

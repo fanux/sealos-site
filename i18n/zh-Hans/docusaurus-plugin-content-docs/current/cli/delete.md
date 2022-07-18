@@ -1,9 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 删除节点
-
-## 删除节点
+# 删除 Kubernetes 节点
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="节点" default>

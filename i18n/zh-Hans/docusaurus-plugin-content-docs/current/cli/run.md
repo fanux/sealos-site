@@ -1,9 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 运行 kubernetes 集群/应用组
+# 运行 Kubernetes 集群/应用组
 
-## 运行 calico
+## 运行 Calico
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="单个镜像" default>
@@ -27,7 +27,7 @@ $ sealos run labring/kubernetes:v1.24.0 \
   </TabItem>
 </Tabs>
 
-## 运行 openebs
+## 运行 OpenEBS
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="单个镜像" default>
@@ -52,10 +52,9 @@ $ sealos run labring/openebs:3.1.0
   </TabItem>
 </Tabs>
 
+## 覆盖应用命令
 
-## 复写应用命令
-
-`--cmd` 可以复写 Kubefile(Dockerfile) 里面的命令
+`--cmd` 可以覆盖 Kubefile(Dockerfile) 里面的命令
 
 ```shell script
 sealos run labring/mysql-operator:8.0.23-14.1 --cmd "kubectl apply -f ."

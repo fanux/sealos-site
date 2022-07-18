@@ -1,9 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 添加 kubernetes 节点
-
-## 添加节点
+# 添加 Kubernetes 节点
 
 <Tabs groupId="add_type">
   <TabItem value="add_node" label="节点" default>

@@ -18,5 +18,9 @@
   "sidebar.docSidebar.category.Developers": {
     "message": "开发者",
     "description": "The label for category Developers in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Design": {
+    "message": "设计",
+    "description": "The label for category Design in sidebar docSidebar"
   }
 }

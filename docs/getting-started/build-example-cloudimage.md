@@ -1,6 +1,10 @@
+---
+sidebar_position: 2
+---
+
 # Building an Example CloudImage
 
-This is an example for build nginx-ingress CloudImage using helm.
+This is an example for building an nginx-ingress CloudImage using helm.
 
 ## Download helm chart
 

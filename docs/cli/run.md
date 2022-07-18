@@ -1,9 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Run a kubernetes cluster or applications
+# Run a Kubernetes cluster or applications
 
-## Run calico
+## Run Calico
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="One Image" default>
@@ -27,7 +27,7 @@ $ sealos run labring/kubernetes:v1.24.0 \
   </TabItem>
 </Tabs>
 
-## Run openebs
+## Run OpenEBS
 
 <Tabs groupId="imageNum">
   <TabItem value="single" label="One Image" default>
@@ -52,9 +52,9 @@ $ sealos run labring/openebs:3.1.0
   </TabItem>
 </Tabs>
 
-## Overwrite application CMD
+## Override application CMD
 
-`--cmd` will overwrite the cmd in Kubefile(Dockerfile)
+`--cmd` will override the cmd in Kubefile(Dockerfile)
 
 ```shell script
 sealos run labring/mysql-operator:8.0.23-14.1 --cmd "kubectl apply -f ."

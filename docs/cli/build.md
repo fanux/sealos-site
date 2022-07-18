@@ -3,64 +3,9 @@ import TabItem from '@theme/TabItem';
 
 # Customize applications image
 
-## Example for build a CloudImage from helm
+## Build a CloudImage from helm
 
-This is an example for build nginx-ingress CloudImage using helm.
-
-### Download helm chart
-
-```shell script
-mkdir ingress-nginx && cd ingress-nginx
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm pull ingress-nginx/ingress-nginx
-```
-
-Then you will got the chart:
-```shell script
-root@iZj6ceuntkc5q5p95bbqb8Z:~/nginx-ingress# ls
-ingress-nginx-4.1.0.tgz
-```
-
-### Add image list
-
-sealos will download images in image list, and cache it into registry dir.
-The dir must be `images/shim/[your image list filename]`
-
-```shell script
-root@iZj6ceuntkc5q5p95bbqb8Z:~/nginx-ingress# cat images/shim/nginxImages 
-k8s.gcr.io/ingress-nginx/controller:v1.2.0
-k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
-```
-
-### Add a Dockerfile
-
-```shell script
-root@iZj6ceuntkc5q5p95bbqb8Z:~/nginx-ingress# cat Dockerfile 
-FROM scratch
-COPY . .
-CMD ["helm install ingress-nginx ingress-nginx-4.1.0.tgz --namespace ingress-nginx --create-namespace"]
-```
-
-### Build it
-
-```shell script
-sealos build -f Dockerfile -t docker.io/fanux/ingress-nginx:v1.2.0 .
-```
-
-Then push it into registry
-
-```shell script
-sealos login docker.io
-sealos push docker.io/fanux/ingress-nginx:v1.2.0
-```
-
-### Run you applications image
-
-```shell script
-sealos run docker.io/fanux/ingress-nginx:v1.2.0
-```
-
----
+See [Building an Example CloudImage](../getting-started/build-example-cloudimage.md).
 
 ## Build calico image
 
@@ -82,7 +27,7 @@ sealos run docker.io/fanux/ingress-nginx:v1.2.0
 
 ### Dockerfile
 
-We can build everything into a single image (`FROM labring/kubernetes`), 
+We can build everything into a single image (`FROM labring/kubernetes`),
 or we can build applications images where `FROM scratch` is used.
 
 <Tabs groupId="imageNum">
@@ -119,7 +64,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 4. `buildah build -t kubernetes-calico:1.24.0-amd64 --arch amd64 --os linux -f Kubefile .` builds the oci image.
 5. `manifests` parse yaml images to docker image list.
 
-## Build calico image 
+## Build calico image
 
 ### Directory structure
 
@@ -148,6 +93,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
   <TabItem value="multiple" label="Application images">
 
 Only has calico images
+
 ```dockerfile
 FROM scratch
 COPY cni ./cni
@@ -160,7 +106,7 @@ CMD ["kubectl apply -f cni/tigera-operator.yaml","kubectl apply -f cni/custom-re
 1. `cni` contains kubectl apply config files
 2. `buildah build -t kubernetes-calico:1.24.0-amd64 --arch amd64 --os linux -f Kubefile .` builds the oci image.
 
-## Build openebs image 
+## Build openebs image
 
 ### Directory structure
 

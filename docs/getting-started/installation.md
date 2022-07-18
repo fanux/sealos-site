@@ -1,13 +1,11 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Installation
-
-## Install sealos
 
 <Tabs groupId="arch">
   <TabItem value="amd64" label="amd64" default>

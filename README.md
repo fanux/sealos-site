@@ -2,11 +2,11 @@
 
 SealOS website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## Contains:
+## Notes for contribution
 
-1. Main Site
-2. Docs Site
-3. Blog Site
+Please do not change anything under `docs` and `i18n/zh-Hans/docusaurus-plugin-content-docs/current` as they are automatically synchronized from [sealos/docs/4.0](https://github.com/labring/sealos/tree/main/docs/4.0).
+
+## Development
 
 ### Requirements
 
@@ -22,7 +22,7 @@ This command starts a local development server and opens up a browser window. Mo
 $ yarn start
 ```
 
-#### I18n
+### I18n
 
 Run command to generate zh-Hans to translate json files.
 
@@ -30,7 +30,7 @@ Run command to generate zh-Hans to translate json files.
 yarn write-translations --locale zh-Hans
 ```
 
-#### Build
+### Build
 
 ```shell
 $ yarn build
