@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 ## Build a CloudImage from helm
 
-See [Building an Example CloudImage](../getting-started/build-example-cloudimage.md).
+See [Building an Example CloudImage](../examples/build-example-cloudimage.md).
 
 ## Build calico image
 
