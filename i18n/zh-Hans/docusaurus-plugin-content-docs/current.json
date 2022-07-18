@@ -18,5 +18,13 @@
   "sidebar.docSidebar.category.Developers": {
     "message": "开发者",
     "description": "The label for category Developers in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.AI Applications": {
+    "message": "AI应用",
+    "description": "The label for category AI Applications in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Examples": {
+    "message": "案例",
+    "description": "The label for category Examples in sidebar docSidebar"
   }
 }
