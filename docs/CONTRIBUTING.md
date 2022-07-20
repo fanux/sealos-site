@@ -68,7 +68,7 @@ Since you are ready to improve sealos with a PR, we suggest you could take a loo
 
 To put forward a PR, we assume you have registered a GitHub ID. Then you could finish the preparation in the following steps:
 
-1. **FORK** sealos to your repository. To make this work, you just need to click the button Fork in right-left of [fanux/sealos](https://github.com/labring/sealos) main page. Then you will end up with your repository in `https://github.com/<your-username>/sealos`, in which `your-username` is your GitHub username.
+1. **FORK** sealos to your repository. To make this work, you just need to click the button Fork in right-left of [labring/sealos](https://github.com/labring/sealos) main page. Then you will end up with your repository in `https://github.com/<your-username>/sealos`, in which `your-username` is your GitHub username.
 
 1. **CLONE** your own repository to master locally. Use `git clone https://github.com/<your-username>/sealos.git` to clone repository to your local machine. Then you can create new branches to finish the change you wish to make.
 
@@ -120,7 +120,25 @@ To put forward a PR, we assume you have registered a GitHub ID. Then you could f
    git push # push to your forked repository after rebase done
    ```
 
-1. **File a pull request** to fanux/sealos:master
+   If you don't want to use `git rebase -i`, you can use `git commit -s --amend && git push -f`
+
+   If you develop multiple features in same branch, you should rebase the main branch:
+
+   ```shell
+   # create new branch, for example git checkout -b feature/infra
+   git checkout -b <new branch>
+   # update some code, feature1
+   git commit -m -s "init infra"
+   git push
+   # then create pull request, and merge
+
+   # update some new feature, feature2, rebase main branch first.
+   git rebase upstream/main
+   git commit -m -s "init infra"
+   # then create pull request, and merge
+   ```
+
+1. **File a pull request** to labring/sealos:master
 
 ### Branch Definition
 
