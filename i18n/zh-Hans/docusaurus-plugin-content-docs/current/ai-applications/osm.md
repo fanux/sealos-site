@@ -62,7 +62,7 @@
 
 ### 调用地址
 
-[http://116.204.64.253:7002/avatarsolver-portal/route/navigate](http://116.204.64.253:7002/avatarsolver-portal/route/navigate)
+[http://portal.scienson.com/avatarsolver-portal/route/navigate](http://portal.scienson.com/avatarsolver-portal/route/navigate)
 
 请求类型：POST
 

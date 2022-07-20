@@ -61,7 +61,7 @@ Not available for free.
 
 ### Address
 
-[http://116.204.64.253:7002/avatarsolver-portal/route/navigate](http://116.204.64.253:7002/avatarsolver-portal/route/navigate)
+[http://portal.scienson.com/avatarsolver-portal/route/navigate](http://portal.scienson.com/avatarsolver-portal/route/navigate)
 
 Request Type：POST
 
