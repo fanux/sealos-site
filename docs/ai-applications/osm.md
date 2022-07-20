@@ -53,7 +53,7 @@
 
 可以看出球面距离计算的准确率通常在 15%以上，短距离可以达到 25%。而 OSM 导航可以将准确率控制在 5%以下，距离越大准确率越高。能够满足业务绝大多数的使用场景。
 
-## Installation
+## Image Installation
 
 Not available for free.
 
