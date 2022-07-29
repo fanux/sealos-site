@@ -62,13 +62,13 @@ Since you are ready to improve sealos with a PR, we suggest you could take a loo
 - [Commit Rules](#commit-rules)
 - [PR Description](#pr-description)
 - [Developing Environment](#developing-environment)
-- [Golang Dependency Management](#golang-dependency-management)
+- [Docs Contribution](#docs-contribution)
 
 ### Workspace Preparation
 
 To put forward a PR, we assume you have registered a GitHub ID. Then you could finish the preparation in the following steps:
 
-1. **FORK** sealos to your repository. To make this work, you just need to click the button Fork in right-left of [fanux/sealos](https://github.com/labring/sealos) main page. Then you will end up with your repository in `https://github.com/<your-username>/sealos`, in which `your-username` is your GitHub username.
+1. **FORK** sealos to your repository. To make this work, you just need to click the button Fork in right-left of [labring/sealos](https://github.com/labring/sealos) main page. Then you will end up with your repository in `https://github.com/<your-username>/sealos`, in which `your-username` is your GitHub username.
 
 1. **CLONE** your own repository to master locally. Use `git clone https://github.com/<your-username>/sealos.git` to clone repository to your local machine. Then you can create new branches to finish the change you wish to make.
 
@@ -120,7 +120,25 @@ To put forward a PR, we assume you have registered a GitHub ID. Then you could f
    git push # push to your forked repository after rebase done
    ```
 
-1. **File a pull request** to fanux/sealos:master
+   If you don't want to use `git rebase -i`, you can use `git commit -s --amend && git push -f`
+
+   If you develop multiple features in same branch, you should rebase the main branch:
+
+   ```shell
+   # create new branch, for example git checkout -b feature/infra
+   git checkout -b <new branch>
+   # update some code, feature1
+   git commit -m -s "init infra"
+   git push
+   # then create pull request, and merge
+
+   # update some new feature, feature2, rebase main branch first.
+   git rebase upstream/main
+   git commit -m -s "init infra"
+   # then create pull request, and merge
+   ```
+
+1. **File a pull request** to labring/sealos:master
 
 ### Branch Definition
 
@@ -182,6 +200,38 @@ Here are some dependents with specific version:
 - golangci-lint: 1.46.2
 
 When you develop the sealos project at the local environment, you should use subcommands of Makefile to help yourself to check and build the latest version of sealos. For the convenience of developers, we use the docker to build sealos. It can reduce problems of the developing environment.
+
+### Docs Contribution
+
+#### Structure and Repo
+
+The documentation for sealos includes:
+
+- [README.md](https://github.com/labring/sealos/blob/main/README.md)
+- [CONTRIBUTING.md](https://github.com/labring/sealos/blob/main/CONTRIBUTING.md)
+- [DEVELOPGUIDE.md](https://github.com/labring/sealos/blob/main/DEVELOPGUIDE.md)
+- Markdown files under [docs/4.0](https://github.com/labring/sealos/blob/main/docs/4.0)
+   - English docs under [docs/4.0/docs](https://github.com/labring/sealos/tree/main/docs/4.0/docs)
+   - Chinese docs under [docs/4.0/i18n/zh-Hans](https://github.com/labring/sealos/tree/main/docs/4.0/i18n/zh-Hans)
+
+If you have experiences in [Docusaurus 2](https://docusaurus.io), you might find the directory structure familiar. Indeed, the [sealos documentation website](https://github.com/fanux/sealos-site) is built with [Docusaurus 2](https://docusaurus.io) and any update to the docs **here** will be synchronized **there**.
+
+Therefore, to update the documentation, rather than contributing to the [website repo](https://github.com/fanux/sealos-site), you should contribute to this repo directly, unless you want to update the home page or custom pages like the [company page](https://www.sealos.io/company).
+
+For a complete list of the docs synchronization mappings, see [sync_docs.yml](https://github.com/labring/sealos/tree/main/.github/sync_docs.yml).
+
+#### Formatting
+
+Please obey the following rules to better format the docs, which would greatly improve the reading experience.
+
+1. Please do not use Chinese punctuations in English docs, and vice versa.
+1. Please use upper case letters where applicable, like the first letter of sentences / headings, etc.
+1. Please specify a language for each Markdown code blocks, unless there's no associated languages.
+1. Please insert a whitespace between Chinese and English words.
+1. Please use the correct case for technical terms, such as using HTTP instead of http, MySQL rather than mysql, Kubernetes instead of kubernetes, etc.
+1. Please check if there's any typos in the docs before submitting PRs.
+
+You can also check out the [Docusaurus docs](https://docusaurus.io/docs/markdown-features) to write docs with richer feature.
 
 ## Engage to help anything
 
