@@ -31,8 +31,14 @@ $ sealos reset
 # Install helm
 $ sealos run labring/helm:v3.8.2
 
+# cert-manager
+$ sealos run labring/cert-manager:v1.8.0
+
 # Block storage
 $ sealos run labring/openebs:v1.9.0
+
+# Rook
+$ sealos run labring/rook:v1.9.8
 
 # Object storage
 $ sealos run labring/minio-operator:v4.4.16
@@ -84,6 +90,13 @@ $ sealos run labring/metrics-server:v0.6.1
 
 # Any exporter
 $ sealos run labring/redis-exporter:latest
+
+# elasticsearch
+$ sealos run labring/elastic:7.17.3
+
+# skywalking
+$ sealos run labring/skywalking:8.8.1
+
 ```
 
 ```mdx-code-block
@@ -118,13 +131,52 @@ $ sealos run labring/kafka-exporter:latest
 $ sealos run docker.io/labring/kubernetes-dashboard:v1.0.8
 
 # How to access
-# You can run this command by local kubectl 
+# You can run this command with local kubectl
 $ kubectl proxy
 # then access dashboard at http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
 # Or you can access dashboard by server-side kubectl
 $ kubectl port-forward -n kubernetes-dashboard --address 0.0.0.0 svc/kubernetes-dashboard <custom port>:443
 # then access https://<server url>:<custom port> in your browser and type "thisisunsafe" to ignore problems of self-signed certificate
+
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="rancher" label="Rancher">
+```
+
+```shell
+
+# Install ingress-nginx first, rancher need it
+$ sealos run \
+  --masters 192.168.72.50,192.168.72.51,192.168.72.52 \
+  --nodes 192.168.72.53 -p 123456 \
+  labring/kubernetes:v1.23.8 \
+  labring/calico:v3.22.1 \
+  labring/helm:v3.8.2 \
+  labring/ingress-nginx:4.1.0 \
+  labring/cert-manager:v1.8.0
+
+# After the above is ready, run rancher
+$ sealos run registry.cn-shenzhen.aliyuncs.com/cnmirror/rancher:v2.6.6
+
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="kubesphere" label="Kubesphere">
+```
+
+```shell
+
+# prerequisites: OpenEBS or other storage is needed by KubeSphere.
+$ sealos run \
+    --masters xxx --nodes xxx -p xxx \
+    labring/kubernetes:v1.22.11 \
+    labring/calico:v3.22.1 \
+    labring/openebs:v1.9.0 \
+    registry.cn-shenzhen.aliyuncs.com/cnmirror/kubesphere:v3.3.0
 
 ```
 
