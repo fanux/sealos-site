@@ -36,7 +36,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/fanux/sealos-site/tree/main/",
+          editUrl: "https://github.com/labring/sealos/tree/main/docs/4.0",
           editLocalizedFiles: true,
         },
         blog: {
