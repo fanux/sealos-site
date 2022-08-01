@@ -1,3 +1,10 @@
+---
+slug: sealos is unique
+title: sealos is unique
+authors: [fanux]
+tags: [kubernetes,sealos]
+---
+
 # sealos 与其它流行产品的差异与联系
 
 ## sealos 与 helm
