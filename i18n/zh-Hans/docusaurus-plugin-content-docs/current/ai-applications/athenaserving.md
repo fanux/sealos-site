@@ -45,6 +45,12 @@
 
 3. HTTP 调用AI demo能力 MMOCR能力
 
+MMOCR 是基于PyTorch 和mmdetection 的开源工具箱，专注于文本检测，文本识别以及相应的下游任务，如关键信息提取。 它是OpenMMLab 项目的一部分。[项目地址](https://github.com/open-mmlab/mmocr/blob/main/README_zh-CN.md)
+
+在[wrapper.py](https://github.com/iflytek/aiges/blob/master/demo/mmocr/wrapper/wrapper_v2.py)中，我们使用python轻而易举的将 [文本+检测识别能力](https://mmocr.readthedocs.io/zh_CN/latest/demo.html#id4)封装成为一个可部署到 `ASF`中部署成为HTTP API的能力。
+
+使用Sealos 部署完 `ASF` 后， 您可以使用如下脚本， 修改其中的`url`值，即可完成调用 `MMOCR(文本+检测)`AI能力。
+
 ```python
 import requests
 import json
