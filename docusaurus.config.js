@@ -36,8 +36,12 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/labring/sealos/tree/main/docs/4.0",
-          editLocalizedFiles: true,
+          editUrl: ({ versionDocsDirPath, docPath, locale }) =>
+            "https://github.com/labring/sealos/tree/main/docs/4.0/" +
+            (locale === "en" ? `${versionDocsDirPath}` : `i18n/${locale}`) +
+            `/${docPath}`,
+          editLocalizedFiles: false,
+          editCurrentVersion: false,
         },
         blog: {
           showReadingTime: true,
