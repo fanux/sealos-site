@@ -26,7 +26,7 @@ export default function HomepageKernelArch() {
                 </div>
                 <div className={clsx("col col--8")}>
                   <div className={clsx("padding-horiz--md kernel-arch-container")}>
-                    <div class="kernel-arch">
+                    <div className="kernel-arch">
                       <h3>
                         <Translate description="homepage kernel arch cloud driver">
                           Cloud Driver
@@ -44,7 +44,7 @@ export default function HomepageKernelArch() {
                         </Translate>
                       </p>
                     </div>
-                    <div class="kernel-arch">
+                    <div className="kernel-arch">
                       <h3>
                         <Translate description="homepage kernel arch cloud kernel">
                           Cloud Kernel
@@ -61,7 +61,7 @@ export default function HomepageKernelArch() {
                         </Translate>
                       </p>
                     </div>
-                    <div class="kernel-arch">
+                    <div className="kernel-arch">
                       <h3>
                         <Translate description="homepage kernel arch dist apps">
                           Distributed Applications
