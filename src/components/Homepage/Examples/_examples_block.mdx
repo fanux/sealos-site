@@ -100,6 +100,9 @@ $ sealos run labring/deepflow:v6.1.1
 # skywalking
 $ sealos run labring/skywalking:8.8.1
 
+# netdata
+$ sealos run labring/netdata:v1.35.1
+
 ```
 
 ```mdx-code-block
@@ -181,6 +184,19 @@ $ sealos run \
     labring/openebs:v1.9.0 \
     registry.cn-shenzhen.aliyuncs.com/cnmirror/kubesphere:v3.3.0
 
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="CICD" label="CICD">
+```
+
+```shell
+
+# prerequisites: OpenEBS or other storage is needed by KubeSphere.
+$ sealos run labring/jenkins:v2.346.2
+
+$ sealos run labring/argocd:v2.4.8
 ```
 
 ```mdx-code-block
