@@ -1,51 +1,51 @@
 # AthenaServing Framework (ASF)
-## 愿景
-给任何有需要使用AI能力的场景，提供一致的工程化管理AI能力的方案。任何领域的AI场景的用户，都可以快速的将其算法模型落地成统一标准的HTTP API服务。
+## vision
 
-## 框架介绍
+Provide a consistent solution for engineering management of AI capabilities for any scenario that requires the use of AI capabilities. Users of AI scenarios in any field can quickly implement their algorithm models into a unified standard HTTP API service.
 
-`AthenaServing Framework(下简称ASF)` AI推理服务框架依托科大讯飞多年的AI算法引擎云服务化经验及云原生的不断探索实践,不仅可以满足引擎云服务化后,服务的稳定性,也可以通过`ASF`享受到相关云原生组件的方便与快捷。AI算法引擎开发者可以专注于算法的演进与研究,无需分心进行硬件资源的管理及云服务化的诸多开发运维工作。
+## Framework introduction
 
-`ASF`是一个专为AI能力开发者打造的AI算法引擎的无服务全托管式平台框架，您可以通过集成 `ASF` 中提供的插件，快速的部署AI算法引擎，并使用网络、分发策略、数据处理等配套辅助系统。引擎托管平台致力于加速AI算法引擎云服务化，并借助云原生架构，为云服务的稳定提供多重保障，您无需关注底层基础设施及服务化相关的开发、治理和运维，即可高效、安全对引擎进行部署、升级、扩缩、运营和监控。
+`AthenaServing Framework (hereinafter referred to as ASF)` AI reasoning service framework relies on iFLYTEK's years of experience in cloud service of AI algorithm engine and continuous exploration and practice of cloud native. Enjoy the convenience and speed of related cloud native components through `ASF`. AI algorithm engine developers can focus on the evolution and research of the algorithm, and do not need to be distracted in the management of hardware resources and the development and operation of cloud services.
 
-目前部署 `ASF` 需要开发者掌握一定的K8s、helm 等相关知识，且安装部署依赖在线镜像仓库和 helm repo，在离线环境、各式各样的操作系统部署的需求面前有些乏力，sealos 以其`集群镜像`、`images-shim`等方案让应用可以让离线部署变得非常丝滑，无需任何额外操作，sealos 支持了 `ASF` 集群镜像后，让任何人在任何场景、任何环境无障碍交付 `ASF` , 仅需一条命令即可拉起一个 `ASF` 环境。用户可以在 `ASF`框架上集中部署自己的AI能力，对外提供HTTP API。
+`ASF` is a serverless and fully managed platform framework for AI algorithm engine specially designed for AI capability developers. You can quickly deploy the AI ​​algorithm engine by integrating the plug-ins provided in `ASF`, and use network and distribution strategies , data processing and other supporting auxiliary systems. The engine hosting platform is committed to accelerating the cloud service of AI algorithm engines, and provides multiple guarantees for the stability of cloud services with the help of cloud native architecture. Deploy, upgrade, scale, operate, and monitor engines securely.
 
-## AIGES是什么
-`AIGES` 是  `ASF`核心的组件，中文名称加载器。主要负责将用户的推理代码(按照既定标准)转换成 grpc/http 服务
+At present, the deployment of `ASF` requires developers to master a certain knowledge of K8s, helm, etc., and the installation and deployment depends on the online mirror warehouse and helm repo, which is somewhat weak in the face of offline environment and various operating system deployment requirements. `Cluster mirror`, `images-shim` and other solutions allow applications to make offline deployment very smooth without any additional operations. After sealos supports `ASF` cluster mirroring, anyone can work in any scene and in any environment. Delivers `ASF` that pulls up an `ASF` environment with just one command. Users can centrally deploy their AI capabilities on the `ASF` framework and provide HTTP APIs to the outside world.
 
-## 面向场景
-AI能力最终需要落地工程化，部分企业缺乏统一标准的AI工程化方案。
+## What is AIGES
+`AIGES` is the core component of `ASF`, the Chinese name loader. Mainly responsible for converting the user's reasoning code (according to established standards) into grpc/http services
 
-## 解决问题
+## Scene Oriented
+AI capabilities ultimately need to be implemented into engineering, and some companies lack a unified standard AI engineering solution.
 
-* AI能力服务化多，无标准
-* AI能力服务上线，服务化过程存在大量冗余工作
-* 无AI工程化团队 
-* 无最终标准服务协议
+## Solve the problems
 
-## 特性
+* AI capabilities are more service-oriented, and there is no standard
+* The AI ​​capability service is online, and there is a lot of redundant work in the service process
+* No AI engineering team
+* No final standard service agreement
 
-* 基于GRPC优化后的XRPC框架
-* 统一标准服务协议定义
-* 千亿PV流量打磨
-* 支持多种负载均衡策略
-* 新增支持Python代码推理
-* ...
+## Features
 
-## 框架架构
+* Optimized XRPC framework based on GRPC
+* Definition of unified standard service agreement
+* Hundred billions of PV traffic polishing
+* Support multiple load balancing strategies
+* Added support for Python code reasoning
+*...
+
+## Architecture
 
 ![img](https://github.com/iflytek/proposals/blob/main/athenaloader/athena.png?raw=true)
 
-## 框架安装
+## Framework Install
 
-### 前置条件
+### Requirements
 
-准备一台测试机(4c8G),硬盘>=20G即可
+Prepare a test machine (4c8G), hard disk >=40G
 
+### Install
 
-### 安装
-
-1. 安装sealos.4.0
+1. Install the sealos.4.0
 
 ```shell
 $ wget -c https://sealyun-home.oss-cn-beijing.aliyuncs.com/sealos-4.0/latest/sealos-amd64 -O sealos &&  chmod +x sealos && mv sealos /usr/bin
@@ -53,10 +53,10 @@ $ wget -c https://sealyun-home.oss-cn-beijing.aliyuncs.com/sealos-4.0/latest/sea
 
   
 
-2. 创建集群
+2. Create the cluster
 
 ```shell
-sealos run labring/kubernetes:v1.19.16 labring/calico:v3.22.1   --masters 192.168.64.2 -p <password>
+$ sealos run labring/kubernetes:v1.19.16 labring/calico:v3.22.1   --masters 192.168.64.2 -p <password>
 ```
 
 ![img](imgs/sealos4-run-k8s.png)
@@ -79,7 +79,11 @@ $ sealos run lregistry.cn-qingdao.aliyuncs.com/labring/athenaserving:v2.0.0rc1
 ```
 
 
-3. HTTP 调用AI demo能力 MMOCR能力
+3. HTTP call AI demo capability MMOCR capability
+
+MMOCR is an open source toolbox based on PyTorch and mmdetection, focusing on text detection, text recognition and corresponding downstream tasks such as key information extraction. It is part of the OpenMMLab project. [Project address](https://github.com/open-mmlab/mmocr/blob/main/README_zh-CN.md)
+In [wrapper.py](https://github.com/iflytek/aiges/blob/master/demo/mmocr/wrapper/wrapper_v2.py), we use python to easily convert [text + detection and recognition ability] (https ://mmocr.readthedocs.io/zh_CN/latest/demo.html#id4) encapsulates the ability to deploy into `ASF` as an HTTP API.
+After deploying `ASF` using Sealos, you can use the following script to modify the `url` value to complete the call to the `MMOCR (text + detection)` AI capability.
 
 ```python
 import requests
@@ -153,11 +157,11 @@ for box in result[0].get("result"):
 
 ```bash
 cd /var/lib/sealos/data/default/rootfs/athenaserving/charts/mmocr_ase
-# 修改 demo.py中的 url部分为 nodeIP
+# modify demo.py 's url, using your nodeIP
 python3 demo.py
 ```
 
-调用结返回:
+Response Is:
 
 ```bash
 200
@@ -191,19 +195,19 @@ MMocr Result: box located at [223, 214, 240, 214, 240, 226, 223, 226], box score
 
 ## 集成接入您的自定义AI能力
 
-新的AI能力，需要您按照加载器规范，开发并构建出您的 AI能力镜像，之后即可部署到集群。
+For new AI capabilities, you need to develop and build your AI capability image according to the loader specification, and then deploy it to the cluster.
 
-如何构建您的自定义AI能力镜像，请参考: [快速构建wrapper.py](https://iflytek.github.io/athena_website/docs/%E5%8A%A0%E8%BD%BD%E5%99%A8/Python%E6%8F%92%E4%BB%B6)
+How to build your custom AI capability image, please refer to:[Fastly create wrapper.py](https://iflytek.github.io/athena_website/docs/%E5%8A%A0%E8%BD%BD%E5%99%A8/Python%E6%8F%92%E4%BB%B6)
 
 
-## 更多详细内容
+## More
 
-* 关注:
+* Focus on:
 
 [![ifly](https://avatars.githubusercontent.com/u/26786495?s=96&v=4)](https://github.com/iflytek)
 
 
 
-* 联系:
+* Contact:
 
 ![weixin](https://raw.githubusercontent.com/berlinsaint/readme/main/weixin_ybyang.jpg)
