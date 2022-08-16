@@ -1,4 +1,6 @@
-# AthenaServing Framework
+# AthenaServing Framework (ASF)
+## 愿景
+给任何有需要使用AI能力的场景，提供一致的工程化管理AI能力的方案。任何领域的AI场景的用户，都可以快速的将其算法模型落地成统一标准的HTTP API服务。
 
 ## 框架介绍
 
@@ -8,6 +10,27 @@
 
 目前部署 `ASF` 需要开发者掌握一定的K8s、helm 等相关知识，且安装部署依赖在线镜像仓库和 helm repo，在离线环境、各式各样的操作系统部署的需求面前有些乏力，sealos 以其`集群镜像`、`images-shim`等方案让应用可以让离线部署变得非常丝滑，无需任何额外操作，sealos 支持了 `ASF` 集群镜像后，让任何人在任何场景、任何环境无障碍交付 `ASF` , 仅需一条命令即可拉起一个 `ASF` 环境。用户可以在 `ASF`框架上集中部署自己的AI能力，对外提供HTTP API。
 
+## AIGES是什么
+`AIGES` 是  `ASF`核心的组件，中文名称加载器。主要负责将用户的推理代码(按照既定标准)转换成 grpc/http 服务
+
+## 面向场景
+AI能力最终需要落地工程化，部分企业缺乏统一标准的AI工程化方案。
+
+## 解决问题
+
+* AI能力服务化多，无标准
+* AI能力服务上线，服务化过程存在大量冗余工作
+* 无AI工程化团队 
+* 无最终标准服务协议
+
+## 特性
+
+* 基于GRPC优化后的XRPC框架
+* 统一标准服务协议定义
+* 千亿PV流量打磨
+* 支持多种负载均衡策略
+* 新增支持Python代码推理
+* ...
 
 ## 框架架构
 
@@ -40,8 +63,7 @@
 
 * ```sealos run labring/helm:v3.8.2 # install helm```
 * ```sealos run labring/openebs:v1.9.0 # install openebs```
-* ```sealos run labring/athena_serving:v2.0.0rc1```
-* ```sealos run labring/demo_mmocr:v3.1```
+* ```sealos run registry.cn-qingdao.aliyuncs.com/labring/athenaserving:v2.0.0rc1```
 
 3. HTTP 调用AI demo能力 MMOCR能力
 
