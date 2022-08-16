@@ -34,9 +34,7 @@ AI能力最终需要落地工程化，部分企业缺乏统一标准的AI工程�
 
 ## 框架架构
 
-
 ![img](https://github.com/iflytek/proposals/blob/main/athenaloader/athena.png?raw=true)
-
 
 ## 框架安装
 
@@ -49,29 +47,42 @@ AI能力最终需要落地工程化，部分企业缺乏统一标准的AI工程�
 
 1. 安装sealos.4.0
 
-``` wget -c https://sealyun-home.oss-cn-beijing.aliyuncs.com/sealos-4.0/latest/sealos-amd64 -O sealos &&  chmod +x sealos && mv sealos /usr/bin```
+```shell
+$ wget -c https://sealyun-home.oss-cn-beijing.aliyuncs.com/sealos-4.0/latest/sealos-amd64 -O sealos &&  chmod +x sealos && mv sealos /usr/bin
+```
 
   
 
 2. 创建集群
 
-* ```sealos run labring/kubernetes:v1.19.16 labring/calico:v3.22.1   --masters 192.168.64.2 -p <password>```
+```shell
+sealos run labring/kubernetes:v1.19.16 labring/calico:v3.22.1   --masters 192.168.64.2 -p <password>
+```
 
 ![img](imgs/sealos4-run-k8s.png)
 ![img2](imgs/sealos4-run-k8s-2.png)
 ![img2](imgs/sealos4-run-k8s-3.png)
 
-* ```sealos run labring/helm:v3.8.2 # install helm```
-* ```sealos run labring/openebs:v1.9.0 # install openebs```
-* ```sealos run registry.cn-qingdao.aliyuncs.com/labring/athenaserving:v2.0.0rc1```
+* Install helm
+
+```shell
+$ sealos run labring/helm:v3.8.2 
+```
+* Install openebs
+```shell
+$ sealos run labring/openebs:v1.9.0 
+
+```
+
+```shell
+$ sealos run labring/athena_serving:v2.0.0rc1
+```
+
+```shell
+$ sealos run labring/demo_mmocr:v3.1
+```
 
 3. HTTP 调用AI demo能力 MMOCR能力
-
-MMOCR 是基于PyTorch 和mmdetection 的开源工具箱，专注于文本检测，文本识别以及相应的下游任务，如关键信息提取。 它是OpenMMLab 项目的一部分。[项目地址](https://github.com/open-mmlab/mmocr/blob/main/README_zh-CN.md)
-
-在[wrapper.py](https://github.com/iflytek/aiges/blob/master/demo/mmocr/wrapper/wrapper_v2.py)中，我们使用python轻而易举的将 [文本+检测识别能力](https://mmocr.readthedocs.io/zh_CN/latest/demo.html#id4)封装成为一个可部署到 `ASF`中部署成为HTTP API的能力。
-
-使用Sealos 部署完 `ASF` 后， 您可以使用如下脚本， 修改其中的`url`值，即可完成调用 `MMOCR(文本+检测)`AI能力。
 
 ```python
 import requests
