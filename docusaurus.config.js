@@ -98,6 +98,11 @@ const config = {
             label: "Docs",
           },
           {
+            position: "left",
+            href: "https://wj.qq.com/s2/10668306/bbba/",
+            label: "Contact",
+          },
+          {
             type: "docSidebar",
             position: "left",
             sidebarId: "apiSidebar",

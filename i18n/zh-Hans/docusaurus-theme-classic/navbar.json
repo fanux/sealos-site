@@ -3,6 +3,10 @@
     "message": "文档",
     "description": "Navbar item with label Docs"
   },
+  "item.label.Contact": {
+    "message": "商业合作",
+    "description": "Navbar item with label Contact"
+  },
   "item.label.Blog": {
     "message": "博客",
     "description": "Navbar item with label Blog"
