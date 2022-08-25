@@ -97,11 +97,7 @@ const config = {
             position: "left",
             label: "Docs",
           },
-          {
-            position: "left",
-            href: "https://wj.qq.com/s2/10668306/bbba/",
-            label: "Contact",
-          },
+
           {
             type: "docSidebar",
             position: "left",
@@ -109,6 +105,11 @@ const config = {
             label: "API",
           },
           { to: "/blog", label: "Blog", position: "left" },
+          {
+            position: "left",
+            href: "https://wj.qq.com/s2/10668306/bbba/",
+            label: "Contact",
+          },
           {
             type: "localeDropdown",
             position: "right",
