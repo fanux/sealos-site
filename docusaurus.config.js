@@ -140,6 +140,10 @@ const config = {
                 label: "sealyun (older version)",
                 to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
               },
+              {
+                label: "Cloud",
+                to: "https://cloud.sealos.io",
+              },
             ],
           },
           {
