@@ -28,7 +28,7 @@ $ sealos reset
 ```
 
 ```shell
-# Install helm
+# helm
 $ sealos run labring/helm:v3.8.2
 
 # cert-manager
@@ -42,6 +42,9 @@ $ sealos run labring/rook:v1.9.8
 
 # Object storage
 $ sealos run labring/minio-operator:v4.4.16
+
+# Longhorn
+$ sealos run labring/longhorn:v1.3.0
 ```
 
 ```mdx-code-block
@@ -56,8 +59,17 @@ $ sealos run labring/flannel:v0.18.1
 # Using calico
 $ sealos run labring/calico:v3.22.1
 
+# Using cilium
+$ sealos run labring/cilium:v1.12.1
+
+# Using kube-ovn
+$ sealos run labring/kube-ovn:v1.10.6
+
 # Nginx ingress
 $ sealos run labring/ingress-nginx:4.1.0
+
+# Apisix
+$ sealos run labring/apisix:2.15.0
 ```
 
 ```mdx-code-block
@@ -69,11 +81,26 @@ $ sealos run labring/ingress-nginx:4.1.0
 # MySQL cluster
 $ sealos run labring/mysql-operator:8.0.23-14.1
 
+# PostgreSQL
+$ sealos run labring/zalando-postgres-operator:14
+
 # Clickhouse cluster
 $ sealos run labring/clickhouse:0.18.4
 
 # Redis cluster
 $ sealos run labring/redis-operator:3.1.4
+
+# Mongodb
+$ sealos run labring/mongodb-community-operator:0.7.6
+
+# Memcached
+$ sealos run labring/memcached:1.6.17
+
+# TiDB
+$ sealos run labring/tidb-operator:v1.3.7
+
+# SQL Server
+sealos run labring/mssql-server:2022-latest
 ```
 
 ```mdx-code-block
@@ -91,18 +118,36 @@ $ sealos run labring/metrics-server:v0.6.1
 # Any exporter
 $ sealos run labring/redis-exporter:latest
 
-# elasticsearch
-$ sealos run labring/elastic:7.17.3
-
 # DeepFlow
 $ sealos run labring/deepflow:stable
 
-# skywalking
+# Skywalking
 $ sealos run labring/skywalking:8.8.1
+
+# Istio
+$ sealos run labring/istio:1.15.1
 
 # netdata
 $ sealos run labring/netdata:v1.35.1
+```
 
+```mdx-code-block
+</TabItem>
+<TabItem value="Logging" label="Logging">
+```
+
+```shell
+# elasticsearch
+$ sealos run labring/elastic:7.17.3
+$ sealos run labring/fluent-bit:0.20.9
+or
+$ sealos run labring/fluent-operator-containerd:v1.5.1
+
+# Eck-operator
+$ sealos run labring/eck-operator:2.4.0
+
+# Loki
+$ sealos run labring/loki:2.6.1
 ```
 
 ```mdx-code-block
@@ -125,6 +170,12 @@ $ sealos run labring/gpu-operator:v1.10.1
 # Kafka HA, controller instance and exporter
 $ sealos run labring/kafka-operator:0.28.0
 $ sealos run labring/kafka-exporter:latest
+
+# rabbitmq
+$ sealos run labring/rabbitmq-cluster-operator:2.0.0
+
+# rocketmq
+$ sealos run labring/rocketmq-operator:4.5.0
 ```
 
 ```mdx-code-block
@@ -133,70 +184,49 @@ $ sealos run labring/kafka-exporter:latest
 ```
 
 ```shell
-# Kubernetes-dashboard:v1.0.8
+# Kubernetes-dashboard
 $ sealos run docker.io/labring/kubernetes-dashboard:v1.0.8
 
-# How to access
-# You can run this command with local kubectl
-$ kubectl proxy
-# then access dashboard at http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
-
-# Or you can access dashboard by server-side kubectl
-$ kubectl port-forward -n kubernetes-dashboard --address 0.0.0.0 svc/kubernetes-dashboard <custom port>:443
-# then access https://<server url>:<custom port> in your browser and type "thisisunsafe" to ignore problems of self-signed certificate
-
+# kuboard
+$ sealos run labring/kuboard:v3
 ```
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="rancher" label="Rancher">
+<TabItem value="platform" label="platform">
 ```
 
 ```shell
+# Rancher, Notes: rancher depends on ingress-nginx and cert-manager, install it first.
+$ sealos run labring/ingress-nginx:4.1.0 labring/cert-manager:v1.8.0
+$ sealos run labring/rancher:v2.6.9
 
-# Install ingress-nginx first, rancher need it
-$ sealos run \
-  --masters 192.168.72.50,192.168.72.51,192.168.72.52 \
-  --nodes 192.168.72.53 -p 123456 \
-  labring/kubernetes:v1.23.8 \
-  labring/calico:v3.22.1 \
-  labring/helm:v3.8.2 \
-  labring/ingress-nginx:4.1.0 \
-  labring/cert-manager:v1.8.0
+# kubesphere
+$ sealos run labring/kubesphere:v3.3.1
 
-# After the above is ready, run rancher
-$ sealos run registry.cn-shenzhen.aliyuncs.com/cnmirror/rancher:v2.6.6
-
+# kubegems
+sealos run labring/kubegems:v1.21.4
 ```
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="kubesphere" label="Kubesphere">
+<TabItem value="GitOps" label="GitOps">
 ```
 
 ```shell
 
-# prerequisites: OpenEBS or other storage is needed by KubeSphere.
-$ sealos run \
-    --masters xxx --nodes xxx -p xxx \
-    labring/kubernetes:v1.22.11 \
-    labring/calico:v3.22.1 \
-    labring/openebs:v1.9.0 \
-    registry.cn-shenzhen.aliyuncs.com/cnmirror/kubesphere:v3.3.0
-
-```
-
-```mdx-code-block
-</TabItem>
-<TabItem value="CICD" label="CICD">
-```
-
-```shell
-
-# prerequisites: OpenEBS or other storage is needed by KubeSphere.
+# Jenkins
 $ sealos run labring/jenkins:v2.346.2
 
+# Argocd
 $ sealos run labring/argocd:v2.4.8
+
+# Tekton
+$ sealos run labring/tekton:v0.61.0
+
+# Fluxcd
+$ sealos run labring/fluxcd:0.36.0
+$ sealos run labring/weave-gitops:0.10.1
 ```
 
 ```mdx-code-block
