@@ -1,16 +1,22 @@
-## 基于multipass使用脚本一键启动一主一从k8s集群
+---
+slug: using sh quick build a k8s cluster 
+title: using sh quick build a k8s cluster
+authors: [xiao-jay]
+tags: [kubernetes,sealos]
+---
+
+## 使用 multipass 虚拟出虚拟机然后基于 sealos 快速构建一主一从的 k8s 集群，
 
 
-#### [multipass配置教程](https://laogen.cc/multipass-bridge-network-on-linux/)
+### 前置条件
+1、安装好multipass
+如果需要虚拟机把ip暴露出来，需要配置一下网桥
+[multipass配置教程](https://laogen.cc/multipass-bridge-network-on-linux/)
 
-注意：这个教程里面创建的bridges叫br0，而脚本里面的默认bridge是br0-test，可以配置桥接的时候设置成br0-test。
-
-
-
-### 前置条件：~/.ssh必要创建好，使用本地ssh来作为虚拟机的ssh
-
+2、~/.ssh必要创建好，使用本地ssh来作为虚拟机的ssh
+```
 创建命令`ssh-keygen -t rsa` or `ssh-keygen -t rsa -C "xxxxx@xxx.com"`
-
+```
 
 
 ### 使用教程
@@ -49,23 +55,23 @@ NODE_NAME="$NAME""-node1"
 # delete the vm if it already exists
 if multipass list | grep -e "^$MASTER_NAME"; then
     echo "existing vm $MASTER_NAME"
-#    echo "Deleting the existing vm $MASTER_NAME"
-#    multipass delete -p "$MASTER_NAME"
+   echo "Deleting the existing vm $MASTER_NAME"
+   multipass delete -p "$MASTER_NAME"
 fi
 
 if multipass list | grep -e "^$NODE_NAME "; then
     echo "existing vm $NODE_NAME"
-#    echo "Deleting the existing vm $NODE_NAME"
-#    multipass delete -p "$NODE_NAME"
+   echo "Deleting the existing vm $NODE_NAME"
+   multipass delete -p "$NODE_NAME"
 fi
 
 echo "Creating VM..."
-#multipass launch --name "$NAME" --cpus 2 --mem 4G --disk 100G --network br0-test
-echo "\tmultipass launch --name $MASTER_NAME --cpus 2 --mem 4G --disk 100G --network br0-test"
-multipass launch --name $MASTER_NAME --cpus 2 --mem 4G --disk 100G --network br0-test
+#multipass launch --name "$NAME" --cpus 2 --mem 4G --disk 100G 
+echo "\tmultipass launch --name $MASTER_NAME --cpus 2 --mem 4G --disk 100G "
+multipass launch --name $MASTER_NAME --cpus 2 --mem 4G --disk 100G 
 
-echo "\tmultipass launch --name $NODE_NAME --cpus 2 --mem 4G --disk 100G --network br0-test"
-multipass launch --name $NODE_NAME --cpus 2 --mem 4G --disk 100G --network br0-test
+echo "\tmultipass launch --name $NODE_NAME --cpus 2 --mem 4G --disk 100G "
+multipass launch --name $NODE_NAME --cpus 2 --mem 4G --disk 100G 
 
 if [ $? -eq 0 ]; then
     echo "vm is created"
@@ -82,7 +88,7 @@ set -x
 vm_root_exec -s << EOF
 echo "deb [trusted=yes] https://apt.fury.io/labring/ /" | tee /etc/apt/sources.list.d/labring.list
 apt update
-apt install sealos
+apt install sealos=4.1.3 -y
 EOF
 set +x
 
@@ -90,25 +96,25 @@ set -x
 vm_node_exec -s << EOF
 echo "deb [trusted=yes] https://apt.fury.io/labring/ /" | tee /etc/apt/sources.list.d/labring.list
 apt update
-apt install sealos
+apt install sealos=4.1.3 -y
 EOF
 set +x
 
 set -x
 cp -r ~/.ssh ~/vm_ssh
 
-vm_root_exec rm -rf ~/.ssh
-vm_root_exec mkdir ~/.ssh
+vm_root_exec rm -rf /root/.ssh
+vm_root_exec mkdir /root/.ssh
 multipass transfer ~/vm_ssh/id_rsa $MASTER_NAME:/home/ubuntu/
 multipass transfer ~/vm_ssh/id_rsa.pub $MASTER_NAME:/home/ubuntu/
-vm_root_exec cp -r /home/ubuntu/id_rsa ~/.ssh/id_rsa
-vm_root_exec chmod 600 ~/.ssh/id_rsa
-vm_root_exec cp -r /home/ubuntu/id_rsa.pub ~/.ssh/id_rsa.pub
+vm_root_exec cp -r /home/ubuntu/id_rsa /root/.ssh/id_rsa
+vm_root_exec chmod 600 /root/.ssh/id_rsa
+vm_root_exec cp -r /home/ubuntu/id_rsa.pub /root/.ssh/id_rsa.pub
 
-vm_node_exec rm -rf ~/.ssh
-vm_node_exec mkdir ~/.ssh
+vm_node_exec rm -rf /root/.ssh
+vm_node_exec mkdir /root/.ssh
 multipass transfer ~/vm_ssh/id_rsa.pub $NODE_NAME:/home/ubuntu
-vm_node_exec cp -r /home/ubuntu/id_rsa.pub ~/.ssh/authorized_keys
+vm_node_exec cp -r /home/ubuntu/id_rsa.pub /root/.ssh/authorized_keys
 
 rm -rf ~/vm_ssh
 
@@ -122,7 +128,7 @@ echo node_ip: $node_ip
 
 echo "Installing k8s..."
 set -x
-vm_root_exec sealos run labring/kubernetes:v1.25.0 labring/helm:v3.8.2 labring/calico:v3.24.1 --masters $master_ip --nodes $node_ip
+vm_root_exec sealos run labring/kubernetes:v1.24.0 labring/helm:v3.8.2 labring/calico:v3.22.1 --masters $master_ip --nodes $node_ip
 #vm_root_exec kubectl taint node $NAME node-role.kubernetes.io/master-
 #vm_root_exec kubectl taint node $NAME node-role.kubernetes.io/control-plane-
 set +x
