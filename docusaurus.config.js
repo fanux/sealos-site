@@ -107,7 +107,7 @@ const config = {
           { to: "/blog", label: "Blog", position: "left" },
           {
             position: "left",
-            href: "https://wj.qq.com/s2/10668306/bbba/",
+            href: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
             label: "Contact",
           },
           {
