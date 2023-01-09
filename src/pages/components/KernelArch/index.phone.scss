@@ -1,0 +1,34 @@
+@media screen and (max-width: 996px) {
+    .home-kernel-arch {
+        padding: 10px;
+
+        .example {
+            display: block;
+            width: 80vw;
+            margin: auto;
+        }
+        .example2 {
+            position: relative;
+            z-index: 101;
+            width: 100vw;
+            left: -5vw;
+        }
+
+        .cards {
+            position: relative;
+            left: 0;
+
+            .card-item {
+                position: relative;
+                width: auto;
+                transform: none !important;
+                margin-top: 90px;
+
+                .index {
+                    font-size: 80px;
+                    top: -90px;
+                }
+            }
+        }
+    }
+}

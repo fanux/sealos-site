@@ -1,0 +1,56 @@
+@media screen and (max-width: 996px) {
+    .home-header {
+        .background-img, nav {
+            display: none;
+        }
+
+        .bg-light {
+            .light1, .light2 {
+                display: none;
+            }
+        }
+
+        main {
+            text-align: center;
+            padding: 80px 40px 40px;
+            h1 {
+                width: auto;
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .link-btn {
+                margin: 30px auto 0;
+                transform: scale(0.8);
+            }
+        }
+
+        footer {
+            text-align: center;
+
+            h3 {
+                margin-top: 5px;
+            }
+
+            svg {
+                width: 50px;
+            }
+        }
+
+        @keyframes light3Animation {
+            0% {
+                transform: translate(-100%, -100%);
+            }
+            40% {
+                transform: translate(100vw, 33vh);
+            }
+            65% {
+                transform: translate(-100%, 66vh);
+            }
+            100% {
+                transform: translate(100vw, 100vh);
+            }
+        }
+    }
+}

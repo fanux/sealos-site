@@ -1,0 +1,19 @@
+@media screen and (max-width: 996px) {
+.home-user-by {
+    .title {
+        margin-top: 0 !important;
+    }
+
+    .scroll-brand {
+        .img-content {
+            img {
+                height: 100px !important;
+            }
+        }
+    }
+
+    .contact-btn .link-btn {
+        transform: scale(0.8);
+    }
+}
+}

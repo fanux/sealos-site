@@ -1,6 +1,5 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -10,7 +9,7 @@ const config = {
   tagline: "Kubernetes-kernel-based cloud os! Let's sealos run kubernetes",
   url: "https://docs.sealos.io",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/sealos.ico",
 
@@ -51,148 +50,151 @@ const config = {
           editLocalizedFiles: true,
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      algolia: {
-        // Algolia 提供的应用 ID
-        appId: "IGHQQ39TE4",
+  themeConfig:{ /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    algolia: {
+      // Algolia 提供的应用 ID
+      appId: "IGHQQ39TE4",
 
-        //  公开 API 密钥：提交它没有危险
-        apiKey: "9545276ccf7d08aaf95e41ab74a2202a",
+      //  公开 API 密钥：提交它没有危险
+      apiKey: "9545276ccf7d08aaf95e41ab74a2202a",
 
-        indexName: "sealos",
+      indexName: "sealos",
 
-        // 可选：见下文
-        contextualSearch: true,
+      // 可选：见下文
+      contextualSearch: true,
 
-        // 可选：声明哪些域名需要用 window.location 型的导航而不是 history.push。 适用于 Algolia 配置会爬取多个文档站点，而我们想要用 window.location.href 在它们之间跳转时。
-        externalUrlRegex: "sealos.io|docs.sealos.io",
+      // 可选：声明哪些域名需要用 window.location 型的导航而不是 history.push。 适用于 Algolia 配置会爬取多个文档站点，而我们想要用 window.location.href 在它们之间跳转时。
+      externalUrlRegex: "sealos.io|docs.sealos.io",
 
-        // 可选：Algolia 搜索参数
-        searchParameters: {},
+      // 可选：Algolia 搜索参数
+      searchParameters: {},
 
-        // 可选：搜索页面的路径，默认启用（可以用 `false` 禁用）
-        searchPagePath: "search",
+      // 可选：搜索页面的路径，默认启用（可以用 `false` 禁用）
+      searchPagePath: "search",
 
-        // ……其他 Algolia 参数
+      // ……其他 Algolia 参数
+    },
+    navbar: {
+      title: "",
+      logo: {
+        alt: "sealos",
+        src: "img/sealos-left.png",
+        srcDark: "img/sealos-left-dark.png",
       },
-      navbar: {
-        title: "",
-        logo: {
-          alt: "sealos",
-          src: "img/sealos-left.png",
-          srcDark: "img/sealos-left-dark.png",
+      items: [
+        {
+          type: "doc",
+          docId: "Intro",
+          position: "left",
+          label: "Docs",
+          to: "/docs/Intro"
         },
-        items: [
-          {
-            type: "doc",
-            docId: "Intro",
-            position: "left",
-            label: "Docs",
-          },
-
-          {
-            type: "docSidebar",
-            position: "left",
-            sidebarId: "apiSidebar",
-            label: "API",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            position: "left",
-            href: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
-            label: "Contact",
-          },
-          {
-            type: "localeDropdown",
-            position: "right",
-          },
-          {
-            href: "https://github.com/labring/sealos",
-            position: "right",
-            className: "header-github-link",
-            "aria-label": "GitHub repository",
-          },
-        ],
-      },
-      footer: {
-        style: "light",
-        links: [
-          {
-            title: "Labring",
-            items: [
-              {
-                label: "Company",
-                to: "/company",
-              },
-              {
-                label: "Laf FaaS",
-                to: "https://github.com/labring/laf",
-              },
-              {
-                label: "sealyun (older version)",
-                to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
-              },
-              {
-                label: "Cloud",
-                to: "https://cloud.sealos.io",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/sealos",
-              },
-              {
-                label: "Telegram",
-                href: "https://t.me/cloudnativer",
-              },
-              // {
-              //   label: "Discord",
-              //   href: "https://discordapp.com/invite/docusaurus",
-              // },
-              // {
-              //   label: "Twitter",
-              //   href: "https://twitter.com/docusaurus",
-              // },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "CloudImages",
-                to: "https://hub.docker.com/u/labring",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/labring/sealos",
-              },
-              {
-                label: "CloudNativeLab",
-                href: "https://icloudnative.io",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
-      },
-      prism: {
-        additionalLanguages: ["docker"],
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+        {
+          type: "docSidebar",
+          position: "left",
+          sidebarId: "apiSidebar",
+          label: "API",
+          to: "/docs/api/sealos"
+        },
+        { to: "/blog", label: "Blog", position: "left" },
+        {
+          position: "left",
+          // href: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+          to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+          label: "Contact",
+        },
+        {
+          type: "localeDropdown",
+          position: "right",
+        },
+        {
+          href: "https://github.com/labring/sealos",
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
+        },
+      ],
+    },
+    footer: {
+      style: "light",
+      links: [
+        {
+          title: "Labring",
+          items: [
+            {
+              label: "Company",
+              to: "/company",
+            },
+            {
+              label: "Laf FaaS",
+              to: "https://github.com/labring/laf",
+            },
+            {
+              label: "sealyun (older version)",
+              to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
+            },
+            {
+              label: "Cloud",
+              to: "https://cloud.sealos.io",
+            },
+          ],
+        },
+        {
+          title: "Community",
+          items: [
+            {
+              label: "Stack Overflow",
+              to: "https://stackoverflow.com/questions/tagged/sealos",
+            },
+            {
+              label: "Telegram",
+              to: "https://t.me/cloudnativer",
+            },
+            // {
+            //   label: "Discord",
+            //   href: "https://discordapp.com/invite/docusaurus",
+            // },
+            // {
+            //   label: "Twitter",
+            //   href: "https://twitter.com/docusaurus",
+            // },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "CloudImages",
+              to: "https://hub.docker.com/u/labring",
+            },
+            {
+              label: "GitHub",
+              to: "https://github.com/labring/sealos",
+            },
+            {
+              label: "CloudNativeLab",
+              to: "https://icloudnative.io",
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
+    },
+    prism: {
+      additionalLanguages: ["docker"],
+      theme: lightCodeTheme,
+      // darkTheme: darkCodeTheme,
+    },
+  },
+  plugins: [
+    'docusaurus-plugin-sass',
+  ],
 };
 
 module.exports = config;

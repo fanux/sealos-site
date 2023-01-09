@@ -1,0 +1,21 @@
+.home-slide-step {
+    z-index: 100;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+
+    .item {
+        margin: 0 0 13px auto;
+        font-size: 0.8rem;
+        color: #0094FF;
+
+        &.dot {
+            background: #C7E0F4;
+            width: 5px;
+            height: 5px;
+            border-radius: 10px;
+        }
+    }
+}

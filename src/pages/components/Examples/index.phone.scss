@@ -1,0 +1,26 @@
+@media screen and (max-width: 996px) {
+    .home-examples {
+        padding: 0 10px;
+        img {
+            display: none;
+        }
+
+        header {
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            text-align: center;
+        }
+
+        main {
+            .card-item {
+                width: 100%;
+                padding: 20px;
+    
+                .code {
+                    display: none;
+                }
+            }
+        }
+    }
+}

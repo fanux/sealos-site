@@ -1,0 +1,259 @@
+.home-header {
+    position: relative;
+    overflow: hidden;
+
+    .bg-light {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        div {
+            position: absolute;
+        }
+
+        .light1 {
+            top: 0;
+            left: 0;
+            width: 168.27px;
+            height: 159.54px;
+            background: #6fc0fb;
+            filter: blur(90px);
+            animation: light1Animation 10s infinite alternate;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 171.28px;
+                height: 161.65px;
+                left: 0;
+                top: 0;
+                background: #7277ffd8;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                width: 164.06px;
+                height: 157.11px;
+                right: -40px;
+                bottom: -50px;
+                background: #8DB4FF;
+            }
+        }
+
+        .light2 {
+            top: 0;
+            left: 0;
+            width: 198.27px;
+            height: 189.54px;
+            filter: blur(120px);
+            background: radial-gradient(44.59% 44.59% at 50% 50%, #07C7FF 0%, #3EDCFF 100%);
+            opacity: 0.7;
+            animation: light2Animation 20s infinite alternate;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 211.28px;
+                height: 201.65px;
+                right: -43px;
+                bottom: -40px;
+                background: #0ac3f7;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                width: 174.06px;
+                height: 167.11px;
+                left: -40px;
+                top: -50px;
+                background: #5887FF;
+                border: 45px solid #3330f1;
+            }
+        }
+
+        .light3 {
+            left: 0;
+            top: 0;
+            width: 268.27px;
+            height: 269.54px;
+            background: #2a3ffcb8;
+            filter: blur(120px);
+            opacity: 0.5;
+            animation: light3Animation 10s infinite alternate;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 221.28px;
+                height: 221.65px;
+                right: -30px;
+                bottom: -30px;
+                filter: blur(10px);
+                background: #6736fb7b;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                width: 224.06px;
+                height: 227.11px;
+                left: -30px;
+                top: -30px;
+                filter: blur(10px);
+                background: #6b9cff8b;
+            }
+        }
+    }
+
+    .background-img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 861px;
+        width: 60%;
+        height: auto;
+    }
+
+    nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 34px;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 45px;
+                margin-right: 10px;
+            }
+
+            span {
+                font-size: 1.8rem;
+            }
+        }
+
+        .links {
+            a {
+                position: relative;
+                margin-right: 48px;
+                font-size: 1.1rem;
+                color: #282937;
+                padding-bottom: 10px;
+                text-decoration: none;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: #282937;
+                    transition: 0.2s;
+                }
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        .right {
+            a {
+                color: #282937;
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    main {
+        position: relative;
+        padding: 80px 15vw;
+
+        h1 {
+            font-weight: bolder;
+            font-size: 3rem;
+            width: 520px;
+            color: #1D2B51;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1; 
+            color: #65718F; 
+        }
+
+        .link-btn {
+            margin-top: 34px;
+            line-height: 55px;
+            width: 208px;
+            height: 55px;
+        }
+    }
+
+    footer {
+        position: relative;
+        margin: 0;
+        background: linear-gradient(111.68deg, rgba(255, 255, 255, 0.32) 7.59%, rgba(255, 255, 255, 0.48) 102.04%);
+        box-shadow: 0px -0.75px 0px rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+
+        svg {
+            width: 100%;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #465375;
+        }
+    }
+
+    @keyframes light1Animation {
+        0% {
+            transform: translate3d(80vw, 80vh,0);
+        }
+        40% {
+            transform: translate3d(70vw, 60vh,0);
+        }
+        65% {
+            transform: translate3d(75vw, 80vh,0);
+        }
+        100% {
+            transform: translate3d(60vw, 75vh,0);
+        }
+    }
+    @keyframes light2Animation {
+        0% {
+            transform: translate3d(50vw, 10vh,0) rotate(0);
+        }
+        40% {
+            transform: translate3d(10vw, 70vh,0)  rotate(129deg);
+        }
+        70% {
+            transform: translate3d(10vw, 10vh,0)  rotate(240deg);
+        }
+        100% {
+            transform: translate3d(50vw, 10vh,0)  rotate(360deg);
+        }
+    }
+    @keyframes light3Animation {
+        0% {
+            transform: translate3d(0vw, 80vh),0;
+        }
+        30% {
+            transform: translate3d(40vw, 60vh,0);
+        }
+        70% {
+            transform: translate3d(50vw, 10vh,0);
+        }
+        100% {
+            transform: translate3d(0vw, 80vh),0;
+        }
+    }
+}
+
+
+@import "./index.phone.scss";
