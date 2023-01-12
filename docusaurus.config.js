@@ -97,12 +97,18 @@ const config = {
             position: "left",
             label: "Docs",
           },
-
           {
             type: "docSidebar",
             position: "left",
             sidebarId: "apiSidebar",
             label: "API",
+          },
+          {
+            type: "doc",
+            docId: "cloud/Intro",
+            position: "left",
+            sidebarId: "cloudDocSidebar",
+            label: "Cloud Docs",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
