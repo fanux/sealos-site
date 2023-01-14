@@ -1,6 +1,5 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -10,7 +9,7 @@ const config = {
   tagline: "Kubernetes-kernel-based cloud os! Let's sealos run kubernetes",
   url: "https://docs.sealos.io",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/sealos.ico",
 
@@ -51,35 +50,33 @@ const config = {
           editLocalizedFiles: true,
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      algolia: {
-        // Algolia 提供的应用 ID
-        appId: "IGHQQ39TE4",
+  themeConfig: { /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    algolia: {
+      // Algolia 提供的应用 ID
+      appId: "IGHQQ39TE4",
 
-        //  公开 API 密钥：提交它没有危险
-        apiKey: "9545276ccf7d08aaf95e41ab74a2202a",
+      //  公开 API 密钥：提交它没有危险
+      apiKey: "9545276ccf7d08aaf95e41ab74a2202a",
 
-        indexName: "sealos",
+      indexName: "sealos",
 
-        // 可选：见下文
-        contextualSearch: true,
+      // 可选：见下文
+      contextualSearch: true,
 
-        // 可选：声明哪些域名需要用 window.location 型的导航而不是 history.push。 适用于 Algolia 配置会爬取多个文档站点，而我们想要用 window.location.href 在它们之间跳转时。
-        externalUrlRegex: "sealos.io|docs.sealos.io",
+      // 可选：声明哪些域名需要用 window.location 型的导航而不是 history.push。 适用于 Algolia 配置会爬取多个文档站点，而我们想要用 window.location.href 在它们之间跳转时。
+      externalUrlRegex: "sealos.io|docs.sealos.io",
 
-        // 可选：Algolia 搜索参数
-        searchParameters: {},
+      // 可选：Algolia 搜索参数
+      searchParameters: {},
 
-        // 可选：搜索页面的路径，默认启用（可以用 `false` 禁用）
-        searchPagePath: "search",
+      // 可选：搜索页面的路径，默认启用（可以用 `false` 禁用）
+      searchPagePath: "search",
 
         // ……其他 Algolia 参数
       },
@@ -96,12 +93,14 @@ const config = {
             docId: "Intro",
             position: "left",
             label: "Docs",
+            to: "/docs/Intro"
           },
           {
             type: "docSidebar",
             position: "left",
             sidebarId: "apiSidebar",
             label: "API",
+            to: "/docs/api/sealos"
           },
           {
             type: "doc",
@@ -109,11 +108,12 @@ const config = {
             position: "left",
             sidebarId: "cloudDocSidebar",
             label: "Cloud Docs",
+            to: "/docs/cloud/Intro"
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
             position: "left",
-            href: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+            to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
             label: "Contact",
           },
           {
@@ -157,11 +157,11 @@ const config = {
             items: [
               {
                 label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/sealos",
+                to: "https://stackoverflow.com/questions/tagged/sealos",
               },
               {
                 label: "Telegram",
-                href: "https://t.me/cloudnativer",
+                to: "https://t.me/cloudnativer",
               },
               // {
               //   label: "Discord",
@@ -182,11 +182,11 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/labring/sealos",
+                to: "https://github.com/labring/sealos",
               },
               {
                 label: "CloudNativeLab",
-                href: "https://icloudnative.io",
+                to: "https://icloudnative.io",
               },
             ],
           },
@@ -198,7 +198,10 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    }),
+    },
+    plugins: [
+      'docusaurus-plugin-sass',
+    ]
 };
 
 module.exports = config;

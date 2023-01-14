@@ -1,0 +1,66 @@
+.home-footer {
+    background: linear-gradient(279.85deg, rgba(154, 219, 255, 0.3) 0%, rgba(219, 235, 255, 0.230625) 38.54%, rgba(191, 201, 255, 0.180937) 66.15%, rgba(181, 180, 255, 0.12) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 15px 15px 0px 0px;
+    margin-top: 100px;
+    
+    .part1 {
+        margin: 0 55px;
+        padding: 36px 0 20px;
+        border-bottom: 1px solid #B6C3F4;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+
+        .list-item {
+            font-size: 0.9rem;
+
+            h3 {
+                font-size: inherit;
+                color: #465375;
+            }
+
+            li {
+                margin-bottom: 14px;
+                margin-left: 15px;
+                line-height: 20px;
+                color: #6A7797;
+
+                a {
+                    color: inherit;
+                }
+
+                &::marker {
+                    font-size: 20px;
+                }
+            }
+
+            .email, .phone, .icons {
+                display: flex;
+                align-items: center;
+                white-space: no-wrap;
+                justify-content: flex-end;
+
+                span {
+                    margin-left: 6px;
+                }
+            }
+
+            .icons {
+                justify-content: space-between;
+                svg {
+                    width: 50px;
+                }
+            }
+        }
+    }
+
+    .part2 {
+        padding: 30px;
+        text-align: center;
+        font-size: 0.8rem;
+        color: #9196A7;
+    }
+}
+
+@import "./index.phone.scss"

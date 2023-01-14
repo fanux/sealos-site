@@ -1,0 +1,108 @@
+.home-examples {
+    position: relative;
+    padding: 0 13vw;
+
+    img {
+        position: absolute;
+        z-index: 0;
+        &.left-icon {
+            width: 265px;
+            top: 50px;
+            left: 7vw;
+        }
+        &.right-icon {
+            width: 300px;
+            right: 5vw;
+            bottom: -50px;
+        }
+    }
+
+    header {
+        position: relative;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 15px;
+        background: linear-gradient(279.85deg, rgba(154, 219, 255, 0.3) 0%, rgba(219, 235, 255, 0.230625) 38.54%, rgba(191, 201, 255, 0.180937) 66.15%, rgba(181, 180, 255, 0.12) 100%);
+        backdrop-filter: blur(5px);
+        border: 2px solid #fff;
+        overflow-x: auto;
+        padding: 0 10px;
+        cursor: pointer;
+
+        .tab {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+
+            &.active {
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 8px;
+                color: #1D2B51;
+            }
+        }
+    }
+
+    main {
+        position: relative;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        border-radius: 15px;
+
+        .card-item {
+            flex-shrink: 0;
+            width: 80%;
+            background: linear-gradient(279.85deg, rgba(154, 219, 255, 0.4) 0%, rgba(219, 235, 255, 0.4) 38.54%, rgba(191, 201, 255, 0.3) 66.15%, rgba(181, 180, 255, 0.2) 100%);
+            border-radius: 15px;
+            padding: 30px 50px;
+            white-space: pre-wrap;
+
+            &.static {
+                backdrop-filter: blur(5px);
+            }
+
+            .desc {
+                color: #465375;
+                font-size: 0.9rem;
+                margin: 10px 0;
+            }
+
+            .code {
+                position: relative;
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: inset 0px 0px 2px #FFFFFF;
+                border-radius: 8px;
+                padding: 10px;
+                word-break: break-all;
+                font-size: 0.8rem;
+
+                .copy-btn {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    .link-btn {
+                        font-size: 0.9rem;
+                        padding: 5px 10px;
+                    }
+                }
+            }
+        }
+
+        .pre-card, .next-card {
+            position: absolute;
+            z-index: 1;
+            cursor: pointer;
+
+            &.pre-card {
+                left: 10px;
+            }
+            &.next-card {
+                right: 10px;
+            }
+        }
+    }
+}
+
+@import "./index.phone.scss";

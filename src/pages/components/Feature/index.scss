@@ -1,0 +1,99 @@
+.home-features {
+    min-height: 100vh;
+    position: relative;
+    padding: 0 10vw;
+    margin: auto;
+
+    main {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .left {
+        position: relative;
+        font-size: 0.9rem;
+        flex: 0 0 28vw;
+        width: 28vw;
+        top: 80px;
+
+        h2 {
+            position: relative;
+        }
+
+        p {
+            position: relative;
+            color: #465375;
+        }
+
+        .pattern {
+            position: absolute;
+            top: 0;
+            left: 80px;
+        }
+    }
+    .right {
+        flex-shrink: 1 0 0;
+        position: relative;
+        margin-left: 2vw;
+
+        .feature-img:not(:last-of-type) {
+            margin-bottom: 150px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.background-blur {
+        .right {
+            .feature-img {
+                position: relative;
+                background: linear-gradient(279.85deg, rgba(231, 246, 255, 0.3) 0%, rgba(219, 235, 255, 0.230625) 38.54%, rgba(249, 250, 255, 0.180937) 66.15%, rgba(240, 240, 255, 0.12) 100%);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                border: 2px solid #fff;
+                img {
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    &.change-animation {
+        .left {
+            animation: test 0.2s;
+        }
+
+        @keyframes test {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.fixed {
+        .left {
+            position: fixed;
+            /* 148 + 80 */
+            top: 228px;
+            left: 10vw;
+        }
+        .right {
+            margin-left: 30vw;
+        }
+    }
+
+    &.bottom {
+        main {
+            .left {
+                top: var(--bottom-offset-top);
+            }
+        }
+    }
+}
+
+@import "./index.phone.scss"
