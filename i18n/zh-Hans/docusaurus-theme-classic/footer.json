@@ -16,7 +16,7 @@
     "description": "The label of footer link with label=GitHub linking to https://github.com/labring/sealos"
   },
   "copyright": {
-    "message": "Copyright © 2022 sealos. 使用 Docusaurus 搭建。",
+    "message": "Copyright © 2023 sealos. 使用 Docusaurus 搭建。",
     "description": "The footer copyright"
   },
   "link.title.Labring": {

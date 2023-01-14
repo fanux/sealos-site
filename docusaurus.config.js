@@ -56,7 +56,7 @@ const config = {
     ],
   ],
 
-  themeConfig:{ /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  themeConfig: { /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     algolia: {
       // Algolia 提供的应用 ID
       appId: "IGHQQ39TE4",
@@ -78,123 +78,130 @@ const config = {
       // 可选：搜索页面的路径，默认启用（可以用 `false` 禁用）
       searchPagePath: "search",
 
-      // ……其他 Algolia 参数
-    },
-    navbar: {
-      title: "",
-      logo: {
-        alt: "sealos",
-        src: "img/sealos-left.png",
-        srcDark: "img/sealos-left-dark.png",
+        // ……其他 Algolia 参数
       },
-      items: [
-        {
-          type: "doc",
-          docId: "Intro",
-          position: "left",
-          label: "Docs",
-          to: "/docs/Intro"
+      navbar: {
+        title: "",
+        logo: {
+          alt: "sealos",
+          src: "img/sealos-left.png",
+          srcDark: "img/sealos-left-dark.png",
         },
-        {
-          type: "docSidebar",
-          position: "left",
-          sidebarId: "apiSidebar",
-          label: "API",
-          to: "/docs/api/sealos"
-        },
-        { to: "/blog", label: "Blog", position: "left" },
-        {
-          position: "left",
-          // href: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
-          to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
-          label: "Contact",
-        },
-        {
-          type: "localeDropdown",
-          position: "right",
-        },
-        {
-          href: "https://github.com/labring/sealos",
-          position: "right",
-          className: "header-github-link",
-          "aria-label": "GitHub repository",
-        },
-      ],
+        items: [
+          {
+            type: "doc",
+            docId: "Intro",
+            position: "left",
+            label: "Docs",
+            to: "/docs/Intro"
+          },
+          {
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "apiSidebar",
+            label: "API",
+            to: "/docs/api/sealos"
+          },
+          {
+            type: "doc",
+            docId: "cloud/Intro",
+            position: "left",
+            sidebarId: "cloudDocSidebar",
+            label: "Cloud Docs",
+            to: "/docs/cloud/Intro"
+          },
+          { to: "/blog", label: "Blog", position: "left" },
+          {
+            position: "left",
+            to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+            label: "Contact",
+          },
+          {
+            type: "localeDropdown",
+            position: "right",
+          },
+          {
+            href: "https://github.com/labring/sealos",
+            position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
+          },
+        ],
+      },
+      footer: {
+        style: "light",
+        links: [
+          {
+            title: "Labring",
+            items: [
+              {
+                label: "Company",
+                to: "/company",
+              },
+              {
+                label: "Laf FaaS",
+                to: "https://github.com/labring/laf",
+              },
+              {
+                label: "sealyun (older version)",
+                to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
+              },
+              {
+                label: "Cloud",
+                to: "https://cloud.sealos.io",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Stack Overflow",
+                to: "https://stackoverflow.com/questions/tagged/sealos",
+              },
+              {
+                label: "Telegram",
+                to: "https://t.me/cloudnativer",
+              },
+              // {
+              //   label: "Discord",
+              //   href: "https://discordapp.com/invite/docusaurus",
+              // },
+              // {
+              //   label: "Twitter",
+              //   href: "https://twitter.com/docusaurus",
+              // },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "CloudImages",
+                to: "https://hub.docker.com/u/labring",
+              },
+              {
+                label: "GitHub",
+                to: "https://github.com/labring/sealos",
+              },
+              {
+                label: "CloudNativeLab",
+                to: "https://icloudnative.io",
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
+      },
+      prism: {
+        additionalLanguages: ["docker"],
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+      },
     },
-    footer: {
-      style: "light",
-      links: [
-        {
-          title: "Labring",
-          items: [
-            {
-              label: "Company",
-              to: "/company",
-            },
-            {
-              label: "Laf FaaS",
-              to: "https://github.com/labring/laf",
-            },
-            {
-              label: "sealyun (older version)",
-              to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
-            },
-            {
-              label: "Cloud",
-              to: "https://cloud.sealos.io",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Stack Overflow",
-              to: "https://stackoverflow.com/questions/tagged/sealos",
-            },
-            {
-              label: "Telegram",
-              to: "https://t.me/cloudnativer",
-            },
-            // {
-            //   label: "Discord",
-            //   href: "https://discordapp.com/invite/docusaurus",
-            // },
-            // {
-            //   label: "Twitter",
-            //   href: "https://twitter.com/docusaurus",
-            // },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "CloudImages",
-              to: "https://hub.docker.com/u/labring",
-            },
-            {
-              label: "GitHub",
-              to: "https://github.com/labring/sealos",
-            },
-            {
-              label: "CloudNativeLab",
-              to: "https://icloudnative.io",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
-    },
-    prism: {
-      additionalLanguages: ["docker"],
-      theme: lightCodeTheme,
-      // darkTheme: darkCodeTheme,
-    },
-  },
-  plugins: [
-    'docusaurus-plugin-sass',
-  ],
+    plugins: [
+      'docusaurus-plugin-sass',
+    ]
 };
 
 module.exports = config;
