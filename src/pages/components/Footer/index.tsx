@@ -34,17 +34,13 @@ const Footer = () => {
         ))}
         <div className="list-item contact">
           <div className="icons">
-            <Link><TwitterIcon /></Link>
+            <Link to="https://twitter.com/sealosio"><TwitterIcon /></Link>
             <Link to="https://github.com/labring/sealos"><GithubIcon /></Link>
             <Link to="https://discord.gg/7bPNZfsjJu"><DiscordIcon /></Link>
           </div>
           <div className="email margin-top--lg" onClick={() => copyData('huanjieyun@163.com', '邮箱已复制')}>
             <EmailIcon/>
-            <span>huanjieyun@163.com</span>
-          </div>
-          <div className="phone margin-top--md" onClick={() => copyData('152622626262', '电话号码已复制')}>
-            <PhoneIcon/>
-            <span>152622626262</span>
+            <span>fanux@sealos.io</span>
           </div>
         </div>
       </div>

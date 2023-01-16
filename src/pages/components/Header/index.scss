@@ -124,10 +124,11 @@
         .left {
             display: flex;
             align-items: center;
+            cursor: default;
 
-            img {
-                width: 45px;
+            svg {
                 margin-right: 10px;
+                height: 46px;
             }
 
             span {
@@ -161,6 +162,13 @@
         }
 
         .right {
+            display: flex;
+            align-items: center;
+            
+            .git-icon {
+                margin-left: 20px;
+            }
+
             a {
                 color: #282937;
                 font-size: 1.1rem;
@@ -182,8 +190,8 @@
 
         p {
             font-size: 1.2rem;
-            line-height: 1; 
             color: #65718F; 
+            width: 420px;
         }
 
         .link-btn {
@@ -201,56 +209,58 @@
         box-shadow: 0px -0.75px 0px rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(10px);
 
-        svg {
-            width: 100%;
-        }
-
-        p {
-            font-size: 0.9rem;
-            color: #465375;
+        .row {
+            img {
+                width: 68px;
+            }
+    
+            p {
+                font-size: 0.9rem;
+                color: #465375;
+            }
         }
     }
 
     @keyframes light1Animation {
         0% {
-            transform: translate3d(80vw, 80vh,0);
+            transform: translate(80vw, 80vh);
         }
         40% {
-            transform: translate3d(70vw, 60vh,0);
+            transform: translate(70vw, 60vh);
         }
         65% {
-            transform: translate3d(75vw, 80vh,0);
+            transform: translate(75vw, 80vh);
         }
         100% {
-            transform: translate3d(60vw, 75vh,0);
+            transform: translate(60vw, 75vh);
         }
     }
     @keyframes light2Animation {
         0% {
-            transform: translate3d(50vw, 10vh,0) rotate(0);
+            transform: translate(50vw, 10vh) rotate(0);
         }
         40% {
-            transform: translate3d(10vw, 70vh,0)  rotate(129deg);
+            transform: translate(0, 70vh)  rotate(129deg);
         }
         70% {
-            transform: translate3d(10vw, 10vh,0)  rotate(240deg);
+            transform: translate(0, 10vh)  rotate(240deg);
         }
         100% {
-            transform: translate3d(50vw, 10vh,0)  rotate(360deg);
+            transform: translate(50vw, 10vh)  rotate(360deg);
         }
     }
     @keyframes light3Animation {
         0% {
-            transform: translate3d(0vw, 80vh),0;
+            transform: translate(0vw, 80vh);
         }
         30% {
-            transform: translate3d(40vw, 60vh,0);
+            transform: translate(40vw, 60vh);
         }
         70% {
-            transform: translate3d(50vw, 10vh,0);
+            transform: translate(50vw, 10vh);
         }
         100% {
-            transform: translate3d(0vw, 80vh),0;
+            transform: translate(0vw, 80vh);
         }
     }
 }

@@ -2,6 +2,8 @@ import React, { useMemo, useRef } from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import Link from "@docusaurus/Link";
+import GithubIcon from "@site/static/icons/github-navbar.svg"
+import LogoIcon from "@site/static/img/logo.svg"
 import Translate from '@docusaurus/Translate';
 import MyButton from '@site/src/components/Button';
 
@@ -11,7 +13,7 @@ const HomeHeader = () => {
   const FeatureList = useRef([
     {
       title: <Translate description="homepage simple">Simple</Translate>,
-      Svg: require("@site/static/illustrations/intro1.svg").default,
+      Svg: "illustrations/Start1.png",
       description: (
         <Translate description="homepage simple">
           Any highly available distributed application on kubernetes can be
@@ -21,7 +23,7 @@ const HomeHeader = () => {
     },
     {
       title: <Translate description="homepage flexible">Flexible</Translate>,
-      Svg: require("@site/static/illustrations/intro2.svg").default,
+      Svg: "illustrations/Start2.png",
       description: (
         <Translate description="homepage flexible intro">
           Freely combine various distributed applications and easily customize the
@@ -31,7 +33,7 @@ const HomeHeader = () => {
     },
     {
       title: <Translate description="homepage powerful">Powerful</Translate>,
-      Svg: require("@site/static/illustrations/intro3.svg").default,
+      Svg: "illustrations/Start3.png",
       description: (
         <Translate description="homepage flexible intro">
           Cloud services can be found and obtained in the application market,
@@ -63,10 +65,11 @@ const HomeHeader = () => {
         <div className="light2"></div>
         <div className="light3"></div>
       </div>
+      <img className='background-img' src="illustrations/start.png" alt="" />
       {/* 自定义navbar */}
       <nav>
         <div className='left'>
-          <img src="img/logo.png" alt="" />
+          <LogoIcon/>
           <span>sealos</span>
         </div>
         <div className="links">
@@ -74,29 +77,33 @@ const HomeHeader = () => {
             <Link key={item.link} to={item.link}>{item.label}</Link>
           ))}
         </div>
-        {
-          isBrowser ? (
-            <div className="right">
-              <Link to={`${location.origin}${i18nMap[currentLocale]?.link}`} target="_self">{i18nMap[currentLocale]?.label}</Link>
-            </div>
-          ) : (
-            <div className="right">中</div>
-          )
-        }
+        <div className="right">
+          {
+            isBrowser ? (
+              <div className="right">
+                <Link to={`${location.origin}${i18nMap[currentLocale]?.link}`} target="_self">{i18nMap[currentLocale]?.label}</Link>
+              </div>
+            ) : (
+              /* 不能跳转的 */
+              <div className="right"> 
+                中
+              </div>
+            )
+          }
+          <Link className="git-icon" to="https://github.com/labring/sealos"><GithubIcon /></Link>
+        </div>
       </nav>
-      <img className='background-img' src="illustrations/start.png" alt="" />
       <main>
         <h1><Translate>Run Your Business on Sealos Cloud</Translate></h1>
-        <p><Translate>Kubernetes-kernel-based cloud os</Translate></p>
-        <p><Translate>Let's sealos run kubernetes !</Translate></p>
-        <MyButton text='START NOW' link='/docs/category/getting-started' />
+        <p><Translate>sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.</Translate></p>
+        <MyButton text='START NOW' link='https://cloud.sealos.io' />
       </main>
       {/* 内容 */}
       <footer className="row padding-top--lg">
         {FeatureList.current.map((item, i) => (
           <div key={i} className="col col-demo row">
             <div className="col col--3">
-              <item.Svg role="img" />
+              <img src={item.Svg} alt="" />
             </div>
             <div className="col col--9">
               <h3>{item.title}</h3>

@@ -11,268 +11,191 @@ const HomepageExamples = ({
 }: {
   isPc: boolean
 }) => {
-  const tabs = ['Kubernetes', 'Storage', 'Network', 'Database', 'Monitoring', 'GPU', 'MQ', 'Dashboard', 'Rancher', 'Kubesphere', 'CICD']
-  const [selectedTab, setSelectedTab] = useState(tabs[0])
-
   const slideCards = [
     {
-      title: 'Kubesphere',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1n
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20n
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      title: 'Platform',
+      desc: 'Support various dashboards, allowing users to easily manage kubernetes clusters',
+      code: ``
     },
     {
-      title: 'CICD',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      title: 'GitOps',
+      desc: 'Support one-click operation of mainstream CI/CD systems such as argo cd, Drone',
+      code: `# Jenkins
+$ sealos run labring/jenkins:v2.346.2
+
+# Argocd
+$ sealos run labring/argocd:v2.4.8
+
+# Tekton
+$ sealos run labring/tekton:v0.61.0
+
+# Fluxcd
+$ sealos run labring/fluxcd:0.36.0
+$ sealos run labring/weave-gitops:0.10.1`
     },
     {
       title: 'Kubernetes',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
+      desc: 'kubernetes lifecycle management, cluster installation scaling backup recovery and upgrade',
       code: `# Run a single node kubernetes
 $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
 
 # Run a HA kubernetes cluster
 $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      --masters 192.168.64.2,192.168.64.22,192.168.64.20
+      --masters 192.168.64.2,192.168.64.22,192.168.64.20 
       --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
 
 # Add masters or nodes
 $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
 
 # Delete your cluster
-$ sealos reset
-`
+$ sealos reset`
     },
     {
       title: 'Storage',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Supports block storage, object storage, and file storage, one-click operation',
+      code: `# Install helm
+$ sealos run labring/helm:v3.8.2
+
+# Block storage
+$ sealos run labring/openebs:v1.9.0
+
+# Object storage
+$ sealos run labring/minio-operator:v4.4.16`
     },
     {
       title: 'Network',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Support network plug-ins such as calico flannel cilium, free customization, free choice',
+      code: `# Using flannel
+$ sealos run labring/flannel:v0.18.1
+
+# Using calico
+$ sealos run labring/calico:v3.22.1
+
+# Nginx ingress
+$ sealos run labring/ingress-nginx:4.1.0`
     },
     {
       title: 'Database',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Supports relational and non-relational databases, high availability, automatic backup, and multi-database instance management',
+      code: `# MySQL cluster
+$ sealos run labring/mysql-operator:8.0.23-14.1
+
+# Clickhouse cluster
+$ sealos run labring/clickhouse:0.18.4
+
+# Redis cluster
+$ sealos run labring/redis-operator:3.1.4`
     },
     {
       title: 'Monitoring',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Build a monitoring and alarm system with one click, visualized, without additional configuration',
+      code: `# Prometheus stack
+$ sealos run labring/kube-prometheus-stack:35.0.0
+
+# Metric server
+$ sealos run labring/metrics-server:v0.6.1
+
+# Any exporter
+$ sealos run labring/redis-exporter:latest
+
+# elasticsearch
+$ sealos run labring/elastic:7.17.3
+$ sealos run labring/fluent-bit:0.20.9
+or
+$ sealos run labring/fluent-operator-containerd:v1.5.1
+
+# Eck-operator
+$ sealos run labring/eck-operator:2.4.0
+
+# Loki
+$ sealos run labring/loki:2.6.1`
     },
     {
       title: 'GPU',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'One-click construction of GPU driver and device discovery, GPU resource monitoring, easy construction of deep learning platform and AI capabilities',
+      code: `# GPU driver, runtime tools, and controller
+# All in one~
+sealos run labring/gpu-operator:v1.10.1`
     },
     {
       title: 'MQ',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Support various mainstream message queues, high availability, automatic monitoring',
+      code: `# Kafka HA, controller instance and exporter
+sealos run labring/kafka-operator:0.28.0
+sealos run labring/kafka-exporter:latest`
     },
     {
       title: 'Dashboard',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Support various dashboards, allowing users to easily manage kubernetes clusters',
+      code: `# Kubernetes-dashboard
+$ sealos run docker.io/labring/kubernetes-dashboard:v1.0.8
+
+# kuboard
+$ sealos run labring/kuboard:v3`
     },
     {
-      title: 'Rancher',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      title: 'Platform',
+      desc: 'Support various dashboards, allowing users to easily manage kubernetes clusters',
+      code: `# Rancher, Notes: rancher depends on ingress-nginx and cert-manager, install it first.
+$ sealos run labring/ingress-nginx:4.1.0 labring/cert-manager:v1.8.0
+$ sealos run labring/rancher:v2.6.9
+
+# kubesphere
+$ sealos run labring/kubesphere:v3.3.1
+
+# kubegems
+sealos run labring/kubegems:v1.21.4`
     },
     {
-      title: 'Kubesphere',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
-    },
-    {
-      title: 'CICD',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      title: 'GitOps',
+      desc: 'Support one-click operation of mainstream CI/CD systems such as argo cd, Drone',
+      code: `# Jenkins
+$ sealos run labring/jenkins:v2.346.2
+
+# Argocd
+$ sealos run labring/argocd:v2.4.8
+
+# Tekton
+$ sealos run labring/tekton:v0.61.0
+
+# Fluxcd
+$ sealos run labring/fluxcd:0.36.0
+$ sealos run labring/weave-gitops:0.10.1`
     },
     {
       title: 'Kubernetes',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
+      desc: 'kubernetes lifecycle management, cluster installation scaling backup recovery and upgrade',
       code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+$ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
+
+# Run a HA kubernetes cluster
+$ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
+      --masters 192.168.64.2,192.168.64.22,192.168.64.20 
+      --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
+
+# Add masters or nodes
+$ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
+
+# Delete your cluster
+$ sealos reset`
     },
     {
       title: 'Storage',
-      desc: 'All Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:\nAll Appwrite SDKs are carefully designed to make developers lives easier:',
-      code: `# Run a single node kubernetes
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-      
-      # Run a HA kubernetes cluster
-      $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
-           --masters 192.168.64.2,192.168.64.22,192.168.64.20
-           --nodes 192.168.64.21,192.168.64.19 -p [your-ssh-passwd]
-      
-      # Add masters or nodes
-      $ sealos add --masters 192.168.64.20 --nodes 192.168.64.21,192.168.64.22
-      
-      # Delete your cluster
-      $ sealos reset`
+      desc: 'Supports block storage, object storage, and file storage, one-click operation',
+      code: `# Install helm
+$ sealos run labring/helm:v3.8.2
+
+# Block storage
+$ sealos run labring/openebs:v1.9.0
+
+# Object storage
+$ sealos run labring/minio-operator:v4.4.16`
     },
   ]
   const [selectedCardIndex, setSelectedCardIndex] = useState(2) // 当前活跃的轮播图
+  const tabs = slideCards.slice(2, -2).map(item => item.title)
+  const [selectedTab, setSelectedTab] = useState(tabs[0])
+
   const [isTransition, setIsTransition] = useState(true) // 是否有动画效果
 
   /**
@@ -321,10 +244,13 @@ $ sealos reset
           <h3>{card.title}</h3>
           <div className="desc">{card.desc}</div>
           <div className="code">
-            {card.code}
-            <div className='copy-btn' onClick={() => copyData(card.code, '指令已复制')}>
-              <MyButton text='Copy' link='' />
-            </div>
+            <pre>
+              <code>{card.code}</code>
+              <div className='copy-btn' onClick={() => copyData(card.code, '指令已复制')}>
+                <MyButton text='Copy' link='' />
+              </div>
+            </pre>
+            
           </div>
         </div>
       ))}
@@ -338,7 +264,12 @@ $ sealos reset
         <h3>{slideCards[selectedCardIndex].title}</h3>
         <div className="desc">{slideCards[selectedCardIndex].desc}</div>
         <div className="code">
-          {slideCards[selectedCardIndex].code}
+          <pre>
+            <code>{slideCards[selectedCardIndex].code}</code>
+            <div className='copy-btn' onClick={() => copyData(slideCards[selectedCardIndex].code, '指令已复制')}>
+              <MyButton text='Copy' link='' />
+            </div>
+          </pre>
         </div>
       </div>
     </main>

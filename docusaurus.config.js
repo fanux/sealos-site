@@ -1,7 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -56,7 +53,7 @@ const config = {
     ],
   ],
 
-  themeConfig: { /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  themeConfig: { // @type {import('@docusaurus/preset-classic').ThemeConfig}
     algolia: {
       // Algolia 提供的应用 ID
       appId: "IGHQQ39TE4",
@@ -110,7 +107,12 @@ const config = {
             label: "Cloud Docs",
             to: "/docs/cloud/Intro"
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          { 
+            to: "/blog", 
+            label: "Blog", 
+            sidebarId: "docSidebar",
+            position: "left" 
+          },
           {
             position: "left",
             to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
@@ -143,10 +145,6 @@ const config = {
                 to: "https://github.com/labring/laf",
               },
               {
-                label: "sealyun (older version)",
-                to: "https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5",
-              },
-              {
                 label: "Cloud",
                 to: "https://cloud.sealos.io",
               },
@@ -156,6 +154,10 @@ const config = {
             title: "Community",
             items: [
               {
+                label: "Discord",
+                to: "https://discord.gg/7bPNZfsjJu",
+              },
+              {
                 label: "Stack Overflow",
                 to: "https://stackoverflow.com/questions/tagged/sealos",
               },
@@ -163,14 +165,6 @@ const config = {
                 label: "Telegram",
                 to: "https://t.me/cloudnativer",
               },
-              // {
-              //   label: "Discord",
-              //   href: "https://discordapp.com/invite/docusaurus",
-              // },
-              // {
-              //   label: "Twitter",
-              //   href: "https://twitter.com/docusaurus",
-              // },
             ],
           },
           {
@@ -193,15 +187,26 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
       },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
+      },
       prism: {
         additionalLanguages: ["docker"],
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require("prism-react-renderer/themes/github"),
+        darkTheme: require("prism-react-renderer/themes/dracula"),
       },
-    },
-    plugins: [
-      'docusaurus-plugin-sass',
-    ]
+  },
+  scripts: [
+    {
+      src: "https://cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js",
+      async: false,
+    }
+  ],
+  plugins: [
+    'docusaurus-plugin-sass',
+  ]
 };
 
 module.exports = config;

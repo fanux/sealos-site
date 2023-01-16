@@ -71,20 +71,27 @@
 
             .code {
                 position: relative;
-                background: rgba(255, 255, 255, 0.8);
                 box-shadow: inset 0px 0px 2px #FFFFFF;
                 border-radius: 8px;
-                padding: 10px;
                 word-break: break-all;
                 font-size: 0.8rem;
 
-                .copy-btn {
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    .link-btn {
-                        font-size: 0.9rem;
-                        padding: 5px 10px;
+                pre {
+                    height: 300px;
+
+                    .copy-btn {
+                        display: none;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        .link-btn {
+                            font-size: 0.8rem;
+                            padding: 5px 10px;
+                        }
+                    }
+
+                    &:hover .copy-btn {
+                        display: block;
                     }
                 }
             }
