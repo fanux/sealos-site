@@ -23,7 +23,7 @@ const Home = () => {
     <div className="home">
       <HomeHeader />
       <HomeFeature isPc={isPc} />
-      <HomeKernelArch />
+      <HomeKernelArch isPc={isPc} />
       <HomeExamples isPc={isPc} />
       <HomeUserBy />
       <HomeFooter/>
@@ -36,7 +36,7 @@ const Home = () => {
       <div className="home">
         <HomeHeader />
         <HomeFeature isPc={isPc} />
-        <HomeKernelArch />
+        <HomeKernelArch isPc={isPc} />
         <HomeExamples isPc={isPc} />
         <HomeUserBy />
         <HomeFooter/>
