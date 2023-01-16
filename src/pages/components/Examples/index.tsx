@@ -5,6 +5,7 @@ import LeftIcon from "@site/static/illustrations/example-left-icon.svg"
 import RightIcon from "@site/static/illustrations/example-right-icon.svg"
 import MyButton from '@site/src/components/Button'
 import { copyData } from '@site/src/utils'
+import PrismCode from '@site/src/components/CodeBlock'
 
 const HomepageExamples = ({
   isPc
@@ -244,13 +245,10 @@ $ sealos run labring/minio-operator:v4.4.16`
           <h3>{card.title}</h3>
           <div className="desc">{card.desc}</div>
           <div className="code">
-            <pre>
-              <code>{card.code}</code>
-              <div className='copy-btn' onClick={() => copyData(card.code, '指令已复制')}>
-                <MyButton text='Copy' link='' />
-              </div>
-            </pre>
-            
+            <PrismCode code={card.code} language="shell" />
+            <div className='copy-btn' onClick={() => copyData(card.code, '指令已复制')}>
+              <MyButton text='Copy' link='' />
+            </div>
           </div>
         </div>
       ))}

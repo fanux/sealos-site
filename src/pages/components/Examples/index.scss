@@ -71,28 +71,31 @@
 
             .code {
                 position: relative;
-                box-shadow: inset 0px 0px 2px #FFFFFF;
                 border-radius: 8px;
                 word-break: break-all;
                 font-size: 0.8rem;
+                
+                --prism-color: #393A34;
+                --prism-background-color: #f6f8fa;
 
                 pre {
                     height: 300px;
+                    background: var(--prism-background-color);
+                }
 
-                    .copy-btn {
-                        display: none;
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                        .link-btn {
-                            font-size: 0.8rem;
-                            padding: 5px 10px;
-                        }
+                .copy-btn {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    .link-btn {
+                        font-size: 0.8rem;
+                        padding: 5px 10px;
                     }
+                }
 
-                    &:hover .copy-btn {
-                        display: block;
-                    }
+                &:hover .copy-btn {
+                    display: block;
                 }
             }
         }
