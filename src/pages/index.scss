@@ -1,12 +1,11 @@
 .home {
-    background: '#FCFCFF';
+    background-color: '#FCFCFF' !important;
 
     .title {
         background-image: linear-gradient(101.7deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50.73%, rgba(255, 255, 255, 0.28) 68.61%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #16ABFF 0%, #B5B4FF 63%);
         color: transparent;
         background-clip: text;
         text-align: center;
-        font-family: 'Kumbh Sans';
         user-select: none;
         height: 148px;
         line-height: 148px;

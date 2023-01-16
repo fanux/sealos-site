@@ -11,20 +11,20 @@ const Feature = ({
 }) => {
   const FeatureList = [
     {
-      title: 'Distributed Applications1',
-      desc: 'Anything else as Cloud OS Applicationseach combination to meet various requirements and scenarios',
+      title: 'sealos cloud native appstore',
+      desc: 'Fully compatible with docker registry, one-click installation of various distributed cloud-native applications',
       pattern: 'illustrations/features-pattern1.png',
       result: 'illustrations/features1.png'
     },
     {
-      title: 'Distributed Applications2',
-      desc: 'Anything else as Cloud OS Applicationseach combination to meet various requirements and scenarios',
+      title: 'sealos pgsql database',
+      desc: 'One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery',
       pattern: 'illustrations/features-pattern2.png',
       result: 'illustrations/features2.png'
     },
     {
-      title: 'Distributed Applications',
-      desc: 'Anything else as Cloud OS Applicationseach combination to meet various requirements and scenarios',
+      title: 'sealos cloud provider',
+      desc: 'Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters',
       pattern: 'illustrations/features-pattern3.png',
       result: 'illustrations/features3.png'
     },
@@ -74,7 +74,6 @@ const Feature = ({
   },[])
 
   useLayoutEffect(() => {
-
     if(isBrowser) {
       const timer = setTimeout(() => { // 获取DOM一些高度和偏移距离
         FeaturesDom.current = document.querySelector(`#Features`)

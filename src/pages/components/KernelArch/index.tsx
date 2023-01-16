@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import '@site/src/css/animate.css'
 
@@ -8,36 +8,40 @@ const HomeKernelArch = () => {
   const isBrowser = useIsBrowser();
 
   const cards = [
-    {title: 'Cloud Driver', desc: 'Using CRI CNI CSI as Cloud OS Driverswith compute / storage / network like containerd / calico / openebs to pooling every resource everywhere'},
-    {title: 'Cloud Kernel', desc: 'Using CRI CNI CSI as Cloud OS Driverswith compute / storage / network like containerd / calico / openebs to pooling every resource everywhere'},
-    {title: 'Distributed Applications', desc: 'Using CRI CNI CSI as Cloud OS Driverswith compute / storage / network like containerd / calico / openebs to pooling every resource everywhere'},
+    {title: 'Distributed Applications', desc: 'Anything else as Cloud OS Applications each combination to meet various requirements and scenarios'},
+    {title: 'Cloud Kernel', desc: 'Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management'},
+    {title: 'Cloud Driver', desc: 'Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere'},
   ]
 
-  useEffect(() => {
-    // if(isBrowser) {
-    //   /* 加载动画 */
-    //   new WOW({
-    //     boxClass: 'card0',
-    //     animateClass: 'rollIn',
-    //     offset: 0,
-    //     mobile: true,
-    //     live: false
-    //   }).init()
-    //   new WOW({
-    //     boxClass: 'card1',
-    //     animateClass: 'lightSpeedIn',
-    //     offset: 0,
-    //     mobile: true,
-    //     live: false
-    //   }).init()
-    //   new WOW({
-    //     boxClass: 'card2',
-    //     animateClass: 'rollIn',
-    //     offset: 0,
-    //     mobile: true,
-    //     live: false
-    //   }).init()
-    // }
+  useLayoutEffect(() => {
+    /* 加载动画 */
+    // @ts-ignore nextline
+    if(isBrowser && WOW) {
+      // @ts-ignore nextline
+      new WOW({
+        boxClass: 'card0',
+        animateClass: 'rollIn',
+        offset: 0,
+        mobile: true,
+        live: false
+      }).init()
+      // @ts-ignore nextline
+      new WOW({
+        boxClass: 'card1',
+        animateClass: 'lightSpeedIn',
+        offset: 0,
+        mobile: true,
+        live: false
+      }).init()
+      // @ts-ignore nextline
+      new WOW({
+        boxClass: 'card2',
+        animateClass: 'rollIn',
+        offset: 0,
+        mobile: true,
+        live: false
+      }).init()
+    }
   }, [isBrowser])
 
   return (

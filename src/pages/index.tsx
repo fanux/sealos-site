@@ -1,4 +1,4 @@
-import React, { useMemo,useEffect } from "react";
+import React, { useMemo, useLayoutEffect } from "react";
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import Layout from "@theme/Layout";
 import useWindow from "../hooks/useWindow";
@@ -44,9 +44,10 @@ const Home = () => {
     </Layout>
   )
 
-  useEffect(() => {
-    if(!isBrowser) return
-    /* 给navbar加特定属性，隐藏footer, 添加wow库 */
+  useLayoutEffect(() => {
+    if(!isBrowser) return () => {}
+    
+    /* 给navbar加特定属性，隐藏footer */
     /* 只有Phone才有下面两个DOM */
     const NavbarDom:HTMLBaseElement = document.querySelector(".navbar")
     const FooterDom:HTMLBaseElement = document.querySelector('.footer')

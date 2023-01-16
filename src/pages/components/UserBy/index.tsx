@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
 import "./index.scss"
 import MyButton from '@site/src/components/Button'
 

@@ -16,9 +16,10 @@
             .card-item {
                 width: 100%;
                 padding: 20px;
-    
-                .code {
-                    display: none;
+
+                .code pre .copy-btn {
+                    display: block;
+                    bottom: 15px;
                 }
             }
         }
