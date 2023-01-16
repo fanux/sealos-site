@@ -4,7 +4,7 @@ import '@site/src/css/animate.css'
 
 import './index.scss'
 
-const HomeKernelArch = () => {
+const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
   const isBrowser = useIsBrowser();
 
   const cards = [
@@ -16,7 +16,7 @@ const HomeKernelArch = () => {
   useLayoutEffect(() => {
     /* 加载动画 */
     // @ts-ignore nextline
-    if(isBrowser && WOW) {
+    if(isBrowser && isPc && WOW) {
       // @ts-ignore nextline
       new WOW({
         boxClass: 'card0',
