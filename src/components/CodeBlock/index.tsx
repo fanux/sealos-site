@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import Prism from 'prismjs';
+import "./index.scss"
 
-function PrismCode({ code, language, plugins = [] }) {
+function PrismCode({ code, language }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -11,7 +12,7 @@ function PrismCode({ code, language, plugins = [] }) {
   }, [code])
 
   return (
-    <pre className={plugins.join(' ')}>
+    <pre className="my-code-block">
       <code ref={ref} className={`prism-code language-${language}`}>
         {code}
       </code>

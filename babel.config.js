@@ -7,7 +7,7 @@ module.exports = {
         "languages": ["bash", "shell"],
         "plugins": ["line-numbers", "show-language"],
         "theme": "solarizedlight",
-        "css": true
+        "css": false
       }
     ]
   ]
