@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import Prism from 'prismjs';
 import "./index.scss"
 
-function PrismCode({ code, language }) {
+function PrismCode({ code, language }:{code:string, language: string}) {
   const ref = useRef(null)
 
   useEffect(() => {
