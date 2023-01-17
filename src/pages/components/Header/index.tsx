@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import Link from "@docusaurus/Link";
 import GithubIcon from "@site/static/icons/github-navbar.svg"
-import LogoIcon from "@site/static/img/logo.svg"
+import LogoIcon from "@site/static/icons/logo.svg"
 import Translate from '@docusaurus/Translate';
 import MyButton from '@site/src/components/Button';
 
