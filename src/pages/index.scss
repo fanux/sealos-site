@@ -1,6 +1,12 @@
 .home {
     background-color: '#FCFCFF' !important;
 
+    * {
+        font-family: 'Kumbh Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+    }
+
     .title {
         background-image: linear-gradient(101.7deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50.73%, rgba(255, 255, 255, 0.28) 68.61%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #16ABFF 0%, #B5B4FF 63%);
         color: transparent;
