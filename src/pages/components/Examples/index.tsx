@@ -6,6 +6,7 @@ import RightIcon from "@site/static/illustrations/example-right-icon.svg"
 import MyButton from '@site/src/components/Button'
 import { copyData } from '@site/src/utils'
 import PrismCode from '@site/src/components/CodeBlock'
+import Translate from '@docusaurus/Translate';
 
 const HomepageExamples = ({
   isPc
@@ -247,7 +248,7 @@ $ sealos run labring/minio-operator:v4.4.16`
           <div className="code">
             <PrismCode code={card.code} language="shell" />
             <div className='copy-btn' onClick={() => copyData(card.code, '指令已复制')}>
-              <MyButton text='Copy' link='' />
+              <MyButton link='' ><Translate>Copy</Translate></MyButton>
             </div>
           </div>
         </div>
@@ -265,7 +266,7 @@ $ sealos run labring/minio-operator:v4.4.16`
           <pre>
             <code>{slideCards[selectedCardIndex].code}</code>
             <div className='copy-btn' onClick={() => copyData(slideCards[selectedCardIndex].code, '指令已复制')}>
-              <MyButton text='Copy' link='' />
+              <MyButton link='' ><Translate>Copy</Translate></MyButton>
             </div>
           </pre>
         </div>
@@ -275,7 +276,7 @@ $ sealos run labring/minio-operator:v4.4.16`
 
   return (
     <div id='Example' className='home-examples'>
-      <h1 className='title'>Examples</h1>
+      <h1 className='title'><Translate>Examples</Translate></h1>
       <img className='left-icon' src="illustrations/example-left.png" alt="" />
       <img className='right-icon' src="illustrations/example-right.png" alt="" />
       <header>

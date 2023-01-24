@@ -11,20 +11,23 @@ const Feature = ({
 }) => {
   const FeatureList = [
     {
-      title: 'sealos cloud native appstore',
-      desc: 'Fully compatible with docker registry, one-click installation of various distributed cloud-native applications',
+      id: '1',
+      title: <Translate>sealos cloud native appstore</Translate>,
+      desc: <Translate>Fully compatible with docker registry, one-click installation of various distributed cloud-native applications</Translate>,
       pattern: 'illustrations/features-pattern1.png',
       result: 'illustrations/features1.png'
     },
     {
-      title: 'sealos pgsql database',
-      desc: 'One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery',
+      id: '2',
+      title: <Translate>sealos pgsql database</Translate>,
+      desc: <Translate>One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery</Translate>,
       pattern: 'illustrations/features-pattern2.png',
       result: 'illustrations/features2.png'
     },
     {
-      title: 'sealos cloud provider',
-      desc: 'Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters',
+      id: '23',
+      title: <Translate>sealos cloud provider</Translate>,
+      desc: <Translate>Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters</Translate>,
       pattern: 'illustrations/features-pattern3.png',
       result: 'illustrations/features3.png'
     },
@@ -119,7 +122,7 @@ const Feature = ({
       </div>
       <div className="right">
         {FeatureList.map(item => (
-          <div key={item.title} className="feature-img">
+          <div key={item.id} className="feature-img">
             <img src={item.result} alt="" />
           </div>
         ))}
@@ -130,7 +133,7 @@ const Feature = ({
   const RenderPhone =  (
     <main>
       {FeatureList.map(item => (
-        <div key={item.title} className="feature-item">
+        <div key={item.id} className="feature-item">
           <h2>{item.title}</h2>
           <p>{item.desc}</p>
           <img src={item.result} alt="" />

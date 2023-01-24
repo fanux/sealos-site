@@ -14,5 +14,9 @@
   "item.label.Contact": {
     "message": "Contact",
     "description": "Navbar item with label Contact"
+  },
+  "item.label.Cloud Docs": {
+    "message": "Cloud Docs",
+    "description": "Navbar item with label Cloud Docs"
   }
 }

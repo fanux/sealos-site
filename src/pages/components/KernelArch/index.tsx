@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import Translate from '@docusaurus/Translate';
 import '@site/src/css/animate.css'
 
 import './index.scss'
@@ -8,9 +9,9 @@ const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
   const isBrowser = useIsBrowser();
 
   const cards = [
-    {title: 'Distributed Applications', desc: 'Anything else as Cloud OS Applications each combination to meet various requirements and scenarios'},
-    {title: 'Cloud Kernel', desc: 'Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management'},
-    {title: 'Cloud Driver', desc: 'Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere'},
+    {id:'1',title: <Translate>Distributed Applications</Translate>, desc: <Translate>Anything else as Cloud OS Applications each combination to meet various requirements and scenarios</Translate>},
+    {id:'2',title: <Translate>Cloud Kernel</Translate>, desc: <Translate>Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management</Translate>},
+    {id:'3',title: <Translate>Cloud Driver</Translate>, desc: <Translate>Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere</Translate>},
   ]
 
   useLayoutEffect(() => {
@@ -46,7 +47,7 @@ const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
 
   return (
     <div id='KernelArch' className='home-kernel-arch'>
-      <h1 className='title'>Kernel Arch</h1>
+      <h1 className='title'><Translate>Kernel Arch</Translate></h1>
       <div style={{position: 'relative'}}>
         <img 
           className='example' 
@@ -56,13 +57,13 @@ const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
         <div className="cards">
           {cards.map((card, index) => (
             <div 
-              key={card.title} 
+              key={card.id} 
               className="card-item"
             >
               <div className={`card${index}`} data-wow-duration="1s">
                 <div className="index">0{index+1}</div>
                 <main>
-                  <header>{card.title}</header>
+                  <h2>{card.title}</h2>
                   <footer>{card.desc}</footer>
                 </main>
               </div>

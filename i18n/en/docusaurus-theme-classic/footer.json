@@ -50,5 +50,9 @@
   "copyright": {
     "message": "Copyright © 2023 sealos. Built with Docusaurus2.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/7bPNZfsjJu"
   }
 }

@@ -14,5 +14,9 @@
   "item.label.API": {
     "message": "API",
     "description": "Navbar item with label API"
+  },
+  "item.label.Cloud Docs": {
+    "message": "sealos云文档",
+    "description": "Navbar item with label Cloud Docs"
   }
 }

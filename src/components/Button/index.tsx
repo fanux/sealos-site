@@ -3,12 +3,12 @@ import Link from "@docusaurus/Link";
 import './index.scss'
 
 interface Props {
-    text: string
-    link: string
+  children: JSX.Element
+  link: string
 }
 
 const MyButton = ({
-    text,
+    children,
     link
 }:Props) => {
   return (
@@ -16,7 +16,7 @@ const MyButton = ({
         className="link-btn"
         to={link}
     >
-        {text}
+        {children}
     </Link>
   )
 }

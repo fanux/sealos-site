@@ -4,6 +4,16 @@
  * work well for content-centric websites.
 */
 
+@font-face{
+  font-family: 'Kumbh Sans';
+  src : url('./KumbhSans-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url(./Nunito-Italic-VariableFont_wght.ttf);
+  src: url(./Nunito-VariableFont_wght.ttf);
+}
+
 
 /* 滚动条样式 */
 ::-webkit-scrollbar {
