@@ -442,7 +442,7 @@
     "message": "Let's sealos run kubernetes !"
   },
   "sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.": {
-    "message": "Sealos 是一个 Kubernetes 发行版，是一个通用的云操作系统，用于管理云原生应用程序。"
+    "message": "sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications."
   },
   "Copy": {
     "message": "Copy"
