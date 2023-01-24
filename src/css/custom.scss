@@ -45,7 +45,6 @@
   --ifm-color-primary-lightest: #a6d5fa;
 
   --ifm-code-font-size: 95%;
-  --ifm-navbar-height: auto;
   /* 文字颜色 */
   --ifm-navbar-link-color: #282937;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -87,12 +86,8 @@
   }
 }
 
-html {
-  font-size: 16px;
-}
-
 body, html {
-  overflow-x: hidden;
+  font-size: 16px;
   height: auto !important;
 }
 
@@ -132,12 +127,6 @@ div.kernel-arch h3::before {
   position: absolute;
   border-radius: 5px;
   transform: translateX(-10px);
-}
-
-/* 修改默认组件样式 */
-button {
-  border: none;
-  outline: none;
 }
 
 @media screen and (max-width: 996px) {
