@@ -235,36 +235,34 @@
     "description": "homepage instant create examples"
   },
   "Simple": {
-    "message": "Simple",
+    "message": "简单",
     "description": "homepage simple"
   },
   "Any highly available distributed application on kubernetes can be installed with one click.": {
-    "message": "Any highly available distributed application on kubernetes can be installed with one click.",
+    "message": "在 Kubernetes 上，可以一键安装任何高可用分布式应用程序。",
     "description": "homepage simple"
   },
   "Flexible": {
-    "message": "Flexible",
+    "message": "灵活",
     "description": "homepage flexible"
   },
   "Freely combine various distributed applications and easily customize the cloud you need.": {
-    "message": "Freely combine various distributed applications and easily customize the cloud you need.",
+    "message": "自由组合各种分布式应用程序，轻松定制所需的云。",
     "description": "homepage flexible intro"
   },
   "Powerful": {
-    "message": "Powerful",
+    "message": "强大",
     "description": "homepage powerful"
   },
   "Cloud services can be found and obtained in the application market, simple but powerful.": {
-    "message": "Cloud services can be found and obtained in the application market, simple but powerful.",
+    "message": "可以在应用市场中找到并获得云服务，简单但功能强大。",
     "description": "homepage flexible intro"
   },
   "Kernel Arch": {
-    "message": "Kernel Arch",
-    "description": "homepage kernel arch"
+    "message": "内核架构"
   },
   "Cloud Driver": {
-    "message": "Cloud Driver",
-    "description": "homepage kernel arch cloud driver"
+    "message": "云驱动程序"
   },
   "Using CRI CNI CSI as Cloud OS Drivers": {
     "message": "Using CRI CNI CSI as Cloud OS Drivers",
@@ -275,8 +273,7 @@
     "description": "homepage kernel arch cloud driver intro"
   },
   "Cloud Kernel": {
-    "message": "Cloud Kernel",
-    "description": "homepage kernel arch cloud kernel"
+    "message": "云内核"
   },
   "Using kubernetes as Cloud OS Core": {
     "message": "Using kubernetes as Cloud OS Core",
@@ -287,8 +284,7 @@
     "description": "homepage kernel arch cloud driver intro"
   },
   "Distributed Applications": {
-    "message": "Distributed Applications",
-    "description": "homepage kernel arch dist apps"
+    "message": "分布式应用程序"
   },
   "Anything else as Cloud OS Applications": {
     "message": "Anything else as Cloud OS Applications",
@@ -299,8 +295,7 @@
     "description": "homepage kernel arch cloud driver intro"
   },
   "Used By": {
-    "message": "Used By",
-    "description": "homepage used by"
+    "message": "使用者"
   },
   "More than 4k enterprise users use sealos in production!": {
     "message": "More than 4k enterprise users use sealos in production!",
@@ -482,12 +477,63 @@
     "description": "The title of the tag list page"
   },
   "Run Your Business on Sealos Cloud": {
-    "message": "Run Your Business on Sealos Cloud"
+    "message": "在 Sealos 云上运行您的业务"
   },
   "Kubernetes-kernel-based cloud os": {
     "message": "Kubernetes-kernel-based cloud os"
   },
   "Let's sealos run kubernetes !": {
     "message": "Let's sealos run kubernetes !"
+  },
+  "Features": {
+    "message": "特征"
+  },
+  "sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.": {
+    "message": "Sealos 是一个 Kubernetes 发行版，是一个通用的云操作系统，用于管理云原生应用程序。"
+  },
+  "Copy": {
+    "message": "复制"
+  },
+  "START NOW": {
+    "message": "点击开始体验"
+  },
+  "CONTACT US NOW": {
+    "message": "联系我们"
+  },
+  "sealos cloud native appstore": {
+    "message": "Sealos 云原生应用商店"
+  },
+  "Fully compatible with docker registry, one-click installation of various distributed cloud-native applications": {
+    "message": "与 Docker Registry 完全兼容，一键安装各种分布式云原生应用程序。"
+  },
+  "sealos pgsql database": {
+    "message": "Sealos pgSQL 数据库"
+  },
+  "One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery": {
+    "message": "一键创建高可用 PGSQL 数据库，多数据库集群管理，备份和恢复。"
+  },
+  "sealos cloud provider": {
+    "message": "Sealos 云提供商"
+  },
+  "Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters": {
+    "message": "可以在 AWS 或其他公共云上几分钟内创建独立的 Kubernetes 集群，并管理多个集群。"
+  },
+  "Examples": {
+    "message": "例子"
+  },
+  "Anything else as Cloud OS Applications each combination to meet various requirements and scenarios": {
+    "message": "作为云操作系统应用程序自由组合，每种组合都可以满足各种需求和场景。"
+  },
+  "Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management": {
+    "message": "使用 Kubernetes 作为云操作系统核心，抽象底层资源 / 定义资源接口 / 标准化应用程序管理。"
+  },
+  "Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere": {
+    "message": "使用 CRI CNI CSI 作为云操作系统驱动程序，利用 containerd/calico/openebs 等计算/存储/网络将所有资源汇集到任何地方。"
+  },
+  "More than 4k Companies and Individuals！": {
+    "message": "超过 4000 家公司和个人使用！"
+  },
+  "Start": {
+    "message": "开始"
   }
 }

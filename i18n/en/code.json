@@ -440,5 +440,71 @@
   },
   "Let's sealos run kubernetes !": {
     "message": "Let's sealos run kubernetes !"
+  },
+  "sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.": {
+    "message": "sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications."
+  },
+  "Copy": {
+    "message": "Copy"
+  },
+  "START NOW": {
+    "message": "START NOW"
+  },
+  "CONTACT US NOW": {
+    "message": "CONTACT US NOW"
+  },
+  "sealos cloud native appstore": {
+    "message": "sealos cloud native appstore"
+  },
+  "Fully compatible with docker registry, one-click installation of various distributed cloud-native applications": {
+    "message": "Fully compatible with docker registry, one-click installation of various distributed cloud-native applications"
+  },
+  "sealos pgsql database": {
+    "message": "sealos pgsql database"
+  },
+  "One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery": {
+    "message": "One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery"
+  },
+  "sealos cloud provider": {
+    "message": "sealos cloud provider"
+  },
+  "Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters": {
+    "message": "Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters"
+  },
+  "Distributed Applications": {
+    "message": "Distributed Applications"
+  },
+  "Anything else as Cloud OS Applications each combination to meet various requirements and scenarios": {
+    "message": "Anything else as Cloud OS Applications each combination to meet various requirements and scenarios"
+  },
+  "Cloud Kernel": {
+    "message": "Cloud Kernel"
+  },
+  "Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management": {
+    "message": "Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management"
+  },
+  "Cloud Driver": {
+    "message": "Cloud Driver"
+  },
+  "Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere": {
+    "message": "Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere"
+  },
+  "Kernel Arch": {
+    "message": "Kernel Arch"
+  },
+  "Examples": {
+    "message": "Examples"
+  },
+  "Used By": {
+    "message": "Used By"
+  },
+  "More than 4k Companies and Individuals！": {
+    "message": "More than 4k Companies and Individuals！"
+  },
+  "Start": {
+    "message": "Start"
+  },
+  "User By": {
+    "message": "User By"
   }
 }

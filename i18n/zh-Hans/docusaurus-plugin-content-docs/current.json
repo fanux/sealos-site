@@ -38,5 +38,21 @@
   "sidebar.docSidebar.category.Build Cloud Images": {
     "message": "Build Cloud Images",
     "description": "The label for category Build Cloud Images in sidebar docSidebar"
+  },
+  "sidebar.cloudDocSidebar.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar cloudDocSidebar"
+  },
+  "sidebar.cloudDocSidebar.category.APPs": {
+    "message": "APPs",
+    "description": "The label for category APPs in sidebar cloudDocSidebar"
+  },
+  "sidebar.cloudDocSidebar.category.APPs.link.generated-index.description": {
+    "message": "Examples demonstrating the usage of CLI commands.",
+    "description": "The generated-index page description for category APPs in sidebar cloudDocSidebar"
+  },
+  "sidebar.cloudDocSidebar.category.Design": {
+    "message": "Design",
+    "description": "The label for category Design in sidebar cloudDocSidebar"
   }
 }

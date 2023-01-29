@@ -96,7 +96,9 @@ const HomeHeader = () => {
       <main>
         <h1><Translate>Run Your Business on Sealos Cloud</Translate></h1>
         <p><Translate>sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.</Translate></p>
-        <MyButton text='START NOW' link='https://cloud.sealos.io' />
+        <MyButton link='https://cloud.sealos.io'>
+          <Translate>START NOW</Translate>
+        </MyButton>
       </main>
       {/* 内容 */}
       <footer className="row padding-top--lg">

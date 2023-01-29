@@ -3,16 +3,17 @@ import { throttle } from "@site/src/utils";
 import useIsBrowser from '@docusaurus/useIsBrowser';
 
 import "./index.scss"
+import Translate from '@docusaurus/Translate';
 
 const SlideStep = () => {
   const isBrowser = useIsBrowser();
 
-  const steps = useRef<{id: string, dom?: HTMLDivElement}[]>([
-    {id: 'Start', dom: undefined},
-    {id: 'Features', dom: undefined},
-    {id: 'KernelArch', dom: undefined},
-    {id: 'Example', dom: undefined},
-    {id: 'Client', dom: undefined},
+  const steps = useRef<{id: string, label:JSX.Element,dom?: HTMLDivElement}[]>([
+    {id: 'Start',label: <Translate>Start</Translate>, dom: undefined},
+    {id: 'Features',label: <Translate>Features</Translate>, dom: undefined},
+    {id: 'KernelArch',label: <Translate>Kernel Arch</Translate>, dom: undefined},
+    {id: 'Example',label: <Translate>Examples</Translate>, dom: undefined},
+    {id: 'Client',label: <Translate>Used By</Translate>, dom: undefined},
   ])
   const [currentStep, setCurrentStep] = useState(steps.current[0].id)
 
@@ -46,7 +47,7 @@ const SlideStep = () => {
           key={item.id} 
           className={`item ${currentStep === item.id ? '' : 'dot'}`}
         >
-          {currentStep === item.id ? item.id : ''}
+          {currentStep === item.id ? item.label : ''}
         </div>
       ))}
     </div>

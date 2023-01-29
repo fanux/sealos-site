@@ -50,5 +50,9 @@
   "link.item.label.Cloud": {
     "message": "Cloud",
     "description": "The label of footer link with label=Cloud linking to https://cloud.sealos.io"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/7bPNZfsjJu"
   }
 }
