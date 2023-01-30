@@ -1,9 +1,8 @@
-# Buildah module
+# Buildah 模块
 
-The buildah module code is located in pkg/buildah. 
-The core of sealos underlying operation cluster mirroring mainly uses [buildah](https://github.com/containers/buildah) logic code.
-Therefore, sealos provides the use interface of buildah.
-
+Buildah模块的代码在 sealos/pkg/buildah。
+sealos底层运行集群镜像的核心主要使用[buildah](https://github.com/containers/buildah)逻辑代码。
+因此，sealos提供了buildah的接口提供开发者使用。
 ```go
 type Interface interface {
     Pull(imageNames []string, opts ...FlagSetter) error
@@ -21,18 +20,18 @@ type Interface interface {
 ## Load
 //TODO
 ## InspectImage
-- inspect image in local store
+- 查看本地镜像
 ```go
 InspectImage("containers-storage://apache/apisix:3.1.0-debian")
 InspectImage("apache/apisix:3.1.0-debian")
 InspectImage("imageID")
 ```
-- inspect remote image
+- 查看远程镜像
 ```go
 InspectImage("docker://apache/apisix:3.1.0-debian")
 InspectImage("apache/apisix:3.1.0-debian", "docker")
 ```
-- inspect image for archive
+- 查看tar包镜像
 ```go
 InspectImage("path/of/oci/tarfile.tar", "oci-archive")
 InspectImage("path/of/docker/tarfile.tar", "docker-archive")
