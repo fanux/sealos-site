@@ -63,26 +63,6 @@
   .home {
     background-color: #FCFCFF;
     color: #1D2B51;
-
-    /* 滚动条样式 */
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 12px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #efefef;
-      border-radius: 2px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #bfbfbf;
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(64, 158, 255, 0.8);
-    }
   }
 }
 
