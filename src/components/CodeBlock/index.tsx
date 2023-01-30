@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import Prism from 'prismjs';
+import prismjs from 'prismjs';
 import "./index.scss"
 
 function PrismCode({ code, language }:{code:string, language: string}) {
@@ -7,7 +7,7 @@ function PrismCode({ code, language }:{code:string, language: string}) {
 
   useEffect(() => {
     if (ref && ref.current) {
-      Prism.highlightElement(ref.current)
+      prismjs.highlightElement(ref.current)
     }
   }, [code])
 

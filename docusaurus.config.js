@@ -195,7 +195,7 @@ const config = {
       prism: {
         additionalLanguages: ["docker"],
         theme: require("prism-react-renderer/themes/github"),
-        darkTheme: require("prism-react-renderer/themes/dracula"),
+        darkTheme: require("./src/theme/dracula"),
       },
   },
   scripts: [
