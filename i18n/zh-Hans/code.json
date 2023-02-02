@@ -255,7 +255,7 @@
     "description": "homepage powerful"
   },
   "Cloud services can be found and obtained in the application market, simple but powerful.": {
-    "message": "可以在应用市场中找到并获得云服务，简单但功能强大。sealos 不会牺牲复杂度来让变的强大，所有能力都通过应用扩展，让整个云原生生态应用有机的结合起来，比如数据库能力 sealos 会有机的结合 如 pgsql 和 bytebase 以此来提供非常丝滑的使用体验，sealos 上也会有自己研发的应用如 函数计算 LaF",
+    "message": "可以在应用市场中找到并获得云服务，简单但功能强大。sealos 不会牺牲复杂度来让其变的强大，所有能力都通过应用扩展，让整个云原生生态应用有机的结合起来，比如数据库能力 sealos 会有机的结合 如 pgsql 和 bytebase 以此来提供非常丝滑的使用体验，sealos 上也会有自己研发的应用如 函数计算 LaF",
     "description": "homepage flexible intro"
   },
   "Kernel Arch": {
