@@ -239,7 +239,7 @@
     "description": "homepage simple"
   },
   "Any highly available distributed application on kubernetes can be installed with one click.": {
-    "message": "在 Kubernetes 上，可以一键安装任何高可用分布式应用程序。如 pgsql, minio 等，sealos 的使用体验如使用 PC 电脑一样简单， sealos 几乎不需要专门的交付和运维人成本，小到电视盒子，大到数据中心都可以一条命令分钟级启动，同时支持公有云和本地机房部署",
+    "message": "在 Kubernetes 上，可以一键安装任何高可用分布式应用程序。如 pgsql, minio 等，sealos 的使用体验如使用 PC 电脑一样简单， sealos 几乎不需要专门的交付和运维成本，小到电视盒子，大到数据中心都可以一条命令分钟级启动，同时支持公有云和本地机房部署",
     "description": "homepage simple"
   },
   "Flexible": {
