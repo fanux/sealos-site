@@ -239,7 +239,7 @@
     "description": "homepage simple"
   },
   "Any highly available distributed application on kubernetes can be installed with one click.": {
-    "message": "在 Kubernetes 上，可以一键安装任何高可用分布式应用程序。",
+    "message": "在 Kubernetes 上，可以一键安装任何高可用分布式应用程序。如 pgsql, minio 等，sealos 的使用体验如使用 PC 电脑一样简单， sealos 几乎不需要专门的交付和运维人成本，小到电视盒子，大到数据中心都可以一条命令分钟级启动，同时支持公有云和本地机房部署",
     "description": "homepage simple"
   },
   "Flexible": {
@@ -247,7 +247,7 @@
     "description": "homepage flexible"
   },
   "Freely combine various distributed applications and easily customize the cloud you need.": {
-    "message": "自由组合各种分布式应用程序，轻松定制所需的云。",
+    "message": "自由组合各种分布式应用程序，轻松定制所需的云。sealos 独特的集群镜像能力可以把整个分布式应用像 Docker 镜像一样打包，里面包含分布式应用的所有依赖，甚至包含 kubernetes 本身，可以让你只运行一个裸 kubernetes 也可以让你运行出一个可以完整的对标公有云能力的云",
     "description": "homepage flexible intro"
   },
   "Powerful": {
@@ -255,14 +255,14 @@
     "description": "homepage powerful"
   },
   "Cloud services can be found and obtained in the application market, simple but powerful.": {
-    "message": "可以在应用市场中找到并获得云服务，简单但功能强大。",
+    "message": "可以在应用市场中找到并获得云服务，简单但功能强大。sealos 不会牺牲复杂度来让变的强大，所有能力都通过应用扩展，让整个云原生生态应用有机的结合起来，比如数据库能力 sealos 会有机的结合 如 pgsql 和 bytebase 以此来提供非常丝滑的使用体验，sealos 上也会有自己研发的应用如 函数计算 LaF",
     "description": "homepage flexible intro"
   },
   "Kernel Arch": {
-    "message": "内核架构"
+    "message": "以 kubernetes 为云内核架构"
   },
   "Cloud Driver": {
-    "message": "云驱动程序"
+    "message": "云驱动"
   },
   "Using CRI CNI CSI as Cloud OS Drivers": {
     "message": "Using CRI CNI CSI as Cloud OS Drivers",
@@ -295,7 +295,7 @@
     "description": "homepage kernel arch cloud driver intro"
   },
   "Used By": {
-    "message": "使用者"
+    "message": "客户列表"
   },
   "More than 4k enterprise users use sealos in production!": {
     "message": "More than 4k enterprise users use sealos in production!",
@@ -477,7 +477,7 @@
     "description": "The title of the tag list page"
   },
   "Run Your Business on Sealos Cloud": {
-    "message": "在 Sealos 云上运行您的业务"
+    "message": "sealos - 以 kubernetes 为内核的云操作系统发行版"
   },
   "Kubernetes-kernel-based cloud os": {
     "message": "Kubernetes-kernel-based cloud os"
@@ -486,10 +486,10 @@
     "message": "Let's sealos run kubernetes !"
   },
   "Features": {
-    "message": "特征"
+    "message": "特性"
   },
   "sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.": {
-    "message": "Sealos 是一个 Kubernetes 发行版，是一个通用的云操作系统，用于管理云原生应用程序。"
+    "message": "sealos 以云原生的方式，抛弃了传统 IaaS PaaS SaaS 三层云计算架构，转向以 kubernetes 为云内核的新架构，实现一个开源的可以到处运行的 AWS 可替代方案"
   },
   "Copy": {
     "message": "复制"
@@ -501,25 +501,25 @@
     "message": "联系我们"
   },
   "sealos cloud native appstore": {
-    "message": "Sealos 云原生应用商店"
+    "message": "sealos 应用仓库"
   },
   "Fully compatible with docker registry, one-click installation of various distributed cloud-native applications": {
-    "message": "与 Docker Registry 完全兼容，一键安装各种分布式云原生应用程序。"
+    "message": "与 Docker Registry 完全兼容，一键安装各种分布式云原生应用程序。 sealos 的应用并非只是 helm chart 或 kustomize, 而是集群镜像，集群镜像中包含了一个分布式应用的所有依赖 如 chart 配置甚至二进制文件等"
   },
   "sealos pgsql database": {
-    "message": "Sealos pgSQL 数据库"
+    "message": "sealos pgSQL 数据库"
   },
   "One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery": {
-    "message": "一键创建高可用 PGSQL 数据库，多数据库集群管理，备份和恢复。"
+    "message": "一键创建高可用 PGSQL 数据库，多数据库集群管理，备份和恢复。sealos 很注重不同的角色使用应用时的沉浸式体验，如使用数据库那就只需要关心数据库，而不需要感知到 kubernetes 的任何概念，这样即便用户不懂 kubernetes 也能很好使用 sealos"
   },
   "sealos cloud provider": {
-    "message": "Sealos 云提供商"
+    "message": "sealos Cloud Provider"
   },
   "Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters": {
-    "message": "可以在 AWS 或其他公共云上几分钟内创建独立的 Kubernetes 集群，并管理多个集群。"
+    "message": "可以在 AWS 或其他公共云上几分钟内创建独立的 Kubernetes 集群，并管理多个集群。 启动性能是绝大多数公有云的三倍以上，价格是 AWS 的 80%，sealos 并非屏蔽所有 kuberentes 的概念，而是不同的角色使用不同的应用，kubernetes 老司机依然可以接触所有 kubernetes 原生 API"
   },
   "Examples": {
-    "message": "例子"
+    "message": "使用样例"
   },
   "Anything else as Cloud OS Applications each combination to meet various requirements and scenarios": {
     "message": "作为云操作系统应用程序自由组合，每种组合都可以满足各种需求和场景。"
@@ -528,10 +528,10 @@
     "message": "使用 Kubernetes 作为云操作系统核心，抽象底层资源 / 定义资源接口 / 标准化应用程序管理。"
   },
   "Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere": {
-    "message": "使用 CRI CNI CSI 作为云操作系统驱动程序，利用 containerd/calico/openebs 等计算/存储/网络将所有资源汇集到任何地方。"
+    "message": "使用 CRI CNI CSI 作为云操作系统驱动程序，利用 containerd/calico/openebs 等计算/存储/网络将所有资源池化。"
   },
   "More than 4k Companies and Individuals！": {
-    "message": "超过 4000 家公司和个人使用！"
+    "message": "超过 4000 家公司和 10w+ 个人使用！"
   },
   "Start": {
     "message": "开始"
