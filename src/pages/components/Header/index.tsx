@@ -65,7 +65,7 @@ const HomeHeader = () => {
         <div className="light2"></div>
         <div className="light3"></div>
       </div>
-      <img className='background-img' src="illustrations/start.png" alt="" />
+      <img className='background-img' src={require("@site/static/illustrations/start.png").default} alt="" />
       {/* 自定义navbar */}
       <nav>
         <div className='left'>

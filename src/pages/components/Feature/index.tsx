@@ -11,25 +11,25 @@ const Feature = ({
 }) => {
   const FeatureList = [
     {
-      id: '1',
+      id: 'native',
       title: <Translate>sealos cloud native appstore</Translate>,
       desc: <Translate>Fully compatible with docker registry, one-click installation of various distributed cloud-native applications</Translate>,
-      pattern: 'illustrations/features-pattern1.png',
-      result: 'illustrations/features1.png'
+      pattern: require('@site/static/illustrations/features-pattern1.png').default,
+      result: require('@site/static/illustrations/features1.png').default
     },
     {
-      id: '2',
+      id: 'pgsql',
       title: <Translate>sealos pgsql database</Translate>,
       desc: <Translate>One-click creation of highly available pgsql database, multi-database cluster management, backup and recovery</Translate>,
-      pattern: 'illustrations/features-pattern2.png',
-      result: 'illustrations/features2.png'
+      pattern: require('@site/static/illustrations/features-pattern2.png').default,
+      result: require('@site/static/illustrations/features2.png').default
     },
     {
-      id: '23',
+      id: 'cloud',
       title: <Translate>sealos cloud provider</Translate>,
       desc: <Translate>Create an independent kubernetes cluster in minutes on AWS or other public clouds, and manage multiple clusters</Translate>,
-      pattern: 'illustrations/features-pattern3.png',
-      result: 'illustrations/features3.png'
+      pattern: require('@site/static/illustrations/features-pattern3.png').default,
+      result: require('@site/static/illustrations/features3.png').default
     },
   ]
   const isBrowser = useIsBrowser();
