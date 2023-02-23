@@ -12,10 +12,10 @@ const HomeUserBy = () => {
       <div className="scroll-brand">
         <div className='img-content'>
           <img
-            src="illustrations/userBy.png"
+            src={require("@site/static/illustrations/userBy.png").default}
           />
           <img
-            src="illustrations/userBy.png"
+            src={require("@site/static/illustrations/userBy.png").default}
           />
         </div>
       </div>
