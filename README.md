@@ -1,6 +1,6 @@
-# SealOS Website
+# Sealos Website
 
-SealOS website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Sealos website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ## Notes for contribution
 

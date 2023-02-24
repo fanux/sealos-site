@@ -21,7 +21,7 @@ const HomepageExamples = ({
     },
     {
       title: 'GitOps',
-      desc: 'Support one-click operation of mainstream CI/CD systems such as argo cd, Drone',
+      desc: 'Support one-click operation for mainstream CI/CD systems such as Argo CD and Drone',
       code: `# Jenkins
 $ sealos run labring/jenkins:v2.346.2
 
@@ -37,7 +37,7 @@ $ sealos run labring/weave-gitops:0.10.1`
     },
     {
       title: 'Kubernetes',
-      desc: 'kubernetes lifecycle management, cluster installation scaling backup recovery and upgrade',
+      desc: 'Comprehensive Kubernetes Cluster management throughout its entire lifecycle, including Installation, Scaling, Backup, Recovery, and Upgrades',
       code: `# Run a single node kubernetes
 $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
 
@@ -54,7 +54,7 @@ $ sealos reset`
     },
     {
       title: 'Storage',
-      desc: 'Supports block storage, object storage, and file storage, one-click operation',
+      desc: 'Supports block storage, object storage, and file storage with one-click operation',
       code: `# Install helm
 $ sealos run labring/helm:v3.8.2
 
@@ -66,7 +66,7 @@ $ sealos run labring/minio-operator:v4.4.16`
     },
     {
       title: 'Network',
-      desc: 'Support network plug-ins such as calico flannel cilium, free customization, free choice',
+      desc: 'Supports network plugins such as Calico, Flannel, and Cilium with the freedom of customization and choice',
       code: `# Using flannel
 $ sealos run labring/flannel:v0.18.1
 
@@ -78,7 +78,7 @@ $ sealos run labring/ingress-nginx:4.1.0`
     },
     {
       title: 'Database',
-      desc: 'Supports relational and non-relational databases, high availability, automatic backup, and multi-database instance management',
+      desc: 'Supports both relational and non-relational databases with high availability, automatic backups, and multi-database instance management capabilities',
       code: `# MySQL cluster
 $ sealos run labring/mysql-operator:8.0.23-14.1
 
@@ -90,7 +90,7 @@ $ sealos run labring/redis-operator:3.1.4`
     },
     {
       title: 'Monitoring',
-      desc: 'Build a monitoring and alarm system with one click, visualized, without additional configuration',
+      desc: 'Easily deploy a monitoring and alarm system with just one click, without the need for additional configuration, and enjoy a simple and intuitive visual experience',
       code: `# Prometheus stack
 $ sealos run labring/kube-prometheus-stack:35.0.0
 
@@ -114,21 +114,21 @@ $ sealos run labring/loki:2.6.1`
     },
     {
       title: 'GPU',
-      desc: 'One-click construction of GPU driver and device discovery, GPU resource monitoring, easy construction of deep learning platform and AI capabilities',
+      desc: 'One-click construction of GPU drivers, device discovery, GPU resource monitoring, and the easy creation of a deep learning platform with AI capabilities',
       code: `# GPU driver, runtime tools, and controller
 # All in one~
 sealos run labring/gpu-operator:v1.10.1`
     },
     {
       title: 'MQ',
-      desc: 'Support various mainstream message queues, high availability, automatic monitoring',
+      desc: 'Supports various mainstream message queues with high availability and automatic monitoring',
       code: `# Kafka HA, controller instance and exporter
 sealos run labring/kafka-operator:0.28.0
 sealos run labring/kafka-exporter:latest`
     },
     {
       title: 'Dashboard',
-      desc: 'Support various dashboards, allowing users to easily manage kubernetes clusters',
+      desc: 'Supports various dashboards, enabling users to manage Kubernetes clusters with ease',
       code: `# Kubernetes-dashboard
 $ sealos run docker.io/labring/kubernetes-dashboard:v1.0.8
 
@@ -150,7 +150,7 @@ sealos run labring/kubegems:v1.21.4`
     },
     {
       title: 'GitOps',
-      desc: 'Support one-click operation of mainstream CI/CD systems such as argo cd, Drone',
+      desc: 'Support one-click operation for mainstream CI/CD systems such as Argo CD and Drone',
       code: `# Jenkins
 $ sealos run labring/jenkins:v2.346.2
 
@@ -166,7 +166,7 @@ $ sealos run labring/weave-gitops:0.10.1`
     },
     {
       title: 'Kubernetes',
-      desc: 'kubernetes lifecycle management, cluster installation scaling backup recovery and upgrade',
+      desc: 'Comprehensive Kubernetes Cluster management throughout its entire lifecycle, including Installation, Scaling, Backup, Recovery, and Upgrades',
       code: `# Run a single node kubernetes
 $ sealos run labring/kubernetes:v1.24.0 labring/calico:v3.22.1
 
@@ -183,7 +183,7 @@ $ sealos reset`
     },
     {
       title: 'Storage',
-      desc: 'Supports block storage, object storage, and file storage, one-click operation',
+      desc: 'Supports block storage, object storage, and file storage with one-click operation',
       code: `# Install helm
 $ sealos run labring/helm:v3.8.2
 
