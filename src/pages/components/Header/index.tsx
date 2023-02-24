@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useRef } from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import Link from "@docusaurus/Link";
@@ -8,6 +8,29 @@ import Translate from '@docusaurus/Translate';
 import MyButton from '@site/src/components/Button';
 
 import "./index.scss"
+
+const navbar = [
+  {
+    label: "Docs",
+    to: "/docs/Intro"
+  },
+  {
+    label: "API",
+    to: "/docs/api/sealos"
+  },
+  {
+    label: "Cloud Docs",
+    to: "/docs/cloud/Intro"
+  },
+  { 
+    to: "/blog", 
+    label: "Blog", 
+  },
+  {
+    to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+    label: "Contact",
+  }
+]
 
 const HomeHeader = () => {
   const FeatureList = useRef([
@@ -26,8 +49,8 @@ const HomeHeader = () => {
       Svg: "illustrations/Start2.png",
       description: (
         <Translate description="homepage flexible intro">
-          Freely combine various distributed applications and easily customize the
-          cloud you need.
+          Easily customize the cloud you need by freely combining various 
+          distributed applications.
         </Translate>
       ),
     },
@@ -36,8 +59,8 @@ const HomeHeader = () => {
       Svg: "illustrations/Start3.png",
       description: (
         <Translate description="homepage flexible intro">
-          Cloud services can be found and obtained in the application market,
-          simple but powerful.
+          The cloud services can be easily found and acquired in the application 
+          marketplace, offering simplicity and power.
         </Translate>
       ),
     },
@@ -50,10 +73,6 @@ const HomeHeader = () => {
 
   // @ts-ignore nextLine
   const { i18n: { currentLocale }, siteConfig: {themeConfig: {navbar: {items: navbarData}}} } = useDocusaurusContext()
-  const navbarList:{label: string, link: string}[] = useMemo(() => navbarData.filter(item => item.to).map(item => ({
-    label: item.label,
-    link: item.to
-  })),[navbarData])
 
   const isBrowser = useIsBrowser();
 
@@ -65,7 +84,7 @@ const HomeHeader = () => {
         <div className="light2"></div>
         <div className="light3"></div>
       </div>
-      <img className='background-img' src="illustrations/start.png" alt="" />
+      <img className='background-img' src={require("@site/static/illustrations/start.png").default} alt="" />
       {/* 自定义navbar */}
       <nav>
         <div className='left'>
@@ -73,8 +92,8 @@ const HomeHeader = () => {
           <span>sealos</span>
         </div>
         <div className="links">
-          {navbarList.map(item => (
-            <Link key={item.link} to={item.link}>{item.label}</Link>
+          {navbar.map(item => (
+            <Link key={item.label} to={item.to}>{item.label}</Link>
           ))}
         </div>
         <div className="right">

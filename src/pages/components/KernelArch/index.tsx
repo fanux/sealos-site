@@ -51,7 +51,7 @@ const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
       <div style={{position: 'relative'}}>
         <img 
           className='example' 
-          src="illustrations/Kernel-Arch.png" 
+          src={require("@site/static/illustrations/Kernel-Arch.png" ).default}
           alt="" 
         />
         <div className="cards">
@@ -73,7 +73,7 @@ const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
       </div>
       <img 
         className='example2' 
-        src="illustrations/Kernel-Arch2.png" 
+        src={require("@site/static/illustrations/Kernel-Arch2.png" ).default}
         alt="" 
       />
     </div>

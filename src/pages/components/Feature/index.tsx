@@ -11,25 +11,25 @@ const Feature = ({
 }) => {
   const FeatureList = [
     {
-      id: '1',
+      id: 'native',
       title: <Translate>Sealos Cloud Native App Store</Translate>,
-      desc: <Translate>Fully compatible with Docker registry, enjoy seamless one-click installation of various cloud-native distributed applications.</Translate>,
-      pattern: 'illustrations/features-pattern1.png',
-      result: 'illustrations/features1.png'
+      desc: <Translate>Fully compatible with Docker registry, enjoy seamless one-click installation of various cloud-native distributed applications</Translate>,
+      pattern: require('@site/static/illustrations/features-pattern1.png').default,
+      result: require('@site/static/illustrations/features1.png').default
     },
     {
-      id: '2',
+      id: 'pgsql',
       title: <Translate>Sealos PostgreSQL Database</Translate>,
-      desc: <Translate>One-click creation of a highly available PostgreSQL database, with multi-database cluster management and backup and recovery capabilities.</Translate>,
-      pattern: 'illustrations/features-pattern2.png',
-      result: 'illustrations/features2.png'
+      desc: <Translate>One-click creation of a highly available PostgreSQL database, with multi-database cluster management and backup and recovery capabilities</Translate>,
+      pattern: require('@site/static/illustrations/features-pattern2.png').default,
+      result: require('@site/static/illustrations/features2.png').default
     },
     {
-      id: '23',
+      id: 'cloud',
       title: <Translate>Sealos Cloud Provider</Translate>,
-      desc: <Translate>Effortlessly establish an independent Kubernetes cluster within minutes on AWS or other public clouds, and effortlessly manage multiple clusters.</Translate>,
-      pattern: 'illustrations/features-pattern3.png',
-      result: 'illustrations/features3.png'
+      desc: <Translate>Effortlessly establish an independent Kubernetes cluster within minutes on AWS or other public clouds, and effortlessly manage multiple clusters</Translate>,
+      pattern: require('@site/static/illustrations/features-pattern3.png').default,
+      result: require('@site/static/illustrations/features3.png').default
     },
   ]
   const isBrowser = useIsBrowser();

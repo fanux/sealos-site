@@ -277,8 +277,8 @@ $ sealos run labring/minio-operator:v4.4.16`
   return (
     <div id='Example' className='home-examples'>
       <h1 className='title'><Translate>Examples</Translate></h1>
-      <img className='left-icon' src="illustrations/example-left.png" alt="" />
-      <img className='right-icon' src="illustrations/example-right.png" alt="" />
+      <img className='left-icon' src={require("@site/static/illustrations/example-left.png").default} alt="" />
+      <img className='right-icon' src={require("@site/static/illustrations/example-right.png").default} alt="" />
       <header>
         {tabs.map(tab => (
           <div 
