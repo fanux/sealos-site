@@ -9,9 +9,9 @@ const HomeKernelArch = ({isPc}: {isPc: boolean}) => {
   const isBrowser = useIsBrowser();
 
   const cards = [
-    {id:'1',title: <Translate>Distributed Applications</Translate>, desc: <Translate>Anything else as Cloud OS Applications each combination to meet various requirements and scenarios</Translate>},
-    {id:'2',title: <Translate>Cloud Kernel</Translate>, desc: <Translate>Using kubernetes as Cloud OS Core abstracting underlying resources / defining resource interfaces / standardizing application management</Translate>},
-    {id:'3',title: <Translate>Cloud Driver</Translate>, desc: <Translate>Using CRI CNI CSI as Cloud OS Drivers with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere</Translate>},
+    {id:'1',title: <Translate>Distributed Applications</Translate>, desc: <Translate>Anything else as can be freely combined as Cloud OS Applications, allowing for unlimited combinations to fulfill a wide range of requirements and scenarios.</Translate>},
+    {id:'2',title: <Translate>Cloud Kernel</Translate>, desc: <Translate>By utilizing Kubernetes as the core of the Cloud OS, we can abstract underlying resources, define resource interfaces, and standardize application management.</Translate>},
+    {id:'3',title: <Translate>Cloud Driver</Translate>, desc: <Translate>The Cloud OS leverages CRI, CNI, and CSI as drivers and utilizes technologies such as Containerd, Calico, and OpenEBS to pool resources and ensure seamless access across the compute, storage, and network domains.</Translate>},
   ]
 
   useLayoutEffect(() => {

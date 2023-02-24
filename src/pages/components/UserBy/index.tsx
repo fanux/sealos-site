@@ -7,7 +7,7 @@ const HomeUserBy = () => {
   return (
     <div id='Client' className='home-user-by'>
       <h1 className='title'><Translate>Used By</Translate></h1>
-      <h2><Translate>More than 4k Companies and 100k+ Individuals！</Translate></h2>
+      <h2><Translate>More than 4,000 Companies and 100,000+ Individuals!</Translate></h2>
       {/* 品牌商滚动 */}
       <div className="scroll-brand">
         <div className='img-content'>

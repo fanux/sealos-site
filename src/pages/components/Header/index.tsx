@@ -16,8 +16,8 @@ const HomeHeader = () => {
       Svg: "illustrations/Start1.png",
       description: (
         <Translate description="homepage simple">
-          Any highly available distributed application on kubernetes can be
-          installed with one click.
+          Any highly available distributed application on Kubernetes can be
+          easily installed with just one click.
         </Translate>
       ),
     },
@@ -95,7 +95,7 @@ const HomeHeader = () => {
       </nav>
       <main>
         <h1><Translate>Run Your Business on Sealos Cloud</Translate></h1>
-        <p><Translate>sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.</Translate></p>
+        <p><Translate>Sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.</Translate></p>
         <MyButton link='https://cloud.sealos.io'>
           <Translate>START NOW</Translate>
         </MyButton>
