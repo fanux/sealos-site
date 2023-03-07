@@ -11,24 +11,29 @@ import "./index.scss"
 
 const navbar = [
   {
+    key: "docs",
     label: <Translate>Docs</Translate>,
     to: "/docs/Intro"
   },
   {
+    key: "api",
     label: "API",
     to: "/docs/api/sealos"
   },
   {
+    key: "cloud docs",
     label: <Translate>Cloud Docs</Translate>,
     to: "/docs/cloud/Intro"
   },
-  { 
-    to: "/blog", 
-    label: <Translate>Blog</Translate>, 
+  {
+    key: "blog",
+    label: <Translate>Blog</Translate>,
+    to: "/blog",
   },
   {
-    to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+    key: "contact",
     label: <Translate>Contact</Translate>,
+    to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
   }
 ]
 
@@ -49,7 +54,7 @@ const HomeHeader = () => {
       Svg: "illustrations/Start2.png",
       description: (
         <Translate description="homepage flexible intro">
-          Easily customize the cloud you need by freely combining various 
+          Easily customize the cloud you need by freely combining various
           distributed applications.
         </Translate>
       ),
@@ -59,13 +64,13 @@ const HomeHeader = () => {
       Svg: "illustrations/Start3.png",
       description: (
         <Translate description="homepage flexible intro">
-          The cloud services can be easily found and acquired in the application 
+          The cloud services can be easily found and acquired in the application
           marketplace, offering simplicity and power.
         </Translate>
       ),
     },
   ])
-  
+
   const i18nMap:{[key: string]: {label: string, link: string}} = {
     en: {label: '中', link: '/zh-Hans/'},
     ['zh-Hans']: {label: 'En', link: '/'}
@@ -93,7 +98,7 @@ const HomeHeader = () => {
         </div>
         <div className="links">
           {navbar.map(item => (
-            <Link key={item.label} to={item.to}>{item.label}</Link>
+            <Link key={item.key} to={item.to}>{item.label}</Link>
           ))}
         </div>
         <div className="right">
@@ -104,7 +109,7 @@ const HomeHeader = () => {
               </div>
             ) : (
               /* 不能跳转的 */
-              <div className="right"> 
+              <div className="right">
                 中
               </div>
             )
