@@ -16,7 +16,7 @@
     "description": "The label of footer link with label=Company linking to /company"
   },
   "link.item.label.Laf FaaS": {
-    "message": "Laf FaaS",
+    "message": "Serverless Platform",
     "description": "The label of footer link with label=Laf FaaS linking to https://github.com/labring/laf"
   },
   "link.item.label.sealyun (older version)": {
@@ -24,7 +24,7 @@
     "description": "The label of footer link with label=sealyun (older version) linking to https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5"
   },
   "link.item.label.Cloud": {
-    "message": "Cloud",
+    "message": "Sealos Cloud",
     "description": "The label of footer link with label=Cloud linking to https://cloud.sealos.io"
   },
   "link.item.label.Stack Overflow": {
@@ -32,11 +32,11 @@
     "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/sealos"
   },
   "link.item.label.Telegram": {
-    "message": "Telegram",
-    "description": "The label of footer link with label=Telegram linking to https://t.me/cloudnativer"
+    "message": "Contributing",
+    "description": "The label of footer link with label=Contributing linking to https://github.com/labring/sealos/blob/main/CONTRIBUTING.md"
   },
   "link.item.label.CloudImages": {
-    "message": "CloudImages",
+    "message": "Cloud Images",
     "description": "The label of footer link with label=CloudImages linking to https://hub.docker.com/u/labring"
   },
   "link.item.label.GitHub": {
