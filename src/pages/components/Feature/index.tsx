@@ -12,7 +12,7 @@ const Feature = ({
   const FeatureList = [
     {
       id: 'native',
-      title: <Translate>Sealos Cloud Native App Store</Translate>,
+      title: <Translate>Sealos cloud-native App Store</Translate>,
       desc: <Translate>Fully compatible with Docker registry, enjoy seamless one-click installation of various cloud-native distributed applications</Translate>,
       pattern: require('@site/static/illustrations/features-pattern1.png').default,
       result: require('@site/static/illustrations/features1.png').default

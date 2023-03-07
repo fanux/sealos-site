@@ -28,19 +28,19 @@
     "description": "The label of footer link with label=Company linking to /company"
   },
   "link.item.label.Laf FaaS": {
-    "message": "Laf FaaS",
+    "message": "开箱即用的云函数",
     "description": "The label of footer link with label=Laf FaaS linking to https://github.com/labring/laf"
   },
-  "link.item.label.Telegram": {
-    "message": "Telegram",
-    "description": "The label of footer link with label=Telegram linking to https://t.me/cloudnativer"
+  "link.item.label.Contributing": {
+    "message": "参与贡献",
+    "description": "The label of footer link with label=Contributing linking to https://github.com/labring/sealos/blob/main/CONTRIBUTING.md"
   },
   "link.item.label.CloudImages": {
-    "message": "CloudImages",
+    "message": "集群镜像",
     "description": "The label of footer link with label=CloudImages linking to https://hub.docker.com/u/labring"
   },
   "link.item.label.CloudNativeLab": {
-    "message": "CloudNativeLab",
+    "message": "云原生实验室",
     "description": "The label of footer link with label=CloudNativeLab linking to https://icloudnative.io"
   },
   "link.item.label.sealyun (older version)": {
@@ -48,7 +48,7 @@
     "description": "The label of footer link with label=sealyun (older version) linking to https://pan.baidu.com/s/1fu_l8yL_K6BLpSIugKhvAg?pwd=47f5"
   },
   "link.item.label.Cloud": {
-    "message": "Cloud",
+    "message": "Sealos Cloud",
     "description": "The label of footer link with label=Cloud linking to https://cloud.sealos.io"
   },
   "link.item.label.Discord": {

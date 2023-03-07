@@ -11,7 +11,7 @@ import "./index.scss"
 
 const navbar = [
   {
-    label: "Docs",
+    label: <Translate>Docs</Translate>,
     to: "/docs/Intro"
   },
   {
@@ -19,16 +19,16 @@ const navbar = [
     to: "/docs/api/sealos"
   },
   {
-    label: "Cloud Docs",
+    label: <Translate>Cloud Docs</Translate>,
     to: "/docs/cloud/Intro"
   },
   { 
     to: "/blog", 
-    label: "Blog", 
+    label: <Translate>Blog</Translate>, 
   },
   {
     to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
-    label: "Contact",
+    label: <Translate>Contact</Translate>,
   }
 ]
 
@@ -89,7 +89,7 @@ const HomeHeader = () => {
       <nav>
         <div className='left'>
           <LogoIcon/>
-          <span>sealos</span>
+          <span>Sealos</span>
         </div>
         <div className="links">
           {navbar.map(item => (

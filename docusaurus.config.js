@@ -162,8 +162,8 @@ const config = {
                 to: "https://stackoverflow.com/questions/tagged/sealos",
               },
               {
-                label: "Telegram",
-                to: "https://t.me/cloudnativer",
+                label: "Contributing",
+                to: "https://github.com/labring/sealos/blob/main/CONTRIBUTING.md",
               },
             ],
           },
