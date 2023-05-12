@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="part2">
-        Made by Sealos Team.
+        Made by Sealos Team. <small><a target="_blank" href="https://beian.miit.gov.cn/">粤ICP备2023048773号</a></small>
       </div>
     </div>
   )
