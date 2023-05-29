@@ -93,13 +93,6 @@ const config = {
             to: "/docs/Intro"
           },
           {
-            type: "docSidebar",
-            position: "left",
-            sidebarId: "apiSidebar",
-            label: "API",
-            to: "/docs/api/sealos"
-          },
-          {
             type: "doc",
             docId: "cloud/Intro",
             position: "left",
@@ -107,11 +100,11 @@ const config = {
             label: "Cloud Docs",
             to: "/docs/cloud/Intro"
           },
-          { 
-            to: "/blog", 
-            label: "Blog", 
+          {
+            to: "/blog",
+            label: "Blog",
             sidebarId: "docSidebar",
-            position: "left" 
+            position: "left"
           },
           {
             position: "left",
