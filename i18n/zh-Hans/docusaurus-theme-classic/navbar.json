@@ -4,19 +4,15 @@
     "description": "Navbar item with label Docs"
   },
   "item.label.Contact": {
-    "message": "商业合作",
+    "message": "商务合作",
     "description": "Navbar item with label Contact"
   },
   "item.label.Blog": {
     "message": "博客",
     "description": "Navbar item with label Blog"
   },
-  "item.label.API": {
-    "message": "API",
-    "description": "Navbar item with label API"
-  },
-  "item.label.Cloud Docs": {
-    "message": "sealos云文档",
-    "description": "Navbar item with label Cloud Docs"
+  "logo.alt": {
+    "message": "sealos",
+    "description": "The alt text of navbar logo"
   }
 }

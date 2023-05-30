@@ -5,7 +5,7 @@
   },
   "theme.ErrorPageContent.tryAgain": {
     "message": "重试",
-    "description": "The label of the button to try again when the page crashed"
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
   },
   "theme.NotFound.title": {
     "message": "找不到页面",
@@ -230,10 +230,6 @@
     "message": "展开侧边栏",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
-  "Instant Create Examples": {
-    "message": "Instant Create Examples",
-    "description": "homepage instant create examples"
-  },
   "Simple": {
     "message": "简单",
     "description": "homepage simple"
@@ -264,42 +260,14 @@
   "Cloud Driver": {
     "message": "云驱动"
   },
-  "Using CRI CNI CSI as Cloud OS Drivers": {
-    "message": "Using CRI CNI CSI as Cloud OS Drivers",
-    "description": "homepage kernel arch cloud driver title"
-  },
-  "with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere": {
-    "message": "with compute/storage/network like containerd/calico/openebs to pooling every resource everywhere",
-    "description": "homepage kernel arch cloud driver intro"
-  },
   "Cloud Kernel": {
     "message": "云内核"
-  },
-  "Using kubernetes as Cloud OS Core": {
-    "message": "Using kubernetes as Cloud OS Core",
-    "description": "homepage kernel arch cloud kernel title"
-  },
-  "abstracting underlying resources / defining resource interfaces / standardizing application management": {
-    "message": "abstracting underlying resources / defining resource interfaces / standardizing application management",
-    "description": "homepage kernel arch cloud driver intro"
   },
   "Distributed Applications": {
     "message": "分布式应用程序"
   },
-  "Anything else as Cloud OS Applications": {
-    "message": "Anything else as Cloud OS Applications",
-    "description": "homepage kernel arch dis apps title"
-  },
-  "each combination to meet various requirements and scenarios": {
-    "message": "each combination to meet various requirements and scenarios",
-    "description": "homepage kernel arch cloud driver intro"
-  },
   "Used By": {
     "message": "客户列表"
-  },
-  "More than 4k enterprise users use sealos in production!": {
-    "message": "More than 4k enterprise users use sealos in production!",
-    "description": "homepage used by more comanies"
   },
   "theme.SearchBar.seeAll": {
     "message": "查看全部 {count} 个结果"
@@ -343,17 +311,11 @@
   "Docs": {
     "message": "文档"
   },
-  "Api": {
-    "message": "Api"
-  },
-  "Cloud Docs": {
-    "message": "Sealos Cloud 文档"
-  },
   "Blog": {
     "message": "博客"
   },
   "Contact": {
-    "message": "联系我们"
+    "message": "商务合作"
   },
   "theme.admonition.note": {
     "message": "备注",
@@ -482,12 +444,6 @@
   "Run Your Business on Sealos Cloud": {
     "message": "Sealos - 以 kubernetes 为内核的云操作系统发行版"
   },
-  "Kubernetes-kernel-based cloud os": {
-    "message": "Kubernetes-kernel-based cloud os"
-  },
-  "Let's sealos run kubernetes !": {
-    "message": "Let's sealos run kubernetes !"
-  },
   "Features": {
     "message": "特性"
   },
@@ -589,5 +545,22 @@
   },
   "Start": {
     "message": "开始"
+  },
+  "GitOps": {
+    "message": "GitOps"
+  },
+  "Kubernetes": {
+    "message": "Kubernetes"
+  },
+  "GPU": {
+    "message": "GPU"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "主导航",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "文档侧边栏",
+    "description": "The ARIA label for the sidebar navigation"
   }
 }
