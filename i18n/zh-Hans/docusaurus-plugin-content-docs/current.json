@@ -19,10 +19,6 @@
     "message": "开发者",
     "description": "The label for category Developers in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.AI Applications": {
-    "message": "AI 应用",
-    "description": "The label for category AI Applications in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.Examples": {
     "message": "案例",
     "description": "The label for category Examples in sidebar docSidebar"
@@ -31,28 +27,40 @@
     "message": "设计",
     "description": "The label for category Design in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.Imagehub": {
-    "message": "Imagehub",
-    "description": "The label for category Imagehub in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.Build Cloud Images": {
     "message": "Build Cloud Images",
     "description": "The label for category Build Cloud Images in sidebar docSidebar"
   },
-  "sidebar.cloudDocSidebar.category.Getting Started": {
-    "message": "Getting Started",
-    "description": "The label for category Getting Started in sidebar cloudDocSidebar"
+  "sidebar.docSidebar.category.ai-applications": {
+    "message": "AI 应用",
+    "description": "The label for category ai-applications in sidebar docSidebar"
   },
-  "sidebar.cloudDocSidebar.category.APPs": {
-    "message": "APPs",
-    "description": "The label for category APPs in sidebar cloudDocSidebar"
+  "sidebar.docSidebar.category.Cloud terminal tutorial": {
+    "message": "Cloud terminal tutorial",
+    "description": "The label for category Cloud terminal tutorial in sidebar docSidebar"
   },
-  "sidebar.cloudDocSidebar.category.APPs.link.generated-index.description": {
-    "message": "Examples demonstrating the usage of CLI commands.",
-    "description": "The generated-index page description for category APPs in sidebar cloudDocSidebar"
+  "sidebar.docSidebar.category.Development Guidelines": {
+    "message": "Development Guidelines",
+    "description": "The label for category Development Guidelines in sidebar docSidebar"
   },
-  "sidebar.cloudDocSidebar.category.Design": {
-    "message": "Design",
-    "description": "The label for category Design in sidebar cloudDocSidebar"
+  "sidebar.docSidebar.category.Quick Start": {
+    "message": "快速开始",
+    "description": "The label for category Quick Start in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Platform Components": {
+    "message": "平台组件",
+    "description": "The label for category Platform Components in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Cluster Lifecycle Management": {
+    "message": "集群生命周期管理",
+    "description": "The label for category Cluster Lifecycle Management in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.doc.Intro": {
+    "message": "介绍",
+    "description": "The label for the doc item Intro in sidebar docSidebar, linking to the doc Intro"
+  },
+  "sidebar.docSidebar.doc.Community": {
+    "message": "社区",
+    "description": "The label for the doc item Community in sidebar docSidebar, linking to the doc Community"
   }
 }

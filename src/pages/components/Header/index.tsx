@@ -16,16 +16,6 @@ const navbar = [
     to: "/docs/Intro"
   },
   {
-    key: "api",
-    label: "API",
-    to: "/docs/api/sealos"
-  },
-  {
-    key: "cloud docs",
-    label: <Translate>Cloud Docs</Translate>,
-    to: "/docs/cloud/Intro"
-  },
-  {
     key: "blog",
     label: <Translate>Blog</Translate>,
     to: "/blog",
