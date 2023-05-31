@@ -31,10 +31,6 @@
     "message": "社区",
     "description": "The label for the doc item Community in sidebar docSidebar, linking to the doc Community"
   },
-  "sidebar.docSidebar.category.cloud terminal 使用教程": {
-    "message": "cloud terminal 使用教程",
-    "description": "The label for category cloud terminal 使用教程 in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.Operations": {
     "message": "操作说明",
     "description": "The label for category Operations in sidebar docSidebar"
@@ -55,16 +51,32 @@
     "message": "参考",
     "description": "The label for category Reference in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.sealctl": {
-    "message": "sealctl",
-    "description": "The label for category sealctl in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.Sealos 命令行使用指南": {
-    "message": "Sealos 命令行使用指南",
-    "description": "The label for category Sealos 命令行使用指南 in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.commands": {
     "message": "命令",
     "description": "The label for category commands in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.database": {
+    "message": "数据库",
+    "description": "The label for category database in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.halo": {
+    "message": "halo",
+    "description": "The label for category halo in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.uptime-kuma": {
+    "message": "uptime-kuma",
+    "description": "The label for category uptime-kuma in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.wordpress": {
+    "message": "wordpress",
+    "description": "The label for category wordpress in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealctl 使用指南": {
+    "message": "Sealctl 使用指南",
+    "description": "The label for category Sealctl 使用指南 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealos 使用指南": {
+    "message": "Sealos 使用指南",
+    "description": "The label for category Sealos 使用指南 in sidebar docSidebar"
   }
 }
