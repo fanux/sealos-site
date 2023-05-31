@@ -94,10 +94,9 @@ const config = {
             to: "/docs/Intro"
           },
           {
-            to: "/blog",
-            label: "Blog",
-            sidebarId: "docSidebar",
-            position: "left"
+            position: "left",
+            to: "https://cloud.sealos.io",
+            label: "Start Now"
           },
           {
             position: "left",
@@ -131,8 +130,9 @@ const config = {
                 to: "https://github.com/labring/laf",
               },
               {
-                label: "Cloud",
-                to: "https://cloud.sealos.io",
+                label: "Blog",
+                to: "/blog",
+                sidebarId: "blogSidebar",
               },
             ],
           },

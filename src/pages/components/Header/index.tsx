@@ -16,9 +16,9 @@ const navbar = [
     to: "/docs/Intro"
   },
   {
-    key: "blog",
-    label: <Translate>Blog</Translate>,
-    to: "/blog",
+    key: "start-now",
+    label: <Translate>Start</Translate>,
+    to: "https://cloud.sealos.io",
   },
   {
     key: "contact",
