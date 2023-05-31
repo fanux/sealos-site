@@ -3,45 +3,13 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.docSidebar.category.Getting Started": {
-    "message": "开始上手",
-    "description": "The label for category Getting Started in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.CLI": {
-    "message": "CLI",
-    "description": "The label for category CLI in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.CLI.link.generated-index.description": {
-    "message": "展示 CLI 命令用法的一些例子。",
-    "description": "The generated-index page description for category CLI in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.Developers": {
-    "message": "开发者",
-    "description": "The label for category Developers in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.Examples": {
     "message": "案例",
     "description": "The label for category Examples in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.Design": {
-    "message": "设计",
-    "description": "The label for category Design in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.Build Cloud Images": {
-    "message": "Build Cloud Images",
-    "description": "The label for category Build Cloud Images in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.ai-applications": {
     "message": "AI 应用",
     "description": "The label for category ai-applications in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.Cloud terminal tutorial": {
-    "message": "Cloud terminal tutorial",
-    "description": "The label for category Cloud terminal tutorial in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.Development Guidelines": {
-    "message": "Development Guidelines",
-    "description": "The label for category Development Guidelines in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.Quick Start": {
     "message": "快速开始",
@@ -62,5 +30,41 @@
   "sidebar.docSidebar.doc.Community": {
     "message": "社区",
     "description": "The label for the doc item Community in sidebar docSidebar, linking to the doc Community"
+  },
+  "sidebar.docSidebar.category.cloud terminal 使用教程": {
+    "message": "cloud terminal 使用教程",
+    "description": "The label for category cloud terminal 使用教程 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Operations": {
+    "message": "操作说明",
+    "description": "The label for category Operations in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.build-image": {
+    "message": "构建集群镜像",
+    "description": "The label for category build-image in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.run-cluster": {
+    "message": "启动集群",
+    "description": "The label for category run-cluster in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Advanced-Guide": {
+    "message": "进阶指南",
+    "description": "The label for category Advanced-Guide in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Reference": {
+    "message": "参考",
+    "description": "The label for category Reference in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.sealctl": {
+    "message": "sealctl",
+    "description": "The label for category sealctl in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealos 命令行使用指南": {
+    "message": "Sealos 命令行使用指南",
+    "description": "The label for category Sealos 命令行使用指南 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.commands": {
+    "message": "命令",
+    "description": "The label for category commands in sidebar docSidebar"
   }
 }
