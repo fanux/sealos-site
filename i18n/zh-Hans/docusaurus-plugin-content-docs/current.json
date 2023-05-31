@@ -35,14 +35,6 @@
     "message": "操作说明",
     "description": "The label for category Operations in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.build-image": {
-    "message": "构建集群镜像",
-    "description": "The label for category build-image in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.run-cluster": {
-    "message": "启动集群",
-    "description": "The label for category run-cluster in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.Advanced-Guide": {
     "message": "进阶指南",
     "description": "The label for category Advanced-Guide in sidebar docSidebar"
@@ -51,26 +43,6 @@
     "message": "参考",
     "description": "The label for category Reference in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.commands": {
-    "message": "命令",
-    "description": "The label for category commands in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.database": {
-    "message": "数据库",
-    "description": "The label for category database in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.halo": {
-    "message": "halo",
-    "description": "The label for category halo in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.uptime-kuma": {
-    "message": "uptime-kuma",
-    "description": "The label for category uptime-kuma in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.wordpress": {
-    "message": "wordpress",
-    "description": "The label for category wordpress in sidebar docSidebar"
-  },
   "sidebar.docSidebar.category.Sealctl 使用指南": {
     "message": "Sealctl 使用指南",
     "description": "The label for category Sealctl 使用指南 in sidebar docSidebar"
@@ -78,5 +50,25 @@
   "sidebar.docSidebar.category.Sealos 使用指南": {
     "message": "Sealos 使用指南",
     "description": "The label for category Sealos 使用指南 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealos 集群镜像构建": {
+    "message": "Sealos 集群镜像构建",
+    "description": "The label for category Sealos 集群镜像构建 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealos 镜像仓库": {
+    "message": "Sealos 镜像仓库",
+    "description": "The label for category Sealos 镜像仓库 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealos 集群镜像运行": {
+    "message": "Sealos 集群镜像运行",
+    "description": "The label for category Sealos 集群镜像运行 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.Sealos 命令说明": {
+    "message": "Sealos 命令说明",
+    "description": "The label for category Sealos 命令说明 in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.low-code-platform": {
+    "message": "低代码平台",
+    "description": "The label for category low-code-platform in sidebar docSidebar"
   }
 }
