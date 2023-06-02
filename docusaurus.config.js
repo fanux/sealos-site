@@ -54,6 +54,7 @@ const config = {
   ],
 
   themeConfig: { // @type {import('@docusaurus/preset-classic').ThemeConfig}
+    metadata: [{name: 'title', content: 'sealos by 环界云'}],
     algolia: {
       // Algolia 提供的应用 ID
       appId: "IGHQQ39TE4",
