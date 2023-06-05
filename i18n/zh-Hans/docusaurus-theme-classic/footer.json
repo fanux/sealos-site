@@ -43,12 +43,12 @@
     "message": "云原生实验室",
     "description": "The label of footer link with label=CloudNativeLab linking to https://icloudnative.io"
   },
-  "link.item.label.Cloud": {
-    "message": "Sealos Cloud",
-    "description": "The label of footer link with label=Cloud linking to https://cloud.sealos.io"
-  },
   "link.item.label.Discord": {
     "message": "Discord",
     "description": "The label of footer link with label=Discord linking to https://discord.gg/7bPNZfsjJu"
+  },
+  "link.item.label.Blog": {
+    "message": "博客",
+    "description": "The label of footer link with label=Blog linking to /blog"
   }
 }

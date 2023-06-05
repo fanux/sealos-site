@@ -311,9 +311,6 @@
   "Docs": {
     "message": "文档"
   },
-  "Blog": {
-    "message": "博客"
-  },
   "Contact": {
     "message": "商务合作"
   },
@@ -454,7 +451,7 @@
     "message": "复制"
   },
   "START NOW": {
-    "message": "点击开始体验"
+    "message": "在线使用"
   },
   "CONTACT US NOW": {
     "message": "联系我们"
@@ -544,7 +541,7 @@
     "message": "已被 4000 多家公司和 10w+ 个人用户采用！"
   },
   "Start": {
-    "message": "开始"
+    "message": "在线使用"
   },
   "GitOps": {
     "message": "GitOps"

@@ -23,10 +23,6 @@
     "message": "集群生命周期管理",
     "description": "The label for category Cluster Lifecycle Management in sidebar docSidebar"
   },
-  "sidebar.docSidebar.doc.Intro": {
-    "message": "介绍",
-    "description": "The label for the doc item Intro in sidebar docSidebar, linking to the doc Intro"
-  },
   "sidebar.docSidebar.doc.Community": {
     "message": "社区",
     "description": "The label for the doc item Community in sidebar docSidebar, linking to the doc Community"
@@ -35,9 +31,9 @@
     "message": "操作说明",
     "description": "The label for category Operations in sidebar docSidebar"
   },
-  "sidebar.docSidebar.category.Advanced-Guide": {
+  "sidebar.docSidebar.category.Advanced Guide": {
     "message": "进阶指南",
-    "description": "The label for category Advanced-Guide in sidebar docSidebar"
+    "description": "The label for category Advanced Guide in sidebar docSidebar"
   },
   "sidebar.docSidebar.category.Reference": {
     "message": "参考",
@@ -70,5 +66,13 @@
   "sidebar.docSidebar.category.low-code-platform": {
     "message": "低代码平台",
     "description": "The label for category low-code-platform in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.dial-testing-system": {
+    "message": "拨测系统",
+    "description": "The label for category dial-testing-system in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.blog-platform": {
+    "message": "博客平台",
+    "description": "The label for category blog-platform in sidebar docSidebar"
   }
 }
