@@ -57,12 +57,12 @@ const config = {
     metadata: [{name: 'title', content: 'sealos by 环界云'}],
     algolia: {
       // Algolia 提供的应用 ID
-      appId: "IGHQQ39TE4",
+      appId: "SLTSB7B9Y0",
 
       //  公开 API 密钥：提交它没有危险
-      apiKey: "9545276ccf7d08aaf95e41ab74a2202a",
+      apiKey: "ce5b8e1e4d0d35ff587caf75ac404df4",
 
-      indexName: "sealos",
+      indexName: "sealosdocs",
 
       // 可选：见下文
       contextualSearch: true,
