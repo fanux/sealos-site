@@ -309,10 +309,10 @@
     "description": "The paragraph for fetching new search results"
   },
   "Docs": {
-    "message": "文档"
+    "message": "Doc"
   },
   "Contact": {
-    "message": "商务合作"
+    "message": "Contact Us"
   },
   "theme.admonition.note": {
     "message": "备注",
@@ -541,7 +541,7 @@
     "message": "已被 4000 多家公司和 10w+ 个人用户采用！"
   },
   "Start": {
-    "message": "在线使用"
+    "message": "Home"
   },
   "GitOps": {
     "message": "GitOps"

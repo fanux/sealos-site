@@ -54,7 +54,7 @@ const config = {
   ],
 
   themeConfig: { // @type {import('@docusaurus/preset-classic').ThemeConfig}
-    metadata: [{name: 'title', content: 'sealos by 环界云'}],
+    metadata: [{ name: 'title', content: 'sealos by 环界云' }],
     algolia: {
       // Algolia 提供的应用 ID
       appId: "SLTSB7B9Y0",
@@ -76,113 +76,108 @@ const config = {
       // 可选：搜索页面的路径，默认启用（可以用 `false` 禁用）
       searchPagePath: "search",
 
-        // ……其他 Algolia 参数
+      // ……其他 Algolia 参数
+    },
+    navbar: {
+      title: "",
+      logo: {
+        alt: "sealos",
+        src: "img/sealos-left.png",
+        srcDark: "img/sealos-left-dark.png",
       },
-      navbar: {
-        title: "",
-        logo: {
-          alt: "sealos",
-          src: "img/sealos-left.png",
-          srcDark: "img/sealos-left-dark.png",
+      items: [
+        {
+          type: "doc",
+          docId: "Intro",
+          position: "left",
+          label: "Docs",
+          to: "/docs/Intro"
         },
-        items: [
-          {
-            type: "doc",
-            docId: "Intro",
-            position: "left",
-            label: "Docs",
-            to: "/docs/Intro"
-          },
-          {
-            position: "left",
-            to: "https://cloud.sealos.io",
-            label: "Start Now"
-          },
-          {
-            position: "left",
-            to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
-            label: "Contact",
-          },
-          {
-            type: "localeDropdown",
-            position: "right",
-          },
-          {
-            href: "https://github.com/labring/sealos",
-            position: "right",
-            className: "header-github-link",
-            "aria-label": "GitHub repository",
-          },
-        ],
-      },
-      footer: {
-        style: "light",
-        links: [
-          {
-            title: "Labring",
-            items: [
-              {
-                label: "Company",
-                to: "/company",
-              },
-              {
-                label: "Laf FaaS",
-                to: "https://github.com/labring/laf",
-              },
-              {
-                label: "Blog",
-                to: "/blog",
-                sidebarId: "blogSidebar",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Discord",
-                to: "https://discord.gg/7bPNZfsjJu",
-              },
-              {
-                label: "Stack Overflow",
-                to: "https://stackoverflow.com/questions/tagged/sealos",
-              },
-              {
-                label: "Contributing",
-                to: "https://github.com/labring/sealos/blob/main/CONTRIBUTING.md",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "CloudImages",
-                to: "https://hub.docker.com/u/labring",
-              },
-              {
-                label: "GitHub",
-                to: "https://github.com/labring/sealos",
-              },
-              {
-                label: "CloudNativeLab",
-                to: "https://icloudnative.io",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
-      },
-      colorMode: {
-        defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: false,
-      },
-      prism: {
-        additionalLanguages: ["docker"],
-        theme: require("prism-react-renderer/themes/github"),
-        darkTheme: require("./src/theme/dracula"),
-      },
+        {
+          position: "left",
+          to: "https://cloud.sealos.io",
+          label: "Start Now"
+        },
+        {
+          position: "left",
+          to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+          label: "Contact",
+        },
+        {
+          type: "localeDropdown",
+          position: "right",
+        },
+        {
+          href: "https://github.com/labring/sealos",
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
+        },
+      ],
+    },
+    footer: {
+      style: "light",
+      links: [
+        {
+          title: "Product",
+          items: [
+            {
+              label: "Laf",
+              to: "https://github.com/labring/laf",
+            },
+            {
+              label: "Sealfs",
+              to: "https://github.com/labring/sealfs",
+            },
+            {
+              label: "FastGPT",
+              to: "https://github.com/labring/FastGPT",
+            }
+          ]
+        },
+        {
+          title: "Developer",
+          items: [
+            {
+              label: "Contribute",
+              to: "https://github.com/labring/sealos/blob/main/CONTRIBUTING.md",
+            },
+            {
+              label: "Private Deployment",
+              to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+            }
+          ]
+        },
+        {
+          title: "Support",
+          items: [
+            {
+              label: "Forum",
+              to: "https://forum.laf.run/",
+            },
+            {
+              label: "Feedback",
+              to: "https://github.com/labring/sealos/issues",
+            },
+            {
+              label: "Company",
+              to: "https://sealos.io/company",
+            }
+          ]
+        }
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} sealos. Built with Docusaurus2.`,
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
+    prism: {
+      additionalLanguages: ["docker"],
+      theme: require("prism-react-renderer/themes/github"),
+      darkTheme: require("./src/theme/dracula"),
+    },
   },
   scripts: [
     {
@@ -193,6 +188,6 @@ const config = {
   plugins: [
     'docusaurus-plugin-sass',
   ]
-};
+}
 
-module.exports = config;
+module.exports = config
