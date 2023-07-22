@@ -3,9 +3,35 @@ import CometIcon from '../Comet'
 import RouteIcon from '@site/static/icons/route-icon.svg'
 import useIsBrowser from '@docusaurus/useIsBrowser'
 import './index.scss'
+import Translate from '@docusaurus/Translate'
 
 const Introduce = ({ isPc }: { isPc: boolean }) => {
   const isBrowser = useIsBrowser()
+
+  const i18nObj = {
+    whySealos: <Translate>Why Sealos</Translate>,
+    lowerCosts: <Translate>Lower Costs</Translate>,
+    lowerCostsIntroduce: (
+      <Translate>
+        Save resources and reduce expenses by paying only for containers, with
+        automatic scaling to prevent waste.
+      </Translate>
+    ),
+    userFriendly: <Translate>User Friendly</Translate>,
+    userFriendlyIntroduce: (
+      <Translate>
+        Focus on your business without being bogged down by unnecessary
+        complexity, regardless of your level of Kubernetes expertise.
+      </Translate>
+    ),
+    flexibilitySecurity: <Translate>Flexibility and Security</Translate>,
+    flexibilitySecurityIntroduce: (
+      <Translate>
+        Its unique multi-tenant sharing mechanism can achieve effective resource
+        isolation and collaboration while ensuring safety.
+      </Translate>
+    ),
+  }
 
   useLayoutEffect(() => {
     // @ts-ignore nextline
@@ -27,7 +53,7 @@ const Introduce = ({ isPc }: { isPc: boolean }) => {
         <div className="comet-icon">
           <CometIcon />
         </div>
-        <h1>Why Sealos</h1>
+        <h1>{i18nObj.whySealos}</h1>
         <div className="features">
           <div className="route">
             <div className="icon1">
@@ -54,31 +80,15 @@ const Introduce = ({ isPc }: { isPc: boolean }) => {
             </div>
           </div>
           <div className="right">
-            <div className="tag1">Affordable</div>
-            <div className="main-text text-affordable">
-              Resource Conservation and Cost Reduction
-            </div>
+            <div className="tag tag1">{i18nObj.lowerCosts}</div>
+            <div className="aid-text">{i18nObj.lowerCostsIntroduce}</div>
+
+            <div className="tag tag2">{i18nObj.userFriendly}</div>
+            <div className="aid-text">{i18nObj.userFriendlyIntroduce}</div>
+
+            <div className="tag tag3">{i18nObj.flexibilitySecurity}</div>
             <div className="aid-text">
-              You only pay for containers. The auto-scaling feature
-              fundamentally solves the issue of resource wastage, saving you a
-              substantial amount of costs.
-            </div>
-            <div className="tag2">Simple</div>
-            <div className="main-text">
-              Universal Application and No Cognitive Load
-            </div>
-            <div className="aid-text">
-              You can focus on your own business without being burdened by
-              irrelevant complexities. Regardless of your proficiency with
-              Kubernetes, you can easily utilize Sealos.
-            </div>
-            <div className="tag3">Flexible and Powerful</div>
-            <div className="main-text text-powerful">
-              Balanced Flexibility and Security
-            </div>
-            <div className="aid-text">
-              Its unique multi-tenant sharing mechanism can achieve effective
-              resource isolation and collaboration while ensuring safety.
+              {i18nObj.flexibilitySecurityIntroduce}
             </div>
           </div>
         </div>
@@ -91,26 +101,14 @@ const Introduce = ({ isPc }: { isPc: boolean }) => {
       <div className="comet-icon">
         <CometIcon />
       </div>
-      <h1>Why Sealos</h1>
+      <h1>{i18nObj.whySealos}</h1>
       <div className="features">
         <div className="left animate__fadeIn" data-wow-duration="1s">
-          <span className="tag tag-affordable">Affordable</span>
-          <div className="main-text text-affordable">
-            Resource Conservation and Cost Reduction
-          </div>
-          <div className="aid-text">
-            You only pay for containers. The auto-scaling feature fundamentally
-            solves the issue of resource wastage, saving you a substantial
-            amount of costs.
-          </div>
-          <span className="tag tag-powerful">Flexible and Powerful</span>
-          <div className="main-text text-powerful">
-            Balanced Flexibility and Security
-          </div>
-          <div className="aid-text">
-            Its unique multi-tenant sharing mechanism can achieve effective
-            resource isolation and collaboration while ensuring safety.
-          </div>
+          <div className="tag tag1">{i18nObj.lowerCosts}</div>
+          <div className="aid-text">{i18nObj.lowerCostsIntroduce}</div>
+
+          <div className="tag tag3">{i18nObj.flexibilitySecurity}</div>
+          <div className="aid-text">{i18nObj.flexibilitySecurityIntroduce}</div>
         </div>
 
         <div className="route">
@@ -138,15 +136,8 @@ const Introduce = ({ isPc }: { isPc: boolean }) => {
           </div>
         </div>
         <div className="right animate__fadeIn" data-wow-duration="1s">
-          <span className="tag text">Simple</span>
-          <div className="main-text">
-            Universal Application and No Cognitive Load
-          </div>
-          <div className="aid-text">
-            You can focus on your own business without being burdened by
-            irrelevant complexities. Regardless of your proficiency with
-            Kubernetes, you can easily utilize Sealos.
-          </div>
+          <div className="tag tag2">{i18nObj.userFriendly}</div>
+          <div className="aid-text">{i18nObj.userFriendlyIntroduce}</div>
         </div>
       </div>
     </div>

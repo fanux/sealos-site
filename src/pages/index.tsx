@@ -15,7 +15,6 @@ import './index.scss'
 const Home = () => {
   const { screenWidth } = useWindow()
   const isPc = useMemo(() => screenWidth > PC_MIN_WIDTH, [screenWidth])
-  const isBrowser = useIsBrowser()
 
   const PcRender = (
     <Layout>
@@ -29,49 +28,6 @@ const Home = () => {
       </div>
     </Layout>
   )
-
-  const PhoneRender = (
-    <Layout>
-      <div className="home">
-        <HomeHeader isPc={isPc} />
-        <Capability isPc={isPc} />
-        <Introduce isPc={isPc} />
-        <Community isPc={isPc} />
-        <HomeUserBy isPc={isPc} />
-        <HomeFooter isPc={isPc} />
-      </div>
-    </Layout>
-  )
-
-  useLayoutEffect(() => {
-    if (!isBrowser) return () => {}
-
-    /* 给navbar加特定属性，隐藏footer */
-    /* 只有Phone才有下面两个DOM */
-    const NavbarDom: HTMLBaseElement = document.querySelector('.navbar')
-    const FooterDom: HTMLBaseElement = document.querySelector('.footer')
-
-    if (NavbarDom && FooterDom) {
-      NavbarDom.setAttribute(
-        'style',
-        `
-          background-color: transparent;
-          box-shadow: none;
-          position: absolute;
-          top: -100px;
-          left: 0;
-        `
-      )
-      FooterDom.style.display = 'none'
-    }
-
-    // return () => {
-    //   NavbarDom?.setAttribute('style', ``)
-    //   if (FooterDom && FooterDom.style) {
-    //     FooterDom.style.display = 'block'
-    //   }
-    // }
-  }, [isPc, isBrowser])
 
   return PcRender
 }

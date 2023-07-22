@@ -6,9 +6,21 @@ import CometIcon from '../Comet'
 import Link from '@docusaurus/Link'
 import useIsBrowser from '@docusaurus/useIsBrowser'
 import './index.scss'
+import Translate from '@docusaurus/Translate'
 
 const Community = ({ isPc }: { isPc: boolean }) => {
   const isBrowser = useIsBrowser()
+
+  const I18n_Obj = {
+    joinus: <Translate>Join Us</Translate>,
+    joinCommunity: <Translate>Join Sealos Community</Translate>,
+    joinCommunityIntroduce: (
+      <Translate>
+        Experience the latest version of Sealos for the first time and
+        communicate with developers and users in Discord!
+      </Translate>
+    ),
+  }
 
   useLayoutEffect(() => {
     // @ts-ignore nextline
@@ -48,14 +60,11 @@ const Community = ({ isPc }: { isPc: boolean }) => {
         <div className="comet-icon">
           <CometIcon />
         </div>
-        <div className={'community-title'}>Join Us</div>
+        <div className={'community-title'}>{I18n_Obj.joinus}</div>
 
         <div className="community-box">
-          <div className="join">Join Sealos Community</div>
-          <span className="text">
-            Experience the latest version of Sealos for the first time and
-            communicate with developers and users in Discord!
-          </span>
+          <div className="join">{I18n_Obj.joinCommunity}</div>
+          <span className="text">{I18n_Obj.joinCommunityIntroduce}</span>
 
           <div className="link">
             {FooterLinks.map((item) => {
@@ -83,15 +92,12 @@ const Community = ({ isPc }: { isPc: boolean }) => {
       <div className="comet-icon">
         <CometIcon />
       </div>
-      <div className={'community-title'}>Join Us</div>
+      <div className={'community-title'}>{I18n_Obj.joinus}</div>
       <div className="community-box-wrap">
         <div className="community-box animate__fadeIn" data-wow-duration="1s">
           <div className="community-left">
-            <div className="join">Join Sealos Community</div>
-            <div className="text">
-              Experience the latest version of Sealos for the first time and
-              communicate with developers and users in Discord!
-            </div>
+            <div className="join">{I18n_Obj.joinCommunity}</div>
+            <div className="text">{I18n_Obj.joinCommunityIntroduce}</div>
             <div className="link">
               {FooterLinks.map((item) => {
                 return (
