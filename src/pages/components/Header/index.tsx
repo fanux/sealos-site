@@ -10,7 +10,7 @@ import './index.scss'
 const navbar = [
   {
     key: 'docs',
-    label: <Translate>Docs</Translate>,
+    label: 'Documentation',
     to: '/docs/Intro',
   },
   {
@@ -45,10 +45,12 @@ const HomeHeader = ({ isPc }: { isPc: boolean }) => {
 
   useEffect(() => {
     ;(async () => {
-      const { stargazers_count } = await (
-        await fetch('https://api.github.com/repos/labring/sealos')
-      ).json()
-      setStars(stargazers_count)
+      try {
+        const { stargazers_count } = await (
+          await fetch('https://api.github.com/repos/labring/sealos')
+        ).json()
+        setStars(stargazers_count)
+      } catch (error) {}
     })()
   }, [])
 
@@ -91,13 +93,14 @@ const HomeHeader = ({ isPc }: { isPc: boolean }) => {
         </nav>
         <main>
           <h1>
-            <span className="txt-title">kubernetes&nbsp;</span>
+            <span className="txt-title">Kubernetes&nbsp;</span>
             <span className="txt-aid">as the kernel</span>
           </h1>
           <h2>Cloud Operating System</h2>
           <h3>
-            Abstracting the entire data center as a single server, everything
-            becomes an application, and using it is like using a &nbsp;
+            Abstracting the entire data center as a singular server, where
+            everything is an application. You can use Sealos as seamlessly as
+            operating a&nbsp;
             <span className="txt-title">personal computer.</span>
           </h3>
           <a
@@ -165,13 +168,14 @@ const HomeHeader = ({ isPc }: { isPc: boolean }) => {
       </nav>
       <main>
         <h1>
-          <span className="txt-title">kubernetes&nbsp;</span>
+          <span className="txt-title">Kubernetes&nbsp;</span>
           <span className="txt-aid">as the kernel</span>
         </h1>
         <h2>Cloud Operating System</h2>
         <h3>
-          Abstracting the entire data center as a single server, everything
-          becomes an application, and using it is like using a &nbsp;
+          Abstracting the entire data center as a singular server, where
+          everything is an application. You can use Sealos as seamlessly as
+          operating a&nbsp;
           <span className="txt-title">personal computer.</span>
         </h3>
         <VideoPlayer

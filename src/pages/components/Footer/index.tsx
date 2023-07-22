@@ -57,7 +57,7 @@ const Footer = ({ isPc }: { isPc: boolean }) => {
               <span className="footer-title">Sealos</span>
             </div>
             <div className="footer-aid-text">
-              Cloud Operating System with Kubernetes as the Kernel.
+              a cloud operating system based on the Kubernetes kernel
             </div>
           </div>
           <div className="footer-right">
@@ -109,7 +109,7 @@ const Footer = ({ isPc }: { isPc: boolean }) => {
             <span className="footer-title">Sealos</span>
           </div>
           <div className="footer-aid-text">
-            Cloud Operating System with Kubernetes as the Kernel.
+            a cloud operating system based on the Kubernetes kernel
           </div>
         </div>
         <div className="footer-right">

@@ -141,10 +141,10 @@ const config = {
             {
               label: "Contribute",
               to: "https://github.com/labring/sealos/blob/main/CONTRIBUTING.md",
-            },
-            {
-              label: "Private Deployment",
-              to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
+            }, {
+
+              label: "Documentation",
+              to: '/docs/Intro'
             }
           ]
         },
@@ -162,6 +162,10 @@ const config = {
             {
               label: "Company",
               to: "https://sealos.io/company",
+            },
+            {
+              label: "Contact US",
+              to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
             }
           ]
         }

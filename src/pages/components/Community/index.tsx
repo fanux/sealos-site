@@ -51,10 +51,10 @@ const Community = ({ isPc }: { isPc: boolean }) => {
         <div className={'community-title'}>Join Us</div>
 
         <div className="community-box">
-          <div className="join">Join the Sealos Community</div>
+          <div className="join">Join Sealos Community</div>
           <span className="text">
             Experience the latest version of Sealos for the first time and
-            communicate with developers and users in Discord or WeChat groups.
+            communicate with developers and users in Discord!
           </span>
 
           <div className="link">
@@ -87,10 +87,10 @@ const Community = ({ isPc }: { isPc: boolean }) => {
       <div className="community-box-wrap">
         <div className="community-box animate__fadeIn" data-wow-duration="1s">
           <div className="community-left">
-            <div className="join">Join the Sealos Community</div>
+            <div className="join">Join Sealos Community</div>
             <div className="text">
               Experience the latest version of Sealos for the first time and
-              communicate with developers and users in Discord or WeChat groups.
+              communicate with developers and users in Discord!
             </div>
             <div className="link">
               {FooterLinks.map((item) => {
