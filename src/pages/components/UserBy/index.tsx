@@ -1,28 +1,55 @@
+import Translate from '@docusaurus/Translate'
 import React from 'react'
-import "./index.scss"
-import MyButton from '@site/src/components/Button'
-import Translate from '@docusaurus/Translate';
+import CometIcon from '../Comet'
+import './index.scss'
 
-const HomeUserBy = () => {
-  return (
-    <div id='Client' className='home-user-by'>
-      <h1 className='title'><Translate>Used By</Translate></h1>
-      <h2><Translate>More than 4,000 Companies and 100,000+ Individuals!</Translate></h2>
-      {/* 品牌商滚动 */}
-      <div className="scroll-brand">
-        <div className='img-content'>
-          <img
-            src={require("@site/static/illustrations/userBy.png").default}
-          />
-          <img
-            src={require("@site/static/illustrations/userBy.png").default}
-          />
+const HomeUserBy = ({ isPc }: { isPc: boolean }) => {
+  if (!isPc) {
+    return (
+      <div id="Client" className="home-user-by">
+        <div className="comet-icon">
+          <CometIcon />
+        </div>
+        <h1 className="user-by-title">
+          <Translate>Who is Using Sealos</Translate>
+        </h1>
+        {/* 品牌商滚动 */}
+        <div className="scroll-brand">
+          <div className="img-content">
+            <img
+              draggable="false"
+              src={require('@site/static/illustrations/user-by.png').default}
+            />
+            <img
+              draggable="false"
+              src={require('@site/static/illustrations/user-by.png').default}
+            />
+          </div>
         </div>
       </div>
-      <div className="contact-btn">
-        <MyButton link='https://www.wenjuan.com/s/UZBZJv9ToJ'>
-          <Translate>CONTACT US NOW</Translate>
-        </MyButton>
+    )
+  }
+
+  return (
+    <div id="Client" className="home-user-by">
+      <div className="comet-icon">
+        <CometIcon />
+      </div>
+      <h1 className="user-by-title">
+        <Translate>Who is Using Sealos</Translate>
+      </h1>
+      {/* 品牌商滚动 */}
+      <div className="scroll-brand">
+        <div className="img-content">
+          <img
+            draggable="false"
+            src={require('@site/static/illustrations/user-by-2x.png').default}
+          />
+          <img
+            draggable="false"
+            src={require('@site/static/illustrations/user-by-2x.png').default}
+          />
+        </div>
       </div>
     </div>
   )

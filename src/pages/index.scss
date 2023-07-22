@@ -1,43 +1,43 @@
 .home {
   overflow-x: hidden;
-  background-color: '#FCFCFF' !important;
+  // background-color: '#FCFCFF' !important;
+  background: linear-gradient(180deg, #05101d 0%, #02070d 100%) !important;
 
-    * {
-        font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
-        font-style: normal;
-    }
+  * {
+    font-family: PingFang SC;
+    font-style: normal;
+  }
 
-    h1,h2,h3,h4,h5,h6 {
-        font-family: 'Kumbh Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
-    }
+  /* 修改默认组件样式 */
+  button {
+    border: none;
+    outline: none;
+  }
 
-    /* 修改默认组件样式 */
-    button {
-        border: none;
-        outline: none;
-    }
-
-    .title {
-        background-image: linear-gradient(101.7deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50.73%, rgba(255, 255, 255, 0.28) 68.61%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #16ABFF 0%, #B5B4FF 63%);
-        color: transparent;
-        background-clip: text;
-        text-align: center;
-        user-select: none;
-        height: 148px;
-        line-height: 148px;
-        margin: 0;
-    }
+  .title {
+    background-image: linear-gradient(
+        101.7deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 50.73%,
+        rgba(255, 255, 255, 0.28) 68.61%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      linear-gradient(0deg, #16abff 0%, #b5b4ff 63%);
+    color: transparent;
+    background-clip: text;
+    text-align: center;
+    user-select: none;
+    height: 148px;
+    line-height: 148px;
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 996px) {
-.home {
+  .home {
     .title {
-        height: 100px;
-        line-height: 100px;
+      height: 100px;
+      line-height: 100px;
     }
-}
+  }
 }

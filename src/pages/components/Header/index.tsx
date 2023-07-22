@@ -1,133 +1,188 @@
-import React, { useRef } from 'react'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useIsBrowser from '@docusaurus/useIsBrowser';
-import Link from "@docusaurus/Link";
-import GithubIcon from "@site/static/icons/github-navbar.svg"
-import LogoIcon from "@site/static/icons/logo.svg"
-import Translate from '@docusaurus/Translate';
-import MyButton from '@site/src/components/Button';
-
-import "./index.scss"
+import Link from '@docusaurus/Link'
+import Translate from '@docusaurus/Translate'
+import GithubIcon from '@site/static/icons/github-light.svg'
+import MeunIcon from '@site/static/icons/meun.svg'
+import LogoIcon from '@site/static/icons/sealos.svg'
+import React, { useEffect, useState } from 'react'
+import VideoPlayer from '../VideoPlayer'
+import './index.scss'
 
 const navbar = [
   {
-    key: "docs",
-    label: <Translate>Docs</Translate>,
-    to: "/docs/Intro"
+    key: 'docs',
+    label: 'Documentation',
+    to: '/docs/Intro',
   },
   {
-    key: "start-now",
-    label: <Translate>Start</Translate>,
-    to: "https://cloud.sealos.io",
+    key: 'community',
+    label: 'Community',
+    to: 'https://forum.laf.run/',
   },
   {
-    key: "contact",
+    key: 'contact',
     label: <Translate>Contact</Translate>,
-    to: "https://www.wenjuan.com/s/UZBZJv9ToJ/#",
-  }
+    to: 'https://www.wenjuan.com/s/UZBZJv9ToJ/#',
+  },
 ]
 
-const HomeHeader = () => {
-  const FeatureList = useRef([
-    {
-      title: <Translate description="homepage simple">Simple</Translate>,
-      Svg: "illustrations/Start1.png",
-      description: (
-        <Translate description="homepage simple">
-          Any highly available distributed application on Kubernetes can be
-          easily installed with just one click.
-        </Translate>
-      ),
-    },
-    {
-      title: <Translate description="homepage flexible">Flexible</Translate>,
-      Svg: "illustrations/Start2.png",
-      description: (
-        <Translate description="homepage flexible intro">
-          Easily customize the cloud you need by freely combining various
-          distributed applications.
-        </Translate>
-      ),
-    },
-    {
-      title: <Translate description="homepage powerful">Powerful</Translate>,
-      Svg: "illustrations/Start3.png",
-      description: (
-        <Translate description="homepage flexible intro">
-          The cloud services can be easily found and acquired in the application
-          marketplace, offering simplicity and power.
-        </Translate>
-      ),
-    },
-  ])
+const HomeHeader = ({ isPc }: { isPc: boolean }) => {
+  const [stars, setStars] = useState(10000)
 
-  const i18nMap:{[key: string]: {label: string, link: string}} = {
-    en: {label: '中', link: '/zh-Hans/'},
-    ['zh-Hans']: {label: 'En', link: '/'}
+  // const i18nMap: { [key: string]: { label: string; link: string } } = {
+  //   en: { label: '中', link: '/zh-Hans/' },
+  //   ['zh-Hans']: { label: 'En', link: '/' },
+  // }
+
+  // const {
+  //   i18n: { currentLocale },
+  //   siteConfig: {
+  //     themeConfig: {
+  //       // @ts-ignore nextLine
+  //       navbar: { items: navbarData },
+  //     },
+  //   },
+  // } = useDocusaurusContext()
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const { stargazers_count } = await (
+          await fetch('https://api.github.com/repos/labring/sealos')
+        ).json()
+        setStars(stargazers_count)
+      } catch (error) {}
+    })()
+  }, [])
+
+  const openSideBar = () => {
+    const NavbarButton: HTMLBaseElement =
+      document.querySelector('.navbar__toggle')
+    const event = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    })
+    NavbarButton.dispatchEvent(event)
   }
 
-  // @ts-ignore nextLine
-  const { i18n: { currentLocale }, siteConfig: {themeConfig: {navbar: {items: navbarData}}} } = useDocusaurusContext()
-
-  const isBrowser = useIsBrowser();
+  if (!isPc) {
+    return (
+      <div id="Start" className="home-header">
+        <img
+          draggable="false"
+          className="header-img"
+          src={require('@site/static/illustrations/bg-header.png').default}
+          alt="community"
+        />
+        <nav>
+          <div className="left">
+            <MeunIcon
+              width={'24px'}
+              height={'24px'}
+              onClick={() => openSideBar()}
+            />
+            <LogoIcon width={'42px'} height={'42px'} />
+            <span className="sealos-title">Sealos</span>
+          </div>
+          <div className="right">
+            <Link className="git-icon" to="https://github.com/labring/sealos">
+              <GithubIcon width={'20px'} height={'20px'} color="#fff" />
+              <span className="git-stars">{(stars / 1000).toFixed(1)}k</span>
+            </Link>
+          </div>
+        </nav>
+        <main>
+          <h1>
+            <span className="txt-title">Kubernetes&nbsp;</span>
+            <span className="txt-aid">as the kernel</span>
+          </h1>
+          <h2>Cloud Operating System</h2>
+          <h3>
+            Abstracting the entire data center as a singular server, where
+            everything is an application. You can use Sealos as seamlessly as
+            operating a&nbsp;
+            <span className="txt-title">personal computer.</span>
+          </h3>
+          <a
+            className="start-now-button"
+            href="https://cloud.sealos.io"
+            target="_blank">
+            Start Now
+            <div className="start-now-button-wrap"></div>
+          </a>
+          <VideoPlayer
+            url={
+              'https://itceb8-video.oss.laf.run/sealos-website.mp4'
+            }></VideoPlayer>
+        </main>
+      </div>
+    )
+  }
 
   return (
-    <div id='Start' className='home-header'>
-      {/* 背景光源 */}
-      <div className="bg-light">
-        <div className="light1"></div>
-        <div className="light2"></div>
-        <div className="light3"></div>
-      </div>
-      <img className='background-img' src={require("@site/static/illustrations/start.png").default} alt="" />
-      {/* 自定义navbar */}
+    <div id="Start" className="home-header">
+      <img
+        draggable="false"
+        unselectable="on"
+        className="header-img"
+        src={require('@site/static/illustrations/bg-header.png').default}
+        alt="community"
+      />
       <nav>
-        <div className='left'>
-          <LogoIcon/>
-          <span>Sealos</span>
+        <div className="left">
+          <LogoIcon width={'42px'} height={'42px'} />
+          <span className="sealos-title">Sealos</span>
+          <div className="links">
+            {navbar.map((item) => (
+              <Link key={item.key} to={item.to}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="links">
-          {navbar.map(item => (
-            <Link key={item.key} to={item.to}>{item.label}</Link>
-          ))}
-        </div>
+
         <div className="right">
-          {
-            isBrowser ? (
-              <div className="right">
-                <Link to={`${location.origin}${i18nMap[currentLocale]?.link}`} target="_self">{i18nMap[currentLocale]?.label}</Link>
-              </div>
-            ) : (
-              /* 不能跳转的 */
-              <div className="right">
-                中
-              </div>
-            )
-          }
-          <Link className="git-icon" to="https://github.com/labring/sealos"><GithubIcon /></Link>
+          {/* {isBrowser ? (
+            <div className="right">
+              <Link
+                to={`${location.origin}${i18nMap[currentLocale]?.link}`}
+                target="_self">
+                {i18nMap[currentLocale]?.label}
+              </Link>
+            </div>
+          ) : (
+            <div className="right">中</div>
+          )} */}
+          <Link className="git-icon" to="https://github.com/labring/sealos">
+            <GithubIcon width={'20px'} height={'20px'} color="#fff" />
+            <span className="git-stars">{(stars / 1000).toFixed(1)}k</span>
+          </Link>
+          <a
+            className="start-now-button"
+            href="https://cloud.sealos.io"
+            target="_blank">
+            Start Now
+            <div className="start-now-button-wrap"></div>
+          </a>
         </div>
       </nav>
       <main>
-        <h1><Translate>Run Your Business on Sealos Cloud</Translate></h1>
-        <p><Translate>Sealos is a Kubernetes distribution, a general-purpose cloud operating system for managing cloud-native applications.</Translate></p>
-        <MyButton link='https://cloud.sealos.io'>
-          <Translate>START NOW</Translate>
-        </MyButton>
+        <h1>
+          <span className="txt-title">Kubernetes&nbsp;</span>
+          <span className="txt-aid">as the kernel</span>
+        </h1>
+        <h2>Cloud Operating System</h2>
+        <h3>
+          Abstracting the entire data center as a singular server, where
+          everything is an application. You can use Sealos as seamlessly as
+          operating a&nbsp;
+          <span className="txt-title">personal computer.</span>
+        </h3>
+        <VideoPlayer
+          url={
+            'https://itceb8-video.oss.laf.run/sealos-website.mp4'
+          }></VideoPlayer>
       </main>
-      {/* 内容 */}
-      <footer className="row padding-top--lg">
-        {FeatureList.current.map((item, i) => (
-          <div key={i} className="col col-demo row">
-            <div className="col col--3">
-              <img src={item.Svg} alt="" />
-            </div>
-            <div className="col col--9">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </footer>
     </div>
   )
 }
