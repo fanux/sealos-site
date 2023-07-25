@@ -33,11 +33,16 @@
   }
 }
 
+// Important, hide header and footer
 .navbar.navbar--fixed-top {
   position: absolute;
   opacity: 0;
   top: 0;
   left: 0;
+}
+
+.footer {
+  display: none;
 }
 
 @media screen and (max-width: 996px) {
