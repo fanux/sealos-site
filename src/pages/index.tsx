@@ -17,16 +17,18 @@ const Home = () => {
   const isPc = useMemo(() => screenWidth > PC_MIN_WIDTH, [screenWidth])
 
   const PcRender = (
-    <Layout>
-      <div className="home">
-        <HomeHeader isPc={isPc} />
-        <Capability isPc={isPc} />
-        <Introduce isPc={isPc} />
-        <Community isPc={isPc} />
-        <HomeUserBy isPc={isPc} />
-        <HomeFooter isPc={isPc} />
-      </div>
-    </Layout>
+    <div id="sealos-layout-wrap-home-page">
+      <Layout>
+        <div className="home">
+          <HomeHeader isPc={isPc} />
+          <Capability isPc={isPc} />
+          <Introduce isPc={isPc} />
+          <Community isPc={isPc} />
+          <HomeUserBy isPc={isPc} />
+          <HomeFooter isPc={isPc} />
+        </div>
+      </Layout>
+    </div>
   )
 
   return PcRender
