@@ -34,11 +34,13 @@
 }
 
 // Important, hide header and footer
-.navbar.navbar--fixed-top {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
+#sealos-layout-wrap-home-page {
+  .navbar.navbar--fixed-top {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+  }
 }
 
 .footer {
