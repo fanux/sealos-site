@@ -312,7 +312,7 @@
     "message": "Doc"
   },
   "Contact": {
-    "message": "Contact Us"
+    "message": "联系我们"
   },
   "theme.admonition.note": {
     "message": "备注",
@@ -501,9 +501,6 @@
   "Supports network plugins such as Calico, Flannel, and Cilium with the freedom of customization and choice": {
     "message": "支持 Calico、Flannel 和 Cilium 等网络插件，可自由选择和定制。"
   },
-  "Database": {
-    "message": "数据库"
-  },
   "Supports both relational and non-relational databases with high availability, automatic backups, and multi-database instance management capabilities": {
     "message": "支持关系型数据库和非关系型数据库，并提供高可用、自动备份和多数据库实例管理等功能。"
   },
@@ -559,5 +556,76 @@
   "theme.docs.sidebar.navAriaLabel": {
     "message": "文档侧边栏",
     "description": "The ARIA label for the sidebar navigation"
+  },
+  "Documentation": {
+    "message": "文档",
+    "description": "The Header Documentation"
+  },
+  "Community": {
+    "message": "社区",
+    "description": "The Header Community"
+  },
+  "Join Us": {
+    "message": "加入我们"
+  },
+  "The Capabilities of Sealos": {
+    "message": "Sealos 的能力"
+  },
+  "Application Management": {
+    "message": "应用管理"
+  },
+  "Rapidly deploy any distributed application with the ability to access the public network.": {
+    "message": "快速部署具有公网访问能力的分布式应用，极大地简化了部署流程。"
+  },
+  "Database": {
+    "message": "数据库管理"
+  },
+  "Create highly available databases in seconds that support MySQL, PostgreSQL, MongoDB, and Redis.": {
+    "message": "秒级创建高可用数据库，支持 MySQL、PostgreSQL、MongoDB 和 Redis"
+  },
+  "Serverless": {
+    "message": "函数计算"
+  },
+  "Serverless computing makes writing code as easy as blogging, allowing you to launch and deploy your business code anytime, anywhere.": {
+    "message": "函数计算能力让你写代码像写博客一样简单，随时随地发布上线您的业务代码"
+  },
+  "Why Sealos": {
+    "message": "为什么选择 Sealos"
+  },
+  "Lower Costs": {
+    "message": "节省资源，降低开销"
+  },
+  "User Friendly": {
+    "message": "通用性强，无心智负担"
+  },
+  "Flexibility and Security": {
+    "message": "灵活性与安全性并重"
+  },
+  "Save resources and reduce expenses by paying only for containers, with automatic scaling to prevent waste.": {
+    "message": "只需为容器付费，自动伸缩功能从根本上解决了资源浪费的问题，可以节省大量的成本。"
+  },
+  "Focus on your business without being bogged down by unnecessary complexity, regardless of your level of Kubernetes expertise.": {
+    "message": "用户只需专注于自己的业务，无需被其他无关的复杂性所困扰。无论用户对 Kubernetes 的掌握程度如何，都可以轻松使用 Sealos。"
+  },
+  "Its unique multi-tenant sharing mechanism can achieve effective resource isolation and collaboration while ensuring safety.": {
+    "message": "其独特的多租户共享机制，能在保障安全的前提下实现资源的有效隔离和协作。用户不必担心数据泄露和安全问题，能够轻松在安全环境下管理企业数据。"
+  },
+  "Join Sealos Community, Experience the latest version of Sealos for the first time and communicate with developers and users in Discord!": {
+    "message": "加入 Sealos 社区，在这里您可以在第一时间体验 Sealos 的最新版本，以及在 Discord 或微信群与开发者和用户保持沟通"
+  },
+  "Who is Using Sealos": {
+    "message": "谁在使用 Sealos"
+  },
+  "Join Sealos Community": {
+    "message": "加入 Sealos 社区"
+  },
+  "Experience the latest version of Sealos for the first time and communicate with developers and users in Discord!": {
+    "message": "在这里您可以在第一时间体验 Sealos 的最新版本，以及在 Discord 或微信群与开发者和用户保持沟通"
+  },
+  "Start Now": {
+    "message": "立即使用"
+  },
+  "Cloud Operating System": {
+    "message": "云操作系统: Sealos"
   }
 }

@@ -31,15 +31,29 @@
     color: #fff;
 
     .tag {
-      display: inline;
-      padding: 14px 28px;
-      color: #fff;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 140%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background-color: #202a36;
+      font-size: 32px;
+      font-weight: 600;
+      padding: 8px 16px;
+    }
+    .tag1 {
+      @extend .tag;
+      color: #7bbcf9;
+    }
+    .tag2 {
+      @extend .tag;
+      width: fit-content;
+      color: #8fe3de;
+    }
+    .tag3 {
+      @extend .tag;
+      margin-top: 300px;
+      color: #aa9fec;
     }
 
     .left {
@@ -49,14 +63,6 @@
       display: flex;
       flex-direction: column;
       align-items: end;
-
-      .tag-affordable {
-        width: 190px;
-      }
-      .tag-powerful {
-        width: 320px;
-        margin-top: 220px;
-      }
     }
 
     .route {
@@ -84,7 +90,7 @@
       }
       .icon4 {
         z-index: 1;
-        top: 636px;
+        top: 580px;
         position: absolute;
       }
       .line1 {
@@ -105,56 +111,27 @@
         position: absolute;
         top: 480px;
         width: 4px;
-        height: 170px;
+        height: 110px;
         background: #274561;
       }
     }
 
     .right {
+      flex-shrink: 1;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      width: 100%;
       text-align: left;
       margin-top: 220px;
-
-      .text {
-        width: 150px;
-      }
-    }
-
-    .main-text {
-      color: #8fe3de;
-      font-size: 28px;
-      font-weight: 600;
-      margin: 20px 0;
-      // width: 478px;
-
-      &.text-affordable {
-        // width: 500px;
-        color: #7bbcf9;
-      }
-
-      &.text-powerful {
-        // width: 500px;
-        color: #aa9fec;
-      }
     }
 
     .aid-text {
+      margin-top: 20px;
       font-size: 18px;
       font-weight: 600;
       line-height: 140%;
     }
   }
 }
-
-// 1280px
-// @media screen and (max-width: 1280px) {
-//   .introduce {
-//     .features {
-//       padding: 0 48px;
-//     }
-//   }
-// }
 
 @import './index.phone.scss';
