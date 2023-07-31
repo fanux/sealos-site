@@ -90,8 +90,10 @@
       .i18nIcon {
         margin-left: 16px;
         font-weight: 500;
-        font-size: 16px;
         color: #fff;
+        a {
+          font-size: 16px;
+        }
       }
 
       a {
