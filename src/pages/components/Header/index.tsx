@@ -52,14 +52,15 @@ const HomeHeader = ({ isPc }: { isPc: boolean }) => {
   } = useDocusaurusContext()
 
   useEffect(() => {
-    ;(async () => {
+    const getStars = async () => {
       try {
         const { stargazers_count } = await (
           await fetch('https://api.github.com/repos/labring/sealos')
         ).json()
-        setStars(stargazers_count)
+        setStars(isNaN(stargazers_count) ? 11 * 1000 : stargazers_count)
       } catch (error) {}
-    })()
+    }
+    getStars()
   }, [])
 
   const openSideBar = () => {
@@ -95,7 +96,7 @@ const HomeHeader = ({ isPc }: { isPc: boolean }) => {
           <div className="right">
             <Link className="git-icon" to="https://github.com/labring/sealos">
               <GithubIcon width={'20px'} height={'20px'} color="#fff" />
-              <span className="git-stars">{(stars / 1000).toFixed(1)}k</span>
+              <span className="git-stars">{Math.floor(stars / 1000)}k</span>
             </Link>
           </div>
         </nav>
@@ -170,7 +171,7 @@ const HomeHeader = ({ isPc }: { isPc: boolean }) => {
         <div className="right">
           <Link className="git-icon" to="https://github.com/labring/sealos">
             <GithubIcon width={'20px'} height={'20px'} color="#fff" />
-            <span className="git-stars">{(stars / 1000).toFixed(1)}k</span>
+            <span className="git-stars">{Math.floor(stars / 1000)}k</span>
           </Link>
           {isBrowser && (
             <div className="i18nIcon">
