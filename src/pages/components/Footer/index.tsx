@@ -75,10 +75,10 @@ const Footer = ({ isPc }: { isPc: boolean }) => {
         </div>
         <div className="footer-bottom-wrap">
           <div className="footer-bottom">
-            <div className="footer-bottom-text">
-              Made by Sealos Team. 粤ICP备2023048773号
-              珠海环界云计算有限公司版权所有
-            </div>
+          <div className="footer-bottom-text">
+            Made by Sealos Team. <a href="https://beian.miit.gov.cn/">粤ICP备2023048773号</a>&nbsp;
+            珠海环界云计算有限公司版权所有
+          </div>
             <div className="link">
               {FooterLinks.map((item) => {
                 return (
@@ -128,7 +128,7 @@ const Footer = ({ isPc }: { isPc: boolean }) => {
       <div className="footer-bottom-wrap">
         <div className="footer-bottom">
           <div className="footer-bottom-text">
-            Made by Sealos Team. 粤ICP备2023048773号
+            Made by Sealos Team. <a href="https://beian.miit.gov.cn/">粤ICP备2023048773号</a>&nbsp;
             珠海环界云计算有限公司版权所有
           </div>
           <div className="link">
