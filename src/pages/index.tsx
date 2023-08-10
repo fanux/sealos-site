@@ -9,17 +9,31 @@ import HomeFooter from './components/Footer'
 import HomeHeader from './components/Header'
 import Introduce from './components/Introduce'
 import HomeUserBy from './components/UserBy'
+import { Helmet } from 'react-helmet';
 import './index.scss'
+
 
 const Home = () => {
   const { screenWidth } = useWindow()
   const isPc = useMemo(() => screenWidth > PC_MIN_WIDTH, [screenWidth])
 
-  const PcRender = (
-    <div id="sealos-layout-wrap-home-page">
+  const HomeRender = (
+      <div id="sealos-layout-wrap-home-page">
+      <Helmet>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-786053845" />
+        <script async >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-786053845');
+            gtag('event', 'conversion', {'send_to': 'AW-786053845/LpbTCJ-8-coYENX16PYC'});
+          `}
+        </script>
+      </Helmet>
       <Layout>
         <div className="home">
-          <HomeHeader isPc={isPc} />
+          <HomeHeader isPc={isPc} /> 
           <Capability isPc={isPc} />
           <Introduce isPc={isPc} />
           <Community isPc={isPc} />
@@ -30,7 +44,7 @@ const Home = () => {
     </div>
   )
 
-  return PcRender
+  return HomeRender
 }
 
 export default Home
