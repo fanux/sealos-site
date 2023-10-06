@@ -86,5 +86,9 @@
   "sidebar.docSidebar.category.programming-languages": {
     "message": "常用语言案例",
     "description": "The label for category programming-languages in sidebar docSidebar"
+  },
+  "sidebar.docSidebar.category.BaaS": {
+    "message": "BaaS",
+    "description": "The label for category BaaS in sidebar docSidebar"
   }
 }
