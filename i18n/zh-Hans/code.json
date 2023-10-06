@@ -558,12 +558,10 @@
     "description": "The ARIA label for the sidebar navigation"
   },
   "Documentation": {
-    "message": "文档",
-    "description": "The Header Documentation"
+    "message": "文档"
   },
   "Community": {
-    "message": "社区",
-    "description": "The Header Community"
+    "message": "社区"
   },
   "Join Us": {
     "message": "加入我们"
