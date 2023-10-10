@@ -23,6 +23,10 @@
     "message": "平台组件",
     "description": "The label for category Platform Components in sidebar docSidebar"
   },
+  "sidebar.docSidebar.category.Self Hosting": {
+    "message": "私有化部署",
+    "description": "The label for the doc item Self Hosting in sidebar docSidebar, linking to the doc Community"
+  },
   "sidebar.docSidebar.category.Cluster Lifecycle Management": {
     "message": "集群生命周期管理",
     "description": "The label for category Cluster Lifecycle Management in sidebar docSidebar"
@@ -67,6 +71,10 @@
     "message": "Sealos 命令说明",
     "description": "The label for category Sealos 命令说明 in sidebar docSidebar"
   },
+  "sidebar.docSidebar.category.baas": {
+    "message": "后端即服务",
+    "description": "The label for category baas in sidebar docSidebar"
+  },
   "sidebar.docSidebar.category.low-code-platform": {
     "message": "低代码平台",
     "description": "The label for category low-code-platform in sidebar docSidebar"
@@ -86,9 +94,5 @@
   "sidebar.docSidebar.category.programming-languages": {
     "message": "常用语言案例",
     "description": "The label for category programming-languages in sidebar docSidebar"
-  },
-  "sidebar.docSidebar.category.BaaS": {
-    "message": "BaaS",
-    "description": "The label for category BaaS in sidebar docSidebar"
   }
 }
