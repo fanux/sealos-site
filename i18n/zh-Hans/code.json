@@ -625,5 +625,8 @@
   },
   "Cloud Operating System": {
     "message": "云操作系统: Sealos"
+  },
+  "work order service": {
+    "message": "工单服务"
   }
 }

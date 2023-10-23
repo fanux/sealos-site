@@ -26,6 +26,11 @@ const navbar = [
     label: <Translate>Contact</Translate>,
     to: 'https://fael3z0zfze.feishu.cn/share/base/form/shrcnesSfEK65JZaAf2W6Fwz6Ad',
   },
+  {
+    key: 'pricing',
+    label: <Translate>Pricing</Translate>,
+    to: '/pricing',
+  },
 ]
 
 const i18nObj = {
